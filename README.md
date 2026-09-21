@@ -15,15 +15,15 @@ I build software for public administration: tools my colleagues use every day, w
 
 <!-- skyline:start -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.afe8ae0f.svg">
-  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.874b8d92.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.d42df9a6.svg">
+  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.6af9ea43.svg" width="100%">
 </picture>
 <!-- skyline:end -->
 
 <!-- stats:start -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.0878cf8a.svg">
-  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.7001be66.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.82c4980d.svg">
+  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.53c4e5f7.svg" width="100%">
 </picture>
 <!-- stats:end -->
 
