@@ -8,6 +8,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const crypto = require('node:crypto');
 const { fetchProfile } = require('./github');
 const { analyse } = require('./analyse');
 const { THEMES } = require('./theme');
@@ -19,6 +20,7 @@ const skills = require('./render/skills');
 const links = require('./render/links');
 
 const ROOT = path.join(__dirname, '..');
+const ASSETS = path.join(ROOT, 'assets');
 const DATA_FILE = path.join(ROOT, 'data', 'contributions.json');
 const README = path.join(ROOT, 'README.md');
 
@@ -52,38 +54,71 @@ const stamp = (iso) => new Intl.DateTimeFormat('en-US', {
   day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Berlin',
 }).format(new Date(iso));
 
-// The README is written by hand except for two marked blocks: the link
-// pills, which follow profile.json, and the date line at the bottom.
+// The file name carries a fingerprint of the content. GitHub caches the
+// images of a README under their address for a while, so a redrawn file
+// under the old name keeps showing the old picture. A new name is a new
+// address, and the change is visible with the commit.
+const fingerprint = (content) => crypto.createHash('sha256').update(content).digest('hex').slice(0, 8);
+
+// The README is written by hand except for marked blocks, one per
+// graphic, which follow the generated file names and profile.json.
 const replaceBlock = (readme, name, text) => {
   const pattern = new RegExp(`(<!-- ${name}:start -->)[\\s\\S]*?(<!-- ${name}:end -->)`);
   if (!pattern.test(readme)) throw new Error(`README.md has no ${name} marker.`);
-  return readme.replace(pattern, (match, start, end) => `${start}${text}${end}`);
+  return readme.replace(pattern, (match, start, end) => `${start}\n${text}\n${end}`);
 };
+
+const picture = (files, name, alt, attrs) => [
+  '<picture>',
+  `  <source media="(prefers-color-scheme: dark)" srcset="assets/${files.dark[name]}">`,
+  `  <img alt="${escape(alt)}" src="assets/${files.light[name]}" ${attrs}>`,
+  '</picture>',
+].join('\n');
 
 // An image in a README can only be one link as a whole, so every pill is
 // its own file wrapped in its own <a>. A link without a URL (Discord has
 // no public profile pages) is shown as a plain pill.
-const linksBlock = (list) => list.map((link) => {
+const linksBlock = (files, list) => list.map((link) => {
   const alt = escape(`${link.label}: ${link.handle}`);
-  const picture = `<picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-${link.id}-dark.svg"><img alt="${alt}" src="assets/link-${link.id}-light.svg" height="36"></picture>`;
-  return link.url ? `<a href="${escape(link.url)}">${picture}</a>` : picture;
+  const pic = `<picture><source media="(prefers-color-scheme: dark)" srcset="assets/${files.dark[`link-${link.id}`]}"><img alt="${alt}" src="assets/${files.light[`link-${link.id}`]}" height="36"></picture>`;
+  return link.url ? `<a href="${escape(link.url)}">${pic}</a>` : pic;
 }).join('\n');
 
 const main = async () => {
   const profile = JSON.parse(fs.readFileSync(path.join(ROOT, 'profile.json'), 'utf8'));
   const data = await loadData(profile);
   const summary = analyse(data.days);
+
+  const files = { light: {}, dark: {} };
+  const keep = new Set();
+  const draw = (theme, name, svg) => {
+    const file = `${name}-${theme.name}.${fingerprint(svg)}.svg`;
+    files[theme.name][name] = file;
+    keep.add(file);
+    write(path.join(ASSETS, file), svg);
+  };
   for (const theme of Object.values(THEMES)) {
-    const asset = (name) => path.join(ROOT, 'assets', `${name}-${theme.name}.svg`);
-    write(asset('header'), header.render(theme, profile));
-    write(asset('skyline'), skyline.render(theme, summary));
-    write(asset('stats'), stats.render(theme, summary));
-    write(asset('skills'), skills.render(theme, profile));
-    for (const link of profile.links || []) write(asset(`link-${link.id}`), links.render(theme, link));
+    draw(theme, 'header', header.render(theme, profile));
+    draw(theme, 'skyline', skyline.render(theme, summary));
+    draw(theme, 'stats', stats.render(theme, summary));
+    draw(theme, 'skills', skills.render(theme, profile));
+    for (const link of profile.links || []) draw(theme, `link-${link.id}`, links.render(theme, link));
   }
+  // Older fingerprints are no longer referenced and would pile up.
+  for (const file of fs.readdirSync(ASSETS)) {
+    if (file.endsWith('.svg') && !keep.has(file)) {
+      fs.unlinkSync(path.join(ASSETS, file));
+      console.log(`removed: assets/${file}`);
+    }
+  }
+
   let readme = fs.readFileSync(README, 'utf8');
-  readme = replaceBlock(readme, 'links', `\n${linksBlock(profile.links || [])}\n`);
-  readme = replaceBlock(readme, 'updated', `Updated ${stamp(data.fetchedAt)}`);
+  readme = replaceBlock(readme, 'header', `<a href="${escape(profile.website)}">\n${picture(files, 'header', `${profile.greeting} ${profile.tagline}.`, 'width="100%"')}\n</a>`);
+  readme = replaceBlock(readme, 'skyline', picture(files, 'skyline', 'Contributions of the last 52 weeks as a 3D block landscape', 'width="100%"'));
+  readme = replaceBlock(readme, 'stats', picture(files, 'stats', 'Contributions, active days, longest streak and favorite day', 'width="100%"'));
+  readme = replaceBlock(readme, 'skills', picture(files, 'skills', `${(profile.skills || []).map((s) => s.name).join(', ')}, each with what I use it for and how much`, 'width="100%"'));
+  readme = replaceBlock(readme, 'links', linksBlock(files, profile.links || []));
+  readme = readme.replace(/(<!-- updated:start -->)[\s\S]*?(<!-- updated:end -->)/, (m, a, b) => `${a}Updated ${stamp(data.fetchedAt)}${b}`);
   write(README, readme);
   console.log(`${summary.total} contributions, ${summary.activeDays} active days, longest streak ${summary.longest}, favorite day ${summary.busiestWeekday}.`);
 };

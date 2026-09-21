@@ -1,5 +1,6 @@
 {
   "login": "felixthedevgit",
+  "website": "https://felixthedev.com",
   "greeting": "Hey, I am FelixTheDev.",
   "tagline": "Software and game developer from northern Germany",
   "chips": ["Public sector software", "Roblox game dev", "Self-hosted everything"],
@@ -23,9 +24,10 @@
   ],
   "links": [
     { "id": "website", "icon": "globe", "label": "Website", "handle": "felixthedev.com", "url": "https://felixthedev.com" },
-    { "id": "roblox", "icon": "roblox", "label": "Roblox", "handle": "f_lixthedev", "url": "https://www.roblox.com/users/profile?username=f_lixthedev" },
+    { "id": "roblox", "icon": "roblox", "label": "Roblox", "handle": "f_lixthedev", "url": "https://www.roblox.com/users/2559331169/profile" },
     { "id": "discord", "icon": "discord", "label": "Discord", "handle": "@felixthedev", "url": null },
     { "id": "tiktok", "icon": "tiktok", "label": "TikTok", "handle": "@f_lixthedev", "url": "https://www.tiktok.com/@f_lixthedev" },
-    { "id": "skyblock", "icon": "cube", "label": "Hypixel SkyBlock", "handle": "FelixTheDev", "url": "https://sky.shiiyu.moe/stats/FelixTheDev" }
+    { "id": "skycrypt", "icon": "cube", "label": "SkyCrypt", "handle": "FelixTheDev, Banana", "url": "https://sky.shiiyu.moe/stats/FelixTheDev/Banana" },
+    { "id": "elite", "icon": "leaf", "label": "Elite SkyBlock", "handle": "FelixTheDev, Banana", "url": "https://eliteskyblock.com/@FelixTheDev/Banana" }
   ]
 }

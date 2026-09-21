@@ -94,6 +94,15 @@ const render = (theme, stats) => {
     previous = month;
   });
 
+  // Weekday labels on the left edge, three of them like GitHub's own
+  // calendar: the rows are only a few pixels apart on screen, so seven
+  // labels would run into each other.
+  const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  [1, 3, 5].forEach((j) => {
+    const [x, y] = p(0, j + 0.5, 0);
+    labels += `<text x="${x - 8}" y="${y + 4}" font-size="10" fill="${theme.muted}" text-anchor="end">${WEEKDAYS[j]}</text>\n`;
+  });
+
   const swatch = (x, y, fill) => poly([
     [x, y],
     [x + U.x * 0.8, y + U.y * 0.8],

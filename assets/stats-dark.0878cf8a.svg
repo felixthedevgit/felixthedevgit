@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="150" viewBox="0 0 900 150" role="img" aria-label="Contributions: 589 in twelve months, Active days: 42 of 366, Longest streak: 12 days in a row, Favorite day: Monday 22% of activity">
+<title>Contributions: 589 in twelve months, Active days: 42 of 366, Longest streak: 12 days in a row, Favorite day: Monday 22% of activity</title>
+<g font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.2s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.2s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.2s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="0.5" y="0.5" width="212" height="149" rx="20" fill="#17132A" stroke="#2B2449"/>
+<text x="24" y="38" font-size="13" font-weight="600" fill="#A89CD3">Contributions</text>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.30s" end="0.36s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">0</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.36s" end="0.42s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">84</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.42s" end="0.48s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">160</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.48s" end="0.54s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">227</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.54s" end="0.60s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">287</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.60s" end="0.66s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">341</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.66s" end="0.72s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">387</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.72s" end="0.78s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">427</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.78s" end="0.84s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">462</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.84s" end="0.90s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">491</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.90s" end="0.96s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">515</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.96s" end="1.02s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">535</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.02s" end="1.08s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">551</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.08s" end="1.14s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">564</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.14s" end="1.20s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">573</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.20s" end="1.26s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">580</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.26s" end="1.32s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">584</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.32s" end="1.38s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">587</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.38s" end="1.44s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">588</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.44s" end="1.50s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">589</text></g>
+<g><set attributeName="visibility" to="hidden" begin="0s" end="1.50s"/><text x="24" y="86" font-size="34" font-weight="700" fill="#EDE9FE">589</text></g>
+<text x="24" y="108" font-size="13" fill="#A89CD3">in twelve months</text>
+<rect x="107.5" y="90" width="4.5" height="4" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="0.50s"/><set attributeName="height" to="0" begin="0s" end="0.50s"/>
+<animate attributeName="y" from="94" to="90" dur="0.8s" begin="0.50s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="4" dur="0.8s" begin="0.50s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="114.5" y="85" width="4.5" height="9" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="0.56s"/><set attributeName="height" to="0" begin="0s" end="0.56s"/>
+<animate attributeName="y" from="94" to="85" dur="0.8s" begin="0.56s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="9" dur="0.8s" begin="0.56s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="121.5" y="80" width="4.5" height="14" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="0.62s"/><set attributeName="height" to="0" begin="0s" end="0.62s"/>
+<animate attributeName="y" from="94" to="80" dur="0.8s" begin="0.62s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="14" dur="0.8s" begin="0.62s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="128.5" y="46" width="4.5" height="48" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="0.68s"/><set attributeName="height" to="0" begin="0s" end="0.68s"/>
+<animate attributeName="y" from="94" to="46" dur="0.8s" begin="0.68s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="48" dur="0.8s" begin="0.68s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="135.5" y="82" width="4.5" height="12" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="0.74s"/><set attributeName="height" to="0" begin="0s" end="0.74s"/>
+<animate attributeName="y" from="94" to="82" dur="0.8s" begin="0.74s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="12" dur="0.8s" begin="0.74s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="142.5" y="87" width="4.5" height="7" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="0.80s"/><set attributeName="height" to="0" begin="0s" end="0.80s"/>
+<animate attributeName="y" from="94" to="87" dur="0.8s" begin="0.80s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="7" dur="0.8s" begin="0.80s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="149.5" y="90" width="4.5" height="4" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="0.86s"/><set attributeName="height" to="0" begin="0s" end="0.86s"/>
+<animate attributeName="y" from="94" to="90" dur="0.8s" begin="0.86s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="4" dur="0.8s" begin="0.86s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="156.5" y="90" width="4.5" height="4" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="0.92s"/><set attributeName="height" to="0" begin="0s" end="0.92s"/>
+<animate attributeName="y" from="94" to="90" dur="0.8s" begin="0.92s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="4" dur="0.8s" begin="0.92s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="163.5" y="90" width="4.5" height="4" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="0.98s"/><set attributeName="height" to="0" begin="0s" end="0.98s"/>
+<animate attributeName="y" from="94" to="90" dur="0.8s" begin="0.98s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="4" dur="0.8s" begin="0.98s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="170.5" y="87" width="4.5" height="7" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="1.04s"/><set attributeName="height" to="0" begin="0s" end="1.04s"/>
+<animate attributeName="y" from="94" to="87" dur="0.8s" begin="1.04s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="7" dur="0.8s" begin="1.04s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="177.5" y="90" width="4.5" height="4" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="1.10s"/><set attributeName="height" to="0" begin="0s" end="1.10s"/>
+<animate attributeName="y" from="94" to="90" dur="0.8s" begin="1.10s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="4" dur="0.8s" begin="1.10s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+<rect x="184.5" y="89" width="4.5" height="5" rx="2" fill="#C4B5FD">
+<set attributeName="y" to="94" begin="0s" end="1.16s"/><set attributeName="height" to="0" begin="0s" end="1.16s"/>
+<animate attributeName="y" from="94" to="89" dur="0.8s" begin="1.16s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="5" dur="0.8s" begin="1.16s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect>
+</g>
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.35s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.35s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.35s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="229.5" y="0.5" width="212" height="149" rx="20" fill="#17132A" stroke="#2B2449"/>
+<text x="253" y="38" font-size="13" font-weight="600" fill="#A89CD3">Active days</text>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.45s" end="0.51s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">0</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.51s" end="0.57s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">6</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.57s" end="0.63s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">11</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.63s" end="0.69s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">16</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.69s" end="0.75s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">20</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.75s" end="0.81s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">24</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.81s" end="0.87s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">28</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.87s" end="0.93s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">30</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.93s" end="0.99s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">33</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.99s" end="1.05s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">35</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.05s" end="1.11s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">37</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.11s" end="1.17s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">38</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.17s" end="1.23s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">39</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.23s" end="1.29s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">40</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.29s" end="1.35s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">41</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.35s" end="1.41s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">41</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.41s" end="1.47s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">42</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.47s" end="1.53s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">42</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.53s" end="1.59s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">42</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.59s" end="1.65s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">42</text></g>
+<g><set attributeName="visibility" to="hidden" begin="0s" end="1.65s"/><text x="253" y="86" font-size="34" font-weight="700" fill="#EDE9FE">42</text></g>
+<text x="253" y="108" font-size="13" fill="#A89CD3">of 366</text>
+<circle cx="388" cy="70" r="26" fill="none" stroke="#2F2757" stroke-width="6"/>
+<circle cx="388" cy="70" r="26" fill="none" stroke="#F9A8D4" stroke-width="6" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="144.6" transform="rotate(-90 388 70)">
+<set attributeName="stroke-dashoffset" to="163.4" begin="0s" end="0.65s"/>
+<animate attributeName="stroke-dashoffset" from="163.4" to="144.6" dur="1.2s" begin="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</circle>
+<text x="388" y="74.5" font-size="12" font-weight="700" fill="#F9A8D4" text-anchor="middle">11%</text>
+</g>
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.5s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.5s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.5s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="458.5" y="0.5" width="212" height="149" rx="20" fill="#17132A" stroke="#2B2449"/>
+<text x="482" y="38" font-size="13" font-weight="600" fill="#A89CD3">Longest streak</text>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.60s" end="0.66s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">0</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.66s" end="0.72s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">2</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.72s" end="0.78s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">3</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.78s" end="0.84s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">5</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.84s" end="0.90s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">6</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.90s" end="0.96s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">7</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="0.96s" end="1.02s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">8</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.02s" end="1.08s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">9</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.08s" end="1.14s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">9</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.14s" end="1.20s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">10</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.20s" end="1.26s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">11</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.26s" end="1.32s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">11</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.32s" end="1.38s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">11</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.38s" end="1.44s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">11</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.44s" end="1.50s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">12</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.50s" end="1.56s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">12</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.56s" end="1.62s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">12</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.62s" end="1.68s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">12</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.68s" end="1.74s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">12</text></g>
+<g visibility="hidden"><set attributeName="visibility" to="visible" begin="1.74s" end="1.80s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">12</text></g>
+<g><set attributeName="visibility" to="hidden" begin="0s" end="1.80s"/><text x="482" y="86" font-size="34" font-weight="700" fill="#EDE9FE">12</text></g>
+<text x="482" y="108" font-size="13" fill="#A89CD3">days in a row</text>
+<rect x="573" y="60.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="573" y="60.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="0.80s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.80s" fill="freeze"/></rect>
+<rect x="584" y="60.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="584" y="60.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="0.85s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.85s" fill="freeze"/></rect>
+<rect x="595" y="60.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="595" y="60.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="0.90s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.90s" fill="freeze"/></rect>
+<rect x="606" y="60.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="606" y="60.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="0.95s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.95s" fill="freeze"/></rect>
+<rect x="617" y="60.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="617" y="60.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="1.00s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.00s" fill="freeze"/></rect>
+<rect x="628" y="60.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="628" y="60.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="1.05s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.05s" fill="freeze"/></rect>
+<rect x="639" y="60.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="639" y="60.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="1.10s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.10s" fill="freeze"/></rect>
+<rect x="573" y="71.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="573" y="71.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="1.15s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.15s" fill="freeze"/></rect>
+<rect x="584" y="71.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="584" y="71.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="1.20s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.20s" fill="freeze"/></rect>
+<rect x="595" y="71.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="595" y="71.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="1.25s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.25s" fill="freeze"/></rect>
+<rect x="606" y="71.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="606" y="71.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="1.30s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.30s" fill="freeze"/></rect>
+<rect x="617" y="71.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="617" y="71.5" width="8" height="8" rx="2" fill="#6EE7B7"><set attributeName="opacity" to="0" begin="0s" end="1.35s"/><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.35s" fill="freeze"/></rect>
+<rect x="628" y="71.5" width="8" height="8" rx="2" fill="#2F2757"/>
+<rect x="639" y="71.5" width="8" height="8" rx="2" fill="#2F2757"/>
+
+</g>
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.6499999999999999s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.6499999999999999s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.6499999999999999s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="687.5" y="0.5" width="212" height="149" rx="20" fill="#17132A" stroke="#2B2449"/>
+<text x="711" y="38" font-size="13" font-weight="600" fill="#A89CD3">Favorite day</text>
+<text x="711" y="84" font-size="24" font-weight="700" fill="#EDE9FE">Monday</text>
+<text x="711" y="108" font-size="13" fill="#A89CD3">22% of activity</text>
+<rect x="826" y="60" width="5" height="32" rx="2" fill="#2F2757">
+<set attributeName="y" to="92" begin="0s" end="0.95s"/><set attributeName="height" to="0" begin="0s" end="0.95s"/>
+<animate attributeName="y" from="92" to="60" dur="0.8s" begin="0.95s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="32" dur="0.8s" begin="0.95s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect><text x="828.5" y="104" font-size="8" fill="#A89CD3" text-anchor="middle">S</text>
+<rect x="833.5" y="48" width="5" height="44" rx="2" fill="#FDBA74">
+<set attributeName="y" to="92" begin="0s" end="1.02s"/><set attributeName="height" to="0" begin="0s" end="1.02s"/>
+<animate attributeName="y" from="92" to="48" dur="0.8s" begin="1.02s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="44" dur="0.8s" begin="1.02s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect><text x="836" y="104" font-size="8" fill="#A89CD3" text-anchor="middle">M</text>
+<rect x="841" y="73" width="5" height="19" rx="2" fill="#2F2757">
+<set attributeName="y" to="92" begin="0s" end="1.09s"/><set attributeName="height" to="0" begin="0s" end="1.09s"/>
+<animate attributeName="y" from="92" to="73" dur="0.8s" begin="1.09s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="19" dur="0.8s" begin="1.09s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect><text x="843.5" y="104" font-size="8" fill="#A89CD3" text-anchor="middle">T</text>
+<rect x="848.5" y="65" width="5" height="27" rx="2" fill="#2F2757">
+<set attributeName="y" to="92" begin="0s" end="1.16s"/><set attributeName="height" to="0" begin="0s" end="1.16s"/>
+<animate attributeName="y" from="92" to="65" dur="0.8s" begin="1.16s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="27" dur="0.8s" begin="1.16s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect><text x="851" y="104" font-size="8" fill="#A89CD3" text-anchor="middle">W</text>
+<rect x="856" y="63" width="5" height="29" rx="2" fill="#2F2757">
+<set attributeName="y" to="92" begin="0s" end="1.23s"/><set attributeName="height" to="0" begin="0s" end="1.23s"/>
+<animate attributeName="y" from="92" to="63" dur="0.8s" begin="1.23s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="29" dur="0.8s" begin="1.23s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect><text x="858.5" y="104" font-size="8" fill="#A89CD3" text-anchor="middle">T</text>
+<rect x="863.5" y="65" width="5" height="27" rx="2" fill="#2F2757">
+<set attributeName="y" to="92" begin="0s" end="1.30s"/><set attributeName="height" to="0" begin="0s" end="1.30s"/>
+<animate attributeName="y" from="92" to="65" dur="0.8s" begin="1.30s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="27" dur="0.8s" begin="1.30s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect><text x="866" y="104" font-size="8" fill="#A89CD3" text-anchor="middle">F</text>
+<rect x="871" y="66" width="5" height="26" rx="2" fill="#2F2757">
+<set attributeName="y" to="92" begin="0s" end="1.37s"/><set attributeName="height" to="0" begin="0s" end="1.37s"/>
+<animate attributeName="y" from="92" to="66" dur="0.8s" begin="1.37s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animate attributeName="height" from="0" to="26" dur="0.8s" begin="1.37s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</rect><text x="873.5" y="104" font-size="8" fill="#A89CD3" text-anchor="middle">S</text>
+</g>
+</g>
+</svg>

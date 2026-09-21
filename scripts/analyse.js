@@ -51,6 +51,7 @@ const analyse = (days) => {
     dayCount: days.length,
     maxDaily: active.length ? active[active.length - 1] : 0,
     thresholds: [quartile(0.25), quartile(0.5), quartile(0.75)],
+    byWeekday,
     busiestWeekday: WEEKDAYS[busiest],
     busiestShare: total > 0 ? byWeekday[busiest] / total : 0,
     first: days.length ? days[0].date : null,

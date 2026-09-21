@@ -13,6 +13,7 @@ const ICONS = {
   roblox: (c, bg) => `<g transform="rotate(-14 8 8)"><rect x="2.6" y="2.6" width="10.8" height="10.8" rx="1.4" fill="${c}"/><rect x="6.2" y="6.2" width="3.6" height="3.6" fill="${bg}"/></g>`,
   discord: (c, bg) => `<path d="M13 3.7a11.6 11.6 0 0 0-2.9-.9l-.4.8a10.8 10.8 0 0 0-3.4 0l-.4-.8a11.6 11.6 0 0 0-2.9.9C1.2 6.4.7 9 1 11.6a11.7 11.7 0 0 0 3.6 1.8l.8-1.2c-.4-.2-.9-.4-1.3-.6l.3-.2a8.3 8.3 0 0 0 7.2 0l.3.2c-.4.2-.9.4-1.3.6l.8 1.2a11.7 11.7 0 0 0 3.6-1.8c.4-3-.5-5.6-2-7.9z" fill="${c}"/><circle cx="5.9" cy="8.6" r="1.25" fill="${bg}"/><circle cx="10.1" cy="8.6" r="1.25" fill="${bg}"/>`,
   tiktok: (c) => `<path d="M8.5 1.3h2.4c.2 1.9 1.3 3 3.2 3.2v2.4c-1.2 0-2.3-.4-3.2-1.1v4.4a4 4 0 1 1-4-4h.7v2.5h-.7a1.5 1.5 0 1 0 1.6 1.5V1.3z" fill="${c}"/>`,
+  leaf: (c) => `<path d="M14 2.2C7.2 2.4 3 6.6 3 12.4c0 .5 0 1 .1 1.4C4.3 9.6 7.2 6.6 11 5.4c-3.4 2-5.9 5.2-6.8 8.8.7.2 1.4.3 2.2.3 5.6 0 8-4.7 7.6-12.3z" fill="${c}"/>`,
   cube: (c, bg, theme) => `<polygon points="8,1.4 14.2,4.9 8,8.4 1.8,4.9" fill="${theme.accent}"/><polygon points="1.8,4.9 8,8.4 8,14.8 1.8,11.3" fill="${mix(theme.accent, theme.shadow, 0.34)}"/><polygon points="14.2,4.9 8,8.4 8,14.8 14.2,11.3" fill="${mix(theme.accent, theme.shadow, 0.2)}"/>`,
 };
 
