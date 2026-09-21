@@ -4,6 +4,7 @@
   "greeting": "Hey, I am FelixTheDev.",
   "tagline": "Software and game developer from northern Germany",
   "chips": ["Public sector software", "Roblox game dev", "Self-hosted everything"],
+  "hero": ["javascript", "nodedotjs", "typescript", "luau", "docker", "sqlite", "git"],
   "categories": [
     { "id": "languages", "label": "Languages" },
     { "id": "runtimes", "label": "Runtimes and frameworks" },
