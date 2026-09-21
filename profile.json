@@ -1,0 +1,18 @@
+{
+  "login": "felixthedevgit",
+  "greeting": "Moin, ich bin Felix.",
+  "tagline": "Softwareentwickler aus Schleswig-Holstein",
+  "chips": ["Öffentliche Verwaltung", "Node.js und .NET", "Alles selbst gehostet"],
+  "stack": [
+    "JavaScript",
+    "TypeScript",
+    "Node.js",
+    "C#",
+    ".NET",
+    "SQLite",
+    "Docker",
+    "Linux",
+    "Git",
+    "HTML und CSS"
+  ]
+}

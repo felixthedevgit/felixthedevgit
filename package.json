@@ -1,0 +1,14 @@
+{
+  "name": "felixthedevgit-profile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Profilseite mit selbst gezeichneten Grafiken, ohne fremde Dienste",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:offline": "node scripts/build.js --offline"
+  }
+}

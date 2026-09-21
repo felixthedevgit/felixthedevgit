@@ -1,0 +1,58 @@
+name: Profil aktualisieren
+
+# Draws the graphics in assets/ from the GitHub API once a day. Instead of
+# embedding a third-party stats service, which would load from a foreign
+# server on every visit to the profile, this renders plain SVG files into
+# the repository. The page itself then loads nothing from anywhere else.
+#
+# The commit is made by the Actions bot on purpose: a daily commit under my
+# own name would paint a green square that no work of mine stands behind.
+#
+# PROFILE_TOKEN is a token of the profile owner with read:user. Without it
+# the script redraws from the stored numbers and fetches nothing, because a
+# weaker token would silently drop every private contribution.
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'profile.json'
+      - '.github/workflows/update-profile.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-profile
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Node einrichten
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24'
+
+      - name: Grafiken zeichnen
+        run: node scripts/build.js
+        env:
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+
+      - name: Änderungen einchecken
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'Nichts Neues.'
+            exit 0
+          fi
+          git commit -m 'Profil aktualisiert'
+          git push
