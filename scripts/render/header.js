@@ -1,6 +1,6 @@
 'use strict';
 
-const { FONT, escape, textWidth, brandPalette, hold, appear, document } = require('../svg');
+const { FONT, escape, textWidth, mix, brandPalette, hold, appear, document } = require('../svg');
 const { ICONS } = require('../icons');
 
 const W = 900;
@@ -9,10 +9,16 @@ const LEFT = 48;
 const HEADLINE_SIZE = 46;
 const BASELINE = 100;
 
-// The infinity loop on the right: centre, half width, and how long one
-// lap of a logo takes. The height follows from the shape itself.
-const LOOP = { cx: 745, cy: 108, a: 126, period: 16 };
-const MOON_R = 18;
+// The block cluster on the right uses a true isometric projection, the
+// same idea as the contribution landscape further down, only larger: one
+// edge of a block is EDGE long, a step along u goes right and down, a
+// step along v goes left and down.
+const EDGE = 44;
+const U = { x: EDGE * Math.cos(Math.PI / 6), y: EDGE * Math.sin(Math.PI / 6) };
+const V = { x: -U.x, y: U.y };
+const ORIGIN = { x: 745, y: 66 };
+// Seven cells in a loose cluster, back row first.
+const CELLS = [[0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [2, 1], [1, 2]];
 
 // Small rounded labels in the lower left. Their width comes from the text
 // estimate plus generous padding, so a slightly wider font still fits.
@@ -41,70 +47,78 @@ const glow = (id, color) => `<radialGradient id="${id}">
 <stop offset="1" stop-color="${color}" stop-opacity="0"/>
 </radialGradient>`;
 
-// A lemniscate sampled into points and joined with Catmull-Rom curves, so
-// the loop is one smooth closed path that animateMotion can follow.
-const loopPath = () => {
-  const steps = 48;
-  const pts = [];
-  for (let k = 0; k < steps; k += 1) {
-    const t = (k / steps) * 2 * Math.PI;
-    const d = 1 + Math.sin(t) ** 2;
-    pts.push([LOOP.cx + (LOOP.a * Math.cos(t)) / d, LOOP.cy + (LOOP.a * Math.sin(t) * Math.cos(t)) / d]);
-  }
-  const f = (n) => n.toFixed(1);
-  let d = `M${f(pts[0][0])} ${f(pts[0][1])}`;
-  for (let i = 0; i < steps; i += 1) {
-    const p0 = pts[(i - 1 + steps) % steps];
-    const p1 = pts[i];
-    const p2 = pts[(i + 1) % steps];
-    const p3 = pts[(i + 2) % steps];
-    d += ` C${f(p1[0] + (p2[0] - p0[0]) / 6)} ${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)} ${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])} ${f(p2[1])}`;
-  }
-  return `${d} Z`;
-};
+const point = (u, v, h) => [
+  Number((ORIGIN.x + u * U.x + v * V.x).toFixed(1)),
+  Number((ORIGIN.y + u * U.y + v * V.y - h).toFixed(1)),
+];
+const poly = (points) => points.map((p) => p.join(',')).join(' ');
 
-// One logo on a pastel disc travelling along the loop. The discs are
-// spread evenly in time, so they never bunch up, and each breathes a
-// little at its own pace.
-const moon = (theme, slug, i, count, path) => {
+// One block: top face with the logo lying on it, two visible sides in
+// shadow. The logo is mapped onto the top face with a matrix whose axes
+// are the face's own edges, so it sits in perspective like a print on a
+// box rather than floating flat in front of it. Each block drops in from
+// above when the header loads, and its top catches the passing light.
+const block = (theme, slug, level, [u, v], i) => {
   const brand = ICONS[slug];
-  if (!brand) return '';
-  const pal = brandPalette(theme, brand.hex);
-  const size = MOON_R * 1.15;
+  const pal = brandPalette(theme, brand ? brand.hex : theme.accentStrong);
+  const h = 16 + level * 5;
+  const top = pal.key;
+  const right = mix(top, theme.shadow, 0.16);
+  const left = mix(top, theme.shadow, 0.32);
+  const begin = (0.6 + (u + v) * 0.18 + (i % 2) * 0.05).toFixed(2);
+  const inset = 0.19;
+  const k = (1 - 2 * inset) / 24;
+  const [ox, oy] = point(u, v, h);
+  const logo = brand
+    ? `<path d="${brand.path}" fill="${pal.ink}" transform="matrix(${(U.x * k).toFixed(4)} ${(U.y * k).toFixed(4)} ${(V.x * k).toFixed(4)} ${(V.y * k).toFixed(4)} ${(ox + inset * (U.x + V.x)).toFixed(1)} ${(oy + inset * (U.y + V.y)).toFixed(1)})"/>`
+    : '';
   return `<g>
-<animateMotion path="${path}" dur="${LOOP.period}s" begin="${(-(i / count) * LOOP.period).toFixed(2)}s" repeatCount="indefinite"/>
-<animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="${(3 + (i % 3) * 0.7).toFixed(1)}s" begin="${(-i * 0.5).toFixed(1)}s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
-<circle r="${MOON_R}" fill="${pal.key}" stroke="${theme.chipEdge}" stroke-width="2"/>
-<g transform="translate(${(-size / 2).toFixed(1)} ${(-size / 2).toFixed(1)}) scale(${(size / 24).toFixed(4)})"><path d="${brand.path}" fill="${pal.ink}"/></g>
+${hold('opacity', 0, begin)}
+<animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="${begin}s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 -46" to="0 0" dur="0.7s" begin="${begin}s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.9 0.3 1.1"/>
+<polygon points="${poly([point(u + 1, v, h), point(u + 1, v + 1, h), point(u + 1, v + 1, 0), point(u + 1, v, 0)])}" fill="${right}"/>
+<polygon points="${poly([point(u, v + 1, h), point(u + 1, v + 1, h), point(u + 1, v + 1, 0), point(u, v + 1, 0)])}" fill="${left}"/>
+<polygon points="${poly([point(u, v, h), point(u + 1, v, h), point(u + 1, v + 1, h), point(u, v + 1, h)])}" fill="${top}" stroke="${theme.chipEdge}" stroke-width="1">
+<animate attributeName="fill" values="${top};${mix(top, theme.sweep, 0.55)};${top};${top}" keyTimes="0;0.05;0.12;1" dur="9s" begin="${(3 + (u + v) * 0.3).toFixed(2)}s" repeatCount="indefinite"/>
+</polygon>
+${logo}
 </g>`;
 };
 
-// The loop: a faint solid track, on it a gradient dash that keeps flowing,
-// and the logos riding along. Everything fades in together after the
-// headline has settled.
-const loop = (theme, slugs) => {
-  const path = loopPath();
-  const list = slugs.slice(0, 8);
-  return `<g>
-${appear(0.9, 0.8)}
-<path d="${path}" fill="none" stroke="${theme.chipEdge}" stroke-width="5" stroke-linecap="round"/>
-<path d="${path}" fill="none" stroke="url(#flow)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="14 10">
-<animate attributeName="stroke-dashoffset" from="0" to="-48" dur="1.8s" repeatCount="indefinite"/>
-</path>
-${list.map((slug, i) => moon(theme, slug, i, list.length, path)).join('\n')}
+// The cluster as a whole floats above its shadow. Blocks are drawn back
+// to front so the ones in front cover the ones behind.
+const cluster = (theme, profile) => {
+  const slugs = (profile.hero || []).slice(0, CELLS.length);
+  const levelOf = (slug) => {
+    const skill = (profile.skills || []).find((s) => s.icon === slug);
+    return Math.min(5, Math.max(1, Number(skill && skill.level) || 3));
+  };
+  const blocks = slugs
+    .map((slug, i) => ({ slug, i, cell: CELLS[i] }))
+    .sort((a, b) => (a.cell[0] + a.cell[1]) - (b.cell[0] + b.cell[1]))
+    .map(({ slug, i, cell }) => block(theme, slug, levelOf(slug), cell, i))
+    .join('\n');
+  const [sx, sy] = point(1.5, 1.5, 0);
+  const ease = 'calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"';
+  return `<ellipse cx="${sx}" cy="${sy + 2 * U.y + 14}" rx="${(2.6 * U.x).toFixed(1)}" ry="11" fill="${theme.shadow}" opacity="0.13">
+<animate attributeName="opacity" values="0.13;0.06;0.13" dur="6s" repeatCount="indefinite" ${ease}/>
+<animate attributeName="rx" values="${(2.6 * U.x).toFixed(1)};${(2.3 * U.x).toFixed(1)};${(2.6 * U.x).toFixed(1)}" dur="6s" repeatCount="indefinite" ${ease}/>
+</ellipse>
+<g>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="6s" repeatCount="indefinite" ${ease}/>
+${blocks}
 </g>`;
 };
 
 // The greeting in two pieces: everything up to the last word stands
 // still, the last word (the name) floats up and down by a few pixels,
 // slowly enough to be felt rather than seen. Both pieces are pinned with
-// textLength so the cursor still ends exactly where the text does.
+// textLength so the cursor still ends exactly where the text does. The
+// prefix is measured without its trailing space, which SVG drops when
+// rendering: counting it would stretch the letters right up to the name.
 const headline = (theme, greeting, headlineWidth) => {
   const words = greeting.trim().split(/\s+/);
   const last = words[words.length - 1];
-  // The prefix is measured without its trailing space: SVG drops that
-  // space when rendering, and a textLength that still counted it would
-  // stretch the letters right up to the name.
   const prefix = words.slice(0, -1).join(' ');
   const prefixWidth = prefix ? textWidth(prefix, HEADLINE_SIZE, true) : 0;
   const gap = prefix ? textWidth(' ', HEADLINE_SIZE, true) : 0;
@@ -141,10 +155,6 @@ const render = (theme, profile) => {
 <stop offset="0.55" stop-color="${g1}"><animate attributeName="stop-color" values="${g1};${g2};${g1}" dur="14s" repeatCount="indefinite"/></stop>
 <stop offset="1" stop-color="${g2}"><animate attributeName="stop-color" values="${g2};${g0};${g2}" dur="14s" repeatCount="indefinite"/></stop>
 </linearGradient>
-<linearGradient id="flow" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0" stop-color="${theme.accentStrong}"/>
-<stop offset="1" stop-color="${theme.pink}"/>
-</linearGradient>
 ${glow('glow-pink', theme.pink)}
 ${glow('glow-accent', theme.accent)}
 ${glow('glow-blob', theme.blob)}
@@ -170,7 +180,7 @@ ${hold('x', LEFT, 0.4)}
 ${appear(1.6, 0.7)}
 <text x="${LEFT}" y="${BASELINE + 38}" font-size="18" fill="${theme.muted}">${escape(profile.tagline)}</text>
 </g>
-${chips}${loop(theme, profile.hero || [])}
+${chips}${cluster(theme, profile)}
 </g>`;
 
   return document({ width: W, height: H, title: `${profile.greeting} ${profile.tagline}`, body });

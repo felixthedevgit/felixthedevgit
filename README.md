@@ -2,8 +2,8 @@
 <p align="center">
 <a href="https://felixthedev.com">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.36c6f0f2.svg">
-  <img alt="Hey, I am FelixTheDev. Software and game developer from northern Germany." src="assets/header-light.aa75a81c.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.5ae6c65a.svg">
+  <img alt="Hey, I am FelixTheDev. Software and game developer from northern Germany." src="assets/header-light.a1a255a2.svg" width="100%" align="top">
 </picture>
 </a>
 </p>
