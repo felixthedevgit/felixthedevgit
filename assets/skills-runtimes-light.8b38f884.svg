@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="284" viewBox="0 0 900 284" role="img" aria-label="Runtimes and frameworks: Node.js (daily), Express (most weeks), .NET (getting started)">
+<title>Runtimes and frameworks: Node.js (daily), Express (most weeks), .NET (getting started)</title>
+<g font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.15s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.15s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.15s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="0.5" y="0.5" width="899" height="87" rx="18" fill="#eff6ed" stroke="#d9e8d5"/>
+<circle cx="49" cy="44" r="31" fill="none" stroke="#dfecdc" stroke-width="4"/>
+<circle cx="49" cy="44" r="31" fill="none" stroke="#517256" stroke-width="4" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="0.0" transform="rotate(-90 49 44)">
+<set attributeName="stroke-dashoffset" to="194.8" begin="0s" end="0.25s"/>
+<animate attributeName="stroke-dashoffset" from="194.8" to="0.0" dur="1.1s" begin="0.25s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</circle>
+<circle cx="49" cy="44" r="26" fill="#d5e6d1">
+<animate attributeName="r" values="26;28;26;26" keyTimes="0;0.03;0.07;1" dur="9s" begin="3.00s" repeatCount="indefinite"/>
+</circle>
+<g transform="translate(49 44)"><g>
+<animateTransform attributeName="transform" type="scale" values="0.6;1.08;1" keyTimes="0;0.7;1" dur="0.6s" begin="0.25s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1;0.4 0 0.6 1"/>
+<g transform="translate(-13 -13) scale(1.0833)"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z" fill="#517256"/></g>
+</g></g>
+<text x="100" y="30" font-size="15" font-weight="700" fill="#3B2E63">Node.js</text>
+<circle cx="167" cy="25" r="2" fill="#517256"/>
+<text x="175" y="30" font-size="11.5" fill="#517256">daily</text>
+<text x="100" y="53" font-size="12.5" fill="#8577AE">My server runtime of choice. One process, no external services, and a standard library that covers more with every release, from fetch</text>
+<text x="100" y="70" font-size="12.5" fill="#8577AE">to the built-in SQLite driver.</text>
+</g>
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.25s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.25s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.25s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="0.5" y="98.5" width="899" height="87" rx="18" fill="#f0f1f2" stroke="#dbdde1"/>
+<circle cx="49" cy="142" r="31" fill="none" stroke="#e1e3e6" stroke-width="4"/>
+<circle cx="49" cy="142" r="31" fill="none" stroke="#6B7280" stroke-width="4" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="39.0" transform="rotate(-90 49 142)">
+<set attributeName="stroke-dashoffset" to="194.8" begin="0s" end="0.35s"/>
+<animate attributeName="stroke-dashoffset" from="194.8" to="39.0" dur="1.1s" begin="0.35s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</circle>
+<circle cx="49" cy="142" r="26" fill="#d9dade">
+<animate attributeName="r" values="26;28;26;26" keyTimes="0;0.03;0.07;1" dur="9s" begin="3.35s" repeatCount="indefinite"/>
+</circle>
+<g transform="translate(49 142)"><g>
+<animateTransform attributeName="transform" type="scale" values="0.6;1.08;1" keyTimes="0;0.7;1" dur="0.6s" begin="0.35s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1;0.4 0 0.6 1"/>
+<g transform="translate(-13 -13) scale(1.0833)"><path d="M12.262 16.666h1.146l6.975-9.325H19.22zm9.778 1.441v.004l-4.334-5.706-.557.74 4.873 6.682H.945V4.173h9.505l5.026 6.7.574-.772-4.374-5.928h.003l-.719-.945H0v17.544h24zM10.917 8.705a3.8 3.8 0 0 0-1.292-1.183q-.796-.45-1.916-.45c-.746 0-1.37.14-1.906.424a3.76 3.76 0 0 0-1.31 1.12 4.9 4.9 0 0 0-.75 1.581 7.17 7.17 0 0 0 0 3.696c.148.567.402 1.101.75 1.573a3.5 3.5 0 0 0 1.31 1.066q.803.39 1.906.389 1.77 0 2.739-.868.966-.867 1.328-2.457h-1.139q-.271 1.084-.977 1.734-.704.651-1.952.65-.812 0-1.392-.342a3.1 3.1 0 0 1-.957-.869 3.5 3.5 0 0 1-.551-1.182 5 5 0 0 1-.17-1.133 9 9 0 0 0-.015-.286 4.5 4.5 0 0 1 .015-.829c.047-.418.147-.83.296-1.223A3.7 3.7 0 0 1 5.54 9.05a2.9 2.9 0 0 1 .922-.742q.541-.28 1.246-.28c.47 0 .869.093 1.23.28q.541.281.922.742.379.461.587 1.057t.225 1.246H5.625l.004.957h6.182a7.3 7.3 0 0 0-.18-1.924 4.9 4.9 0 0 0-.715-1.68z" fill="#6B7280"/></g>
+</g></g>
+<text x="100" y="128" font-size="15" font-weight="700" fill="#3B2E63">Express</text>
+<circle cx="171" cy="123" r="2" fill="#6B7280"/>
+<text x="179" y="128" font-size="11.5" fill="#6B7280">most weeks</text>
+<text x="100" y="151" font-size="12.5" fill="#8577AE">Routing and middleware for the services I build. The handlers stay thin, the actual logic lives in plain modules that know nothing</text>
+<text x="100" y="168" font-size="12.5" fill="#8577AE">about HTTP.</text>
+</g>
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.35s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.35s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.35s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="0.5" y="196.5" width="899" height="87" rx="18" fill="#eeeafb" stroke="#d5ccf5"/>
+<circle cx="49" cy="240" r="31" fill="none" stroke="#dcd5f6" stroke-width="4"/>
+<circle cx="49" cy="240" r="31" fill="none" stroke="#512BD4" stroke-width="4" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="155.8" transform="rotate(-90 49 240)">
+<set attributeName="stroke-dashoffset" to="194.8" begin="0s" end="0.45s"/>
+<animate attributeName="stroke-dashoffset" from="194.8" to="155.8" dur="1.1s" begin="0.45s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</circle>
+<circle cx="49" cy="240" r="26" fill="#d2c8f4">
+<animate attributeName="r" values="26;28;26;26" keyTimes="0;0.03;0.07;1" dur="9s" begin="3.70s" repeatCount="indefinite"/>
+</circle>
+<g transform="translate(49 240)"><g>
+<animateTransform attributeName="transform" type="scale" values="0.6;1.08;1" keyTimes="0;0.7;1" dur="0.6s" begin="0.45s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1;0.4 0 0.6 1"/>
+<g transform="translate(-13 -13) scale(1.0833)"><path d="M24 8.77h-2.468v7.565h-1.425V8.77h-2.462V7.53H24zm-6.852 7.565h-4.821V7.53h4.63v1.24h-3.205v2.494h2.953v1.234h-2.953v2.604h3.396zm-6.708 0H8.882L4.78 9.863a2.896 2.896 0 0 1-.258-.51h-.036c.032.189.048.592.048 1.21v5.772H3.157V7.53h1.659l3.965 6.32c.167.261.275.442.323.54h.024c-.04-.233-.06-.629-.06-1.185V7.529h1.372zm-8.703-.693a.868.829 0 0 1-.869.829.868.829 0 0 1-.868-.83.868.829 0 0 1 .868-.828.868.829 0 0 1 .869.829Z" fill="#512BD4"/></g>
+</g></g>
+<text x="100" y="226" font-size="15" font-weight="700" fill="#3B2E63">.NET</text>
+<circle cx="146" cy="221" r="2" fill="#512BD4"/>
+<text x="154" y="226" font-size="11.5" fill="#512BD4">getting started</text>
+<text x="100" y="249" font-size="12.5" fill="#8577AE">Arrived together with C#. So far it is the framework under one desktop tool, and the tooling around it is what I am still getting used to.</text>
+</g>
+</g>
+</svg>

@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="578" viewBox="0 0 900 578" role="img" aria-label="Languages: JavaScript (daily), TypeScript (regularly), HTML (most weeks), CSS (most weeks), C# (getting started), Luau (regularly)">
+<title>Languages: JavaScript (daily), TypeScript (regularly), HTML (most weeks), CSS (most weeks), C# (getting started), Luau (regularly)</title>
+<g font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.15s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.15s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.15s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="0.5" y="0.5" width="899" height="87" rx="18" fill="#363028" stroke="#5f5426"/>
+<circle cx="49" cy="44" r="31" fill="none" stroke="#564c27" stroke-width="4"/>
+<circle cx="49" cy="44" r="31" fill="none" stroke="#f9e54b" stroke-width="4" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="0.0" transform="rotate(-90 49 44)">
+<set attributeName="stroke-dashoffset" to="194.8" begin="0s" end="0.25s"/>
+<animate attributeName="stroke-dashoffset" from="194.8" to="0.0" dur="1.1s" begin="0.25s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</circle>
+<circle cx="49" cy="44" r="26" fill="#5f5426">
+<animate attributeName="r" values="26;28;26;26" keyTimes="0;0.03;0.07;1" dur="9s" begin="3.00s" repeatCount="indefinite"/>
+</circle>
+<g transform="translate(49 44)"><g>
+<animateTransform attributeName="transform" type="scale" values="0.6;1.08;1" keyTimes="0;0.7;1" dur="0.6s" begin="0.25s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1;0.4 0 0.6 1"/>
+<g transform="translate(-13 -13) scale(1.0833)"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z" fill="#f9e54b"/></g>
+</g></g>
+<text x="100" y="30" font-size="15" font-weight="700" fill="#EDE9FE">JavaScript</text>
+<circle cx="190" cy="25" r="2" fill="#f9e54b"/>
+<text x="198" y="30" font-size="11.5" fill="#f9e54b">daily</text>
+<text x="100" y="53" font-size="12.5" fill="#A89CD3">The language I write most days. Everything from the form service at the office to the small script that draws this page runs on it, and I</text>
+<text x="100" y="70" font-size="12.5" fill="#A89CD3">still enjoy how little ceremony it needs.</text>
+</g>
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.25s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.25s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.25s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="0.5" y="98.5" width="899" height="87" rx="18" fill="#1b2140" stroke="#1f335c"/>
+<circle cx="49" cy="142" r="31" fill="none" stroke="#1e2f56" stroke-width="4"/>
+<circle cx="49" cy="142" r="31" fill="none" stroke="#5a93d1" stroke-width="4" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="77.9" transform="rotate(-90 49 142)">
+<set attributeName="stroke-dashoffset" to="194.8" begin="0s" end="0.35s"/>
+<animate attributeName="stroke-dashoffset" from="194.8" to="77.9" dur="1.1s" begin="0.35s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</circle>
+<circle cx="49" cy="142" r="26" fill="#1f335c">
+<animate attributeName="r" values="26;28;26;26" keyTimes="0;0.03;0.07;1" dur="9s" begin="3.35s" repeatCount="indefinite"/>
+</circle>
+<g transform="translate(49 142)"><g>
+<animateTransform attributeName="transform" type="scale" values="0.6;1.08;1" keyTimes="0;0.7;1" dur="0.6s" begin="0.35s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1;0.4 0 0.6 1"/>
+<g transform="translate(-13 -13) scale(1.0833)"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z" fill="#5a93d1"/></g>
+</g></g>
+<text x="100" y="128" font-size="15" font-weight="700" fill="#EDE9FE">TypeScript</text>
+<circle cx="190" cy="123" r="2" fill="#5a93d1"/>
+<text x="198" y="128" font-size="11.5" fill="#5a93d1">regularly</text>
+<text x="100" y="151" font-size="12.5" fill="#A89CD3">For the projects that outgrow a handful of files. The types catch the mistakes I would otherwise meet at runtime, and the editor</text>
+<text x="100" y="168" font-size="12.5" fill="#A89CD3">suddenly knows what every object looks like.</text>
+</g>
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.35s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.35s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.35s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="0.5" y="196.5" width="899" height="87" rx="18" fill="#341b29" stroke="#582629"/>
+<circle cx="49" cy="240" r="31" fill="none" stroke="#502429" stroke-width="4"/>
+<circle cx="49" cy="240" r="31" fill="none" stroke="#e97251" stroke-width="4" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="39.0" transform="rotate(-90 49 240)">
+<set attributeName="stroke-dashoffset" to="194.8" begin="0s" end="0.45s"/>
+<animate attributeName="stroke-dashoffset" from="194.8" to="39.0" dur="1.1s" begin="0.45s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</circle>
+<circle cx="49" cy="240" r="26" fill="#582629">
+<animate attributeName="r" values="26;28;26;26" keyTimes="0;0.03;0.07;1" dur="9s" begin="3.70s" repeatCount="indefinite"/>
+</circle>
+<g transform="translate(49 240)"><g>
+<animateTransform attributeName="transform" type="scale" values="0.6;1.08;1" keyTimes="0;0.7;1" dur="0.6s" begin="0.45s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1;0.4 0 0.6 1"/>
+<g transform="translate(-13 -13) scale(1.0833)"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" fill="#e97251"/></g>
+</g></g>
+<text x="100" y="226" font-size="15" font-weight="700" fill="#EDE9FE">HTML</text>
+<circle cx="155" cy="221" r="2" fill="#e97251"/>
+<text x="163" y="226" font-size="11.5" fill="#e97251">most weeks</text>
+<text x="100" y="249" font-size="12.5" fill="#A89CD3">Every interface I ship is hand-written markup. Semantic elements, forms that work without a script, and pages a screen reader can</text>
+<text x="100" y="266" font-size="12.5" fill="#A89CD3">follow from top to bottom.</text>
+</g>
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.45000000000000007s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.45000000000000007s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.45000000000000007s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="0.5" y="294.5" width="899" height="87" rx="18" fill="#22173a" stroke="#301d4e"/>
+<circle cx="49" cy="338" r="31" fill="none" stroke="#2d1c49" stroke-width="4"/>
+<circle cx="49" cy="338" r="31" fill="none" stroke="#ab8fc7" stroke-width="4" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="39.0" transform="rotate(-90 49 338)">
+<set attributeName="stroke-dashoffset" to="194.8" begin="0s" end="0.55s"/>
+<animate attributeName="stroke-dashoffset" from="194.8" to="39.0" dur="1.1s" begin="0.55s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</circle>
+<circle cx="49" cy="338" r="26" fill="#301d4e">
+<animate attributeName="r" values="26;28;26;26" keyTimes="0;0.03;0.07;1" dur="9s" begin="4.05s" repeatCount="indefinite"/>
+</circle>
+<g transform="translate(49 338)"><g>
+<animateTransform attributeName="transform" type="scale" values="0.6;1.08;1" keyTimes="0;0.7;1" dur="0.6s" begin="0.55s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1;0.4 0 0.6 1"/>
+<g transform="translate(-13 -13) scale(1.0833)"><path d="M0 0v20.16A3.84 3.84 0 0 0 3.84 24h16.32A3.84 3.84 0 0 0 24 20.16V3.84A3.84 3.84 0 0 0 20.16 0Zm14.256 13.08c1.56 0 2.28 1.08 2.304 2.64h-1.608c.024-.288-.048-.6-.144-.84-.096-.192-.288-.264-.552-.264-.456 0-.696.264-.696.84-.024.576.288.888.768 1.08.72.288 1.608.744 1.92 1.296q.432.648.432 1.656c0 1.608-.912 2.592-2.496 2.592-1.656 0-2.4-1.032-2.424-2.688h1.68c0 .792.264 1.176.792 1.176.264 0 .456-.072.552-.24.192-.312.24-1.176-.048-1.512-.312-.408-.912-.6-1.32-.816q-.828-.396-1.224-.936c-.24-.36-.36-.888-.36-1.536 0-1.44.936-2.472 2.424-2.448m5.4 0c1.584 0 2.304 1.08 2.328 2.64h-1.608c0-.288-.048-.6-.168-.84-.096-.192-.264-.264-.528-.264-.48 0-.72.264-.72.84s.288.888.792 1.08c.696.288 1.608.744 1.92 1.296.264.432.408.984.408 1.656.024 1.608-.888 2.592-2.472 2.592-1.68 0-2.424-1.056-2.448-2.688h1.68c0 .744.264 1.176.792 1.176.264 0 .456-.072.552-.24.216-.312.264-1.176-.048-1.512-.288-.408-.888-.6-1.32-.816-.552-.264-.96-.576-1.2-.936s-.36-.888-.36-1.536c-.024-1.44.912-2.472 2.4-2.448m-11.031.018c.711-.006 1.419.198 1.839.63.432.432.672 1.128.648 1.992H9.336c.024-.456-.096-.792-.432-.96-.312-.144-.768-.048-.888.24-.12.264-.192.576-.168.864v3.504c0 .744.264 1.128.768 1.128a.65.65 0 0 0 .552-.264c.168-.24.192-.552.168-.84h1.776c.096 1.632-.984 2.712-2.568 2.688-1.536 0-2.496-.864-2.472-2.472v-4.032c0-.816.24-1.44.696-1.848.432-.408 1.146-.624 1.857-.63" fill="#ab8fc7"/></g>
+</g></g>
+<text x="100" y="324" font-size="15" font-weight="700" fill="#EDE9FE">CSS</text>
+<circle cx="142" cy="319" r="2" fill="#ab8fc7"/>
+<text x="150" y="324" font-size="11.5" fill="#ab8fc7">most weeks</text>
+<text x="100" y="347" font-size="12.5" fill="#A89CD3">Custom properties, grid and a few animations, no framework and no build step. Dark mode is not an afterthought, it is a second set of</text>
+<text x="100" y="364" font-size="12.5" fill="#A89CD3">variables.</text>
+</g>
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.55s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.55s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.55s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="0.5" y="392.5" width="899" height="87" rx="18" fill="#1f1642" stroke="#2a1b60"/>
+<circle cx="49" cy="436" r="31" fill="none" stroke="#271a5a" stroke-width="4"/>
+<circle cx="49" cy="436" r="31" fill="none" stroke="#9f8ae7" stroke-width="4" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="155.8" transform="rotate(-90 49 436)">
+<set attributeName="stroke-dashoffset" to="194.8" begin="0s" end="0.65s"/>
+<animate attributeName="stroke-dashoffset" from="194.8" to="155.8" dur="1.1s" begin="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</circle>
+<circle cx="49" cy="436" r="26" fill="#2a1b60">
+<animate attributeName="r" values="26;28;26;26" keyTimes="0;0.03;0.07;1" dur="9s" begin="4.40s" repeatCount="indefinite"/>
+</circle>
+<g transform="translate(49 436)"><g>
+<animateTransform attributeName="transform" type="scale" values="0.6;1.08;1" keyTimes="0;0.7;1" dur="0.6s" begin="0.65s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1;0.4 0 0.6 1"/>
+<g transform="translate(-13 -13) scale(1.0833)"><path d="M24 8.77h-2.468v7.565h-1.425V8.77h-2.462V7.53H24zm-6.852 7.565h-4.821V7.53h4.63v1.24h-3.205v2.494h2.953v1.234h-2.953v2.604h3.396zm-6.708 0H8.882L4.78 9.863a2.896 2.896 0 0 1-.258-.51h-.036c.032.189.048.592.048 1.21v5.772H3.157V7.53h1.659l3.965 6.32c.167.261.275.442.323.54h.024c-.04-.233-.06-.629-.06-1.185V7.529h1.372zm-8.703-.693a.868.829 0 0 1-.869.829.868.829 0 0 1-.868-.83.868.829 0 0 1 .868-.828.868.829 0 0 1 .869.829Z" fill="#9f8ae7"/></g>
+</g></g>
+<text x="100" y="422" font-size="15" font-weight="700" fill="#EDE9FE">C#</text>
+<circle cx="131" cy="417" r="2" fill="#9f8ae7"/>
+<text x="139" y="422" font-size="11.5" fill="#9f8ae7">getting started</text>
+<text x="100" y="445" font-size="12.5" fill="#A89CD3">Picked it up two weeks ago for a desktop tool at the office. Still reading more than writing, but I like how much the compiler catches</text>
+<text x="100" y="462" font-size="12.5" fill="#A89CD3">before anything runs.</text>
+</g>
+<g>
+<set attributeName="opacity" to="0" begin="0s" end="0.65s"/>
+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.65s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" dur="0.6s" begin="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<rect x="0.5" y="490.5" width="899" height="87" rx="18" fill="#142748" stroke="#10416e"/>
+<circle cx="49" cy="534" r="31" fill="none" stroke="#113b66" stroke-width="4"/>
+<circle cx="49" cy="534" r="31" fill="none" stroke="#33b5ff" stroke-width="4" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="77.9" transform="rotate(-90 49 534)">
+<set attributeName="stroke-dashoffset" to="194.8" begin="0s" end="0.75s"/>
+<animate attributeName="stroke-dashoffset" from="194.8" to="77.9" dur="1.1s" begin="0.75s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+</circle>
+<circle cx="49" cy="534" r="26" fill="#10416e">
+<animate attributeName="r" values="26;28;26;26" keyTimes="0;0.03;0.07;1" dur="9s" begin="4.75s" repeatCount="indefinite"/>
+</circle>
+<g transform="translate(49 534)"><g>
+<animateTransform attributeName="transform" type="scale" values="0.6;1.08;1" keyTimes="0;0.7;1" dur="0.6s" begin="0.75s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1;0.4 0 0.6 1"/>
+<g transform="translate(-13 -13) scale(1.0833)"><path d="M24 5.072 18.928 24 0 18.928 5.072 0 24 5.072ZM8.984 18.402l-.085.375.61.163 1.005-3.75-.641-.172-.731 2.728c-.26.322-.635.417-1.125.286-.462-.124-.616-.47-.464-1.039l.649-2.422-.641-.172-.654 2.44c-.12.455-.107.828.039 1.117.148.287.422.485.822.592.483.13.888.081 1.216-.146Zm3.818 1.42.672.18.015-.055c-.034-.227-.004-.512.088-.857l.462-1.725c.093-.382.045-.713-.142-.994-.187-.282-.496-.481-.928-.597a1.897 1.897 0 0 0-.793-.05 1.42 1.42 0 0 0-.652.272.912.912 0 0 0-.343.488l.645.172c.044-.164.159-.283.344-.357a.969.969 0 0 1 .622-.02c.261.07.44.19.54.36.098.168.117.364.057.588l-.079.295-.624-.167c-.538-.145-.985-.148-1.342-.01-.353.135-.582.398-.687.789-.086.32-.04.618.14.891.183.272.458.458.828.557.414.11.811.05 1.192-.179-.028.196-.033.336-.015.42Zm-.934-.774a.8.8 0 0 1-.47-.307.606.606 0 0 1-.075-.526c.123-.46.577-.584 1.363-.374l.502.135-.206.77a.978.978 0 0 1-.5.3 1.166 1.166 0 0 1-.614.002ZM21 6.804l-3.786-1.015L16.2 9.575l3.786 1.014L21 6.804ZM3.818 16.832l1.207-4.502-.67-.18-1.352 5.047 3.06.82.146-.544-2.39-.64Zm12.944 3.654-.086.375.61.163 1.005-3.75-.641-.172-.731 2.728c-.26.322-.634.417-1.124.286-.462-.124-.617-.47-.465-1.039l.65-2.422-.642-.172-.654 2.44c-.12.456-.106.828.04 1.117.147.288.421.485.821.592.483.13.889.081 1.217-.146Z" fill="#33b5ff"/></g>
+</g></g>
+<text x="100" y="520" font-size="15" font-weight="700" fill="#EDE9FE">Luau</text>
+<circle cx="149" cy="515" r="2" fill="#33b5ff"/>
+<text x="157" y="520" font-size="11.5" fill="#33b5ff">regularly</text>
+<text x="100" y="543" font-size="12.5" fill="#A89CD3">The scripting language behind my Roblox games. Game logic, data stores, and the client-server split that every multiplayer feature</text>
+<text x="100" y="560" font-size="12.5" fill="#A89CD3">has to respect.</text>
+</g>
+</g>
+</svg>

@@ -37,8 +37,8 @@ I build software for public administration: tools my colleagues use every day, w
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-languages-dark.ea43a551.svg">
-  <img alt="Languages: JavaScript, TypeScript, HTML, CSS, C#, Luau, each with what I use it for and how much" src="assets/skills-languages-light.e2e87a43.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-languages-dark.d162feda.svg">
+  <img alt="Languages: JavaScript, TypeScript, HTML, CSS, C#, Luau, each with what I use it for and how much" src="assets/skills-languages-light.f711565a.svg" width="100%" align="top">
 </picture>
 </p>
 
@@ -46,8 +46,8 @@ I build software for public administration: tools my colleagues use every day, w
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-runtimes-dark.0a8dec37.svg">
-  <img alt="Runtimes and frameworks: Node.js, Express, .NET, each with what I use it for and how much" src="assets/skills-runtimes-light.5c49116c.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-runtimes-dark.3403254d.svg">
+  <img alt="Runtimes and frameworks: Node.js, Express, .NET, each with what I use it for and how much" src="assets/skills-runtimes-light.8b38f884.svg" width="100%" align="top">
 </picture>
 </p>
 
@@ -55,8 +55,8 @@ I build software for public administration: tools my colleagues use every day, w
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-tools-dark.9fbb9ee3.svg">
-  <img alt="Tools and platforms: Roblox Studio, SQLite, Docker, Linux, Git, GitHub Actions, each with what I use it for and how much" src="assets/skills-tools-light.6f10162a.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-tools-dark.48cf7e8a.svg">
+  <img alt="Tools and platforms: Roblox Studio, SQLite, Docker, Linux, Git, GitHub Actions, each with what I use it for and how much" src="assets/skills-tools-light.18f7653f.svg" width="100%" align="top">
 </picture>
 </p>
 
