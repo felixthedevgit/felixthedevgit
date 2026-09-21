@@ -14,8 +14,8 @@ I build software for public administration: tools my colleagues use every day, w
 <!-- skyline:start -->
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.82372fea.svg">
-  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.3596dd3e.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.13939ab7.svg">
+  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.02caceb6.svg" width="100%" align="top">
 </picture>
 </p>
 <!-- skyline:end -->
@@ -23,8 +23,8 @@ I build software for public administration: tools my colleagues use every day, w
 <!-- stats:start -->
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.e304cc07.svg">
-  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.fc4fab94.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.14311fb8.svg">
+  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.6be32a77.svg" width="100%" align="top">
 </picture>
 </p>
 <!-- stats:end -->
