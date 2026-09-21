@@ -1,18 +1,31 @@
 {
   "login": "felixthedevgit",
-  "greeting": "Moin, ich bin Felix.",
-  "tagline": "Softwareentwickler aus Schleswig-Holstein",
-  "chips": ["Öffentliche Verwaltung", "Node.js und .NET", "Alles selbst gehostet"],
-  "stack": [
-    "JavaScript",
-    "TypeScript",
-    "Node.js",
-    "C#",
-    ".NET",
-    "SQLite",
-    "Docker",
-    "Linux",
-    "Git",
-    "HTML und CSS"
+  "greeting": "Hey, I am FelixTheDev.",
+  "tagline": "Software and game developer from northern Germany",
+  "chips": ["Public sector software", "Roblox game dev", "Self-hosted everything"],
+  "categories": [
+    { "id": "web", "label": "Web and backend" },
+    { "id": "apps", "label": "Apps and desktop" },
+    { "id": "games", "label": "Games" },
+    { "id": "ops", "label": "Data and operations" }
+  ],
+  "skills": [
+    { "name": "JavaScript", "icon": "js", "category": "web", "level": 5, "use": "Node.js services for public administration, the bulk of my daily work" },
+    { "name": "TypeScript", "icon": "ts", "category": "web", "level": 3, "use": "Typed Node.js tools once a project grows past a few files" },
+    { "name": "HTML and CSS", "icon": "markup", "category": "web", "level": 4, "use": "Hand-written interfaces, no framework, no build step" },
+    { "name": "C# and .NET", "icon": "csharp", "category": "apps", "level": 4, "use": "Desktop tooling for the office, my largest codebase so far" },
+    { "name": "Luau", "icon": "luau", "category": "games", "level": 3, "use": "Game logic and systems for my Roblox experiences" },
+    { "name": "Roblox Studio", "icon": "roblox", "category": "games", "level": 3, "use": "Building, testing and publishing games on Roblox" },
+    { "name": "SQLite", "icon": "db", "category": "ops", "level": 4, "use": "One file, encrypted content, no database server to babysit" },
+    { "name": "Docker", "icon": "docker", "category": "ops", "level": 3, "use": "Every service ships as one container on our own hardware" },
+    { "name": "Linux", "icon": "terminal", "category": "ops", "level": 3, "use": "Servers, systemd timers, reverse proxies, backups" },
+    { "name": "Git", "icon": "git", "category": "ops", "level": 4, "use": "Branches, pull requests, tags and releases, every day" }
+  ],
+  "links": [
+    { "id": "website", "icon": "globe", "label": "Website", "handle": "felixthedev.com", "url": "https://felixthedev.com" },
+    { "id": "roblox", "icon": "roblox", "label": "Roblox", "handle": "f_lixthedev", "url": "https://www.roblox.com/users/profile?username=f_lixthedev" },
+    { "id": "discord", "icon": "discord", "label": "Discord", "handle": "@felixthedev", "url": null },
+    { "id": "tiktok", "icon": "tiktok", "label": "TikTok", "handle": "@f_lixthedev", "url": "https://www.tiktok.com/@f_lixthedev" },
+    { "id": "skyblock", "icon": "cube", "label": "Hypixel SkyBlock", "handle": "FelixTheDev", "url": "https://sky.shiiyu.moe/stats/FelixTheDev" }
   ]
 }

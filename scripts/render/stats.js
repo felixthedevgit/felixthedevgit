@@ -11,10 +11,10 @@ const PADDING = 24;
 // label makes obvious: all contributions, days of the year, days of the
 // longest streak out of all active days, share of the busiest weekday.
 const tiles = (stats) => [
-  { label: 'Beiträge', value: number(stats.total), hint: 'in zwölf Monaten', share: 1 },
-  { label: 'Aktive Tage', value: number(stats.activeDays), hint: `von ${number(stats.dayCount)}`, share: stats.dayCount ? stats.activeDays / stats.dayCount : 0 },
-  { label: 'Längste Serie', value: number(stats.longest), hint: stats.longest === 1 ? 'Tag am Stück' : 'Tage am Stück', share: stats.activeDays ? stats.longest / stats.activeDays : 0 },
-  { label: 'Lieblingstag', value: stats.busiestWeekday, hint: `${Math.round(stats.busiestShare * 100)} % der Beiträge`, share: stats.busiestShare },
+  { label: 'Contributions', value: number(stats.total), hint: 'in twelve months', share: 1 },
+  { label: 'Active days', value: number(stats.activeDays), hint: `of ${number(stats.dayCount)}`, share: stats.dayCount ? stats.activeDays / stats.dayCount : 0 },
+  { label: 'Longest streak', value: number(stats.longest), hint: stats.longest === 1 ? 'day in a row' : 'days in a row', share: stats.activeDays ? stats.longest / stats.activeDays : 0 },
+  { label: 'Favorite day', value: stats.busiestWeekday, hint: `${Math.round(stats.busiestShare * 100)}% of contributions`, share: stats.busiestShare },
 ];
 
 const render = (theme, stats) => {
@@ -24,7 +24,8 @@ const render = (theme, stats) => {
     const x = i * (width + GAP);
     const begin = 0.2 + i * 0.15;
     const barWidth = Math.max(8, Math.round((width - PADDING * 2) * tile.share));
-    const numeric = /^[\d.]+$/.test(tile.value);
+    const numeric = /^[\d,.]+$/.test(tile.value);
+    const tint = theme.tints[i % theme.tints.length];
     return `<g>
 ${appear(begin)}
 <rect x="${x + 0.5}" y="0.5" width="${width - 1}" height="${H - 1}" rx="20" fill="${theme.card}" stroke="${theme.cardEdge}"/>
@@ -32,7 +33,7 @@ ${appear(begin)}
 <text x="${x + PADDING}" y="${numeric ? 82 : 80}" font-size="${numeric ? 34 : 26}" font-weight="700" fill="${theme.ink}">${escape(tile.value)}</text>
 <text x="${x + PADDING}" y="106" font-size="13" fill="${theme.muted}">${escape(tile.hint)}</text>
 <rect x="${x + PADDING}" y="122" width="${width - PADDING * 2}" height="6" rx="3" fill="${theme.accentSoft}"/>
-<rect x="${x + PADDING}" y="122" width="${barWidth}" height="6" rx="3" fill="${i % 2 ? theme.pink : theme.accent}">
+<rect x="${x + PADDING}" y="122" width="${barWidth}" height="6" rx="3" fill="${tint.fg}">
 ${hold('width', 0, begin + 0.3)}
 <animate attributeName="width" from="0" to="${barWidth}" dur="1.1s" begin="${begin + 0.3}s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.3 0 0.2 1"/>
 </rect>

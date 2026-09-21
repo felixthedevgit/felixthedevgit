@@ -32,9 +32,9 @@ const fetchProfile = async (login, token) => {
     },
     body: JSON.stringify({ query: QUERY, variables: { login } }),
   });
-  if (!response.ok) throw new Error(`GitHub antwortet mit Status ${response.status}.`);
+  if (!response.ok) throw new Error(`GitHub answered with status ${response.status}.`);
   const json = await response.json();
-  if (json.errors) throw new Error(`GitHub meldet: ${json.errors.map((e) => e.message).join(', ')}`);
+  if (json.errors) throw new Error(`GitHub reports: ${json.errors.map((e) => e.message).join(', ')}`);
 
   const calendar = json.data.user.contributionsCollection.contributionCalendar;
   const days = calendar.weeks

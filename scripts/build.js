@@ -11,10 +11,12 @@ const path = require('node:path');
 const { fetchProfile } = require('./github');
 const { analyse } = require('./analyse');
 const { THEMES } = require('./theme');
+const { escape } = require('./svg');
 const header = require('./render/header');
-const river = require('./render/river');
+const skyline = require('./render/skyline');
 const stats = require('./render/stats');
-const stack = require('./render/stack');
+const skills = require('./render/skills');
+const links = require('./render/links');
 
 const ROOT = path.join(__dirname, '..');
 const DATA_FILE = path.join(ROOT, 'data', 'contributions.json');
@@ -25,7 +27,7 @@ const write = (file, content) => {
   const before = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null;
   if (before === content) return;
   fs.writeFileSync(file, content);
-  console.log(`geschrieben: ${path.relative(ROOT, file)}`);
+  console.log(`written: ${path.relative(ROOT, file)}`);
 };
 
 // Without a token the stored numbers stay as they are. Fetching with a
@@ -36,9 +38,9 @@ const loadData = async (profile) => {
   const offline = process.argv.includes('--offline') || !token;
   if (offline) {
     if (!fs.existsSync(DATA_FILE)) {
-      throw new Error('Kein PROFILE_TOKEN gesetzt und keine gespeicherten Zahlen in data/contributions.json.');
+      throw new Error('No PROFILE_TOKEN set and no stored numbers in data/contributions.json.');
     }
-    if (!token) console.warn('Hinweis: kein PROFILE_TOKEN gesetzt, die Grafiken entstehen aus den gespeicherten Zahlen.');
+    if (!token) console.warn('Note: PROFILE_TOKEN is not set, drawing from the stored numbers.');
     return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
   }
   const data = await fetchProfile(profile.login, token);
@@ -46,18 +48,26 @@ const loadData = async (profile) => {
   return data;
 };
 
-const stamp = (iso) => new Intl.DateTimeFormat('de-DE', {
+const stamp = (iso) => new Intl.DateTimeFormat('en-US', {
   day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Berlin',
 }).format(new Date(iso));
 
-// The README keeps one line between two markers, everything else in it is
-// written by hand and stays untouched.
-const updateReadme = (text) => {
-  const readme = fs.readFileSync(README, 'utf8');
-  const pattern = /(<!-- updated:start -->)[\s\S]*?(<!-- updated:end -->)/;
-  if (!pattern.test(readme)) throw new Error('README.md hat keine updated-Markierung.');
-  write(README, readme.replace(pattern, `$1${text}$2`));
+// The README is written by hand except for two marked blocks: the link
+// pills, which follow profile.json, and the date line at the bottom.
+const replaceBlock = (readme, name, text) => {
+  const pattern = new RegExp(`(<!-- ${name}:start -->)[\\s\\S]*?(<!-- ${name}:end -->)`);
+  if (!pattern.test(readme)) throw new Error(`README.md has no ${name} marker.`);
+  return readme.replace(pattern, (match, start, end) => `${start}${text}${end}`);
 };
+
+// An image in a README can only be one link as a whole, so every pill is
+// its own file wrapped in its own <a>. A link without a URL (Discord has
+// no public profile pages) is shown as a plain pill.
+const linksBlock = (list) => list.map((link) => {
+  const alt = escape(`${link.label}: ${link.handle}`);
+  const picture = `<picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-${link.id}-dark.svg"><img alt="${alt}" src="assets/link-${link.id}-light.svg" height="36"></picture>`;
+  return link.url ? `<a href="${escape(link.url)}">${picture}</a>` : picture;
+}).join('\n');
 
 const main = async () => {
   const profile = JSON.parse(fs.readFileSync(path.join(ROOT, 'profile.json'), 'utf8'));
@@ -66,12 +76,16 @@ const main = async () => {
   for (const theme of Object.values(THEMES)) {
     const asset = (name) => path.join(ROOT, 'assets', `${name}-${theme.name}.svg`);
     write(asset('header'), header.render(theme, profile));
-    write(asset('river'), river.render(theme, summary));
+    write(asset('skyline'), skyline.render(theme, summary));
     write(asset('stats'), stats.render(theme, summary));
-    write(asset('stack'), stack.render(theme, profile));
+    write(asset('skills'), skills.render(theme, profile));
+    for (const link of profile.links || []) write(asset(`link-${link.id}`), links.render(theme, link));
   }
-  updateReadme(`Stand: ${stamp(data.fetchedAt)}`);
-  console.log(`${summary.total} Beiträge, ${summary.activeDays} aktive Tage, längste Serie ${summary.longest}, Lieblingstag ${summary.busiestWeekday}.`);
+  let readme = fs.readFileSync(README, 'utf8');
+  readme = replaceBlock(readme, 'links', `\n${linksBlock(profile.links || [])}\n`);
+  readme = replaceBlock(readme, 'updated', `Updated ${stamp(data.fetchedAt)}`);
+  write(README, readme);
+  console.log(`${summary.total} contributions, ${summary.activeDays} active days, longest streak ${summary.longest}, favorite day ${summary.busiestWeekday}.`);
 };
 
 main().catch((err) => {

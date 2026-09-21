@@ -27,7 +27,16 @@ const textWidth = (text, size, bold) => {
   return Math.round(em * size);
 };
 
-const number = (n) => new Intl.NumberFormat('de-DE').format(n);
+const number = (n) => new Intl.NumberFormat('en-US').format(n);
+
+// Mixes a hex colour towards another one, t = 0 keeps the first, t = 1 gives
+// the second. The side faces of a block are its top colour mixed with the
+// theme's shadow, so a new level colour needs no hand-picked shades.
+const mix = (from, to, t) => {
+  const a = from.match(/[0-9a-f]{2}/gi).map((h) => parseInt(h, 16));
+  const b = to.match(/[0-9a-f]{2}/gi).map((h) => parseInt(h, 16));
+  return `#${a.map((c, i) => Math.round(c + (b[i] - c) * t).toString(16).padStart(2, '0')).join('')}`;
+};
 
 // Holds an attribute at a start value until an animation takes over. The
 // element itself carries its final value, so a renderer that ignores SMIL
@@ -53,4 +62,4 @@ const document = ({ width, height, title, body }) => [
   '</svg>',
 ].join('\n') + '\n';
 
-module.exports = { FONT, escape, textWidth, number, hold, appear, document };
+module.exports = { FONT, escape, textWidth, number, mix, hold, appear, document };

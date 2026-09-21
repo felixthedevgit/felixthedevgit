@@ -4,11 +4,11 @@
 // Everything here is derived, nothing is fetched, so the renderers can be
 // tried out offline against data/contributions.json.
 
-const WEEKDAYS = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 const analyse = (days) => {
   // GitHub hands the calendar out in weeks from Sunday to Saturday. The
-  // first and the last week may be partial, which is fine for a curve.
+  // first and the last week may be partial, which is fine for the picture.
   const weeks = [];
   for (const day of days) {
     if (weeks.length === 0 || day.weekday === 0) weeks.push({ start: day.date, count: 0 });
@@ -35,13 +35,22 @@ const analyse = (days) => {
   const total = days.reduce((sum, day) => sum + day.count, 0);
   const busiest = byWeekday.indexOf(Math.max(...byWeekday));
 
+  // Four shades like GitHub's own calendar, cut at the quartiles of the
+  // active days rather than at fixed counts: a quiet year and a busy one
+  // then both use the whole range instead of one flat colour.
+  const active = days.map((day) => day.count).filter((count) => count > 0).sort((a, b) => a - b);
+  const quartile = (q) => (active.length ? active[Math.min(active.length - 1, Math.floor(active.length * q))] : 0);
+
   return {
+    days,
     total,
     weeks,
     longest,
     current,
-    activeDays: days.filter((day) => day.count > 0).length,
+    activeDays: active.length,
     dayCount: days.length,
+    maxDaily: active.length ? active[active.length - 1] : 0,
+    thresholds: [quartile(0.25), quartile(0.5), quartile(0.75)],
     busiestWeekday: WEEKDAYS[busiest],
     busiestShare: total > 0 ? byWeekday[busiest] / total : 0,
     first: days.length ? days[0].date : null,
