@@ -1,35 +1,23 @@
 'use strict';
 
-const { FONT, escape, textWidth, hold, appear, document } = require('../svg');
+const { FONT, escape, textWidth, brandPalette, appear, document } = require('../svg');
+const { ICONS } = require('../icons');
 
 const W = 900;
-const COLUMNS = 2;
-const GAP = 14;
-const CARD_H = 100;
+const ROW_H = 88;
+const GAP = 10;
 const PAD = 16;
-const ICON_BOX = 40;
+const KEY = 56;
+const ICON = 28;
 
 // How much a skill is used, in words rather than in made-up percentages.
 // Index is the level from profile.json, one to five.
 const LEVELS = ['', 'getting started', 'now and then', 'regularly', 'most weeks', 'daily'];
 
-// Simple icons in a 20 by 20 box. Languages get their usual monogram, tools
-// get a glyph. Each takes the foreground colour and the box background.
-const ICONS = {
-  js: (c) => `<text x="10" y="14.5" font-size="12" font-weight="800" text-anchor="middle" fill="${c}" font-family="${FONT}">JS</text>`,
-  ts: (c) => `<text x="10" y="14.5" font-size="12" font-weight="800" text-anchor="middle" fill="${c}" font-family="${FONT}">TS</text>`,
-  csharp: (c) => `<text x="10" y="14.5" font-size="12" font-weight="800" text-anchor="middle" fill="${c}" font-family="${FONT}">C#</text>`,
-  markup: (c) => `<path d="M7 4L2 10l5 6M13 4l5 6-5 6" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`,
-  luau: (c, bg) => `<circle cx="9" cy="11" r="6.5" fill="${c}"/><circle cx="11.5" cy="8.5" r="1.8" fill="${bg}"/><circle cx="16.5" cy="3.5" r="1.7" fill="${c}"/>`,
-  roblox: (c, bg) => `<g transform="rotate(-14 10 10)"><rect x="3.4" y="3.4" width="13.2" height="13.2" rx="1.6" fill="${c}"/><rect x="7.8" y="7.8" width="4.4" height="4.4" fill="${bg}"/></g>`,
-  db: (c) => `<ellipse cx="10" cy="5.5" rx="6.5" ry="2.5" fill="none" stroke="${c}" stroke-width="1.8"/><path d="M3.5 5.5v9c0 1.4 2.9 2.5 6.5 2.5s6.5-1.1 6.5-2.5v-9" fill="none" stroke="${c}" stroke-width="1.8"/><path d="M3.5 10c0 1.4 2.9 2.5 6.5 2.5s6.5-1.1 6.5-2.5" fill="none" stroke="${c}" stroke-width="1.8"/>`,
-  docker: (c) => `<rect x="2.5" y="10" width="4.2" height="4.2" rx="0.8" fill="${c}"/><rect x="7.9" y="10" width="4.2" height="4.2" rx="0.8" fill="${c}"/><rect x="13.3" y="10" width="4.2" height="4.2" rx="0.8" fill="${c}"/><rect x="7.9" y="4.6" width="4.2" height="4.2" rx="0.8" fill="${c}"/><path d="M2 17h16" stroke="${c}" stroke-width="1.8" stroke-linecap="round"/>`,
-  terminal: (c) => `<path d="M4 6l5 4-5 4" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 15h5" stroke="${c}" stroke-width="2" stroke-linecap="round"/>`,
-  git: (c) => `<circle cx="6" cy="5" r="2.2" fill="${c}"/><circle cx="6" cy="15" r="2.2" fill="${c}"/><circle cx="14" cy="8" r="2.2" fill="${c}"/><path d="M6 7v6M14 10c0 3-4 3-8 3" fill="none" stroke="${c}" stroke-width="1.8" stroke-linecap="round"/>`,
-};
+const clampLevel = (value) => Math.min(5, Math.max(1, Number(value) || 1));
 
 // Word wrap on the estimated width, at most two lines. A third line would
-// push the bar out of the card, so the text is cut with an ellipsis.
+// not fit the row, so the text is cut with an ellipsis instead.
 const wrap = (text, size, maxWidth) => {
   const lines = [];
   let line = '';
@@ -50,48 +38,52 @@ const wrap = (text, size, maxWidth) => {
   return lines;
 };
 
-const render = (theme, profile) => {
-  const categories = profile.categories || [];
-  const skills = profile.skills || [];
-  const cardW = (W - GAP * (COLUMNS - 1)) / COLUMNS;
-  const textX = PAD + ICON_BOX + 14;
-  const textW = cardW - textX - PAD;
-
-  const cards = skills.map((skill, i) => {
-    const col = i % COLUMNS;
-    const row = Math.floor(i / COLUMNS);
-    const x = col * (cardW + GAP);
-    const y = row * (CARD_H + GAP);
-    const categoryIndex = Math.max(0, categories.findIndex((c) => c.id === skill.category));
-    const category = categories[categoryIndex] || { label: '' };
-    const tint = theme.tints[categoryIndex % theme.tints.length];
-    const icon = ICONS[skill.icon] || ICONS.markup;
-    const level = Math.min(5, Math.max(1, Number(skill.level) || 1));
-    const begin = 0.15 + i * 0.08;
-    const barW = textW - 92;
-    const barFill = Math.round(barW * (level / 5));
-    const lines = wrap(skill.use, 12.5, textW);
-    return `<g>
+// One row per skill in the brand's own pastel: a key that rises out of its
+// shadow (the thicker the key, the more the skill is used) with the real
+// logo on top, the name, five segments for the level, and two lines on
+// what it is for. Every nine seconds the keys get pressed one after
+// another, so the list keeps moving without being busy.
+const row = (theme, skill, i, y) => {
+  const brand = ICONS[skill.icon];
+  const pal = brandPalette(theme, brand ? brand.hex : theme.accentStrong);
+  const level = clampLevel(skill.level);
+  const depth = 4 + level * 3;
+  const keyY = y + (ROW_H - KEY - depth) / 2;
+  const begin = 0.15 + i * 0.1;
+  const textX = PAD + KEY + 18;
+  const segX = textX + textWidth(skill.name, 15, true) + 14;
+  const segments = [1, 2, 3, 4, 5]
+    .map((k) => `<rect x="${segX + (k - 1) * 11}" y="${y + 22}" width="8" height="5" rx="2.5" fill="${k <= level ? pal.ink : pal.edge}"/>`)
+    .join('');
+  const lines = wrap(skill.use, 12.5, W - textX - PAD - 8);
+  const logo = brand
+    ? `<g transform="translate(${PAD + (KEY - ICON) / 2} ${keyY + (KEY - ICON) / 2}) scale(${(ICON / 24).toFixed(4)})"><path d="${brand.path}" fill="${pal.ink}"/></g>`
+    : '';
+  return `<g>
 ${appear(begin)}
-<rect x="${x + 0.5}" y="${y + 0.5}" width="${cardW - 1}" height="${CARD_H - 1}" rx="20" fill="${theme.card}" stroke="${theme.cardEdge}"/>
-<rect x="${x + PAD}" y="${y + PAD}" width="${ICON_BOX}" height="${ICON_BOX}" rx="12" fill="${tint.bg}"/>
-<g transform="translate(${x + PAD + 10} ${y + PAD + 10})">${icon(tint.fg, tint.bg)}</g>
-<text x="${x + textX}" y="${y + 33}" font-size="15" font-weight="700" fill="${theme.ink}">${escape(skill.name)}</text>
-<text x="${x + cardW - PAD}" y="${y + 32}" font-size="10.5" font-weight="700" letter-spacing="0.6" fill="${tint.fg}" text-anchor="end">${escape(category.label.toUpperCase())}</text>
-${lines.map((line, n) => `<text x="${x + textX}" y="${y + 53 + n * 16}" font-size="12.5" fill="${theme.muted}">${escape(line)}</text>`).join('\n')}
-<rect x="${x + textX}" y="${y + CARD_H - 19}" width="${barW}" height="5" rx="2.5" fill="${theme.accentSoft}"/>
-<rect x="${x + textX}" y="${y + CARD_H - 19}" width="${barFill}" height="5" rx="2.5" fill="${tint.fg}">
-${hold('width', 0, begin + 0.3)}
-<animate attributeName="width" from="0" to="${barFill}" dur="1s" begin="${begin + 0.3}s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.3 0 0.2 1"/>
-</rect>
-<text x="${x + textX + barW + 10}" y="${y + CARD_H - 14}" font-size="11" fill="${theme.muted}">${escape(LEVELS[level])}</text>
+<rect x="0.5" y="${y + 0.5}" width="${W - 1}" height="${ROW_H - 1}" rx="18" fill="${pal.card}" stroke="${pal.edge}"/>
+<rect x="${PAD}" y="${keyY + depth}" width="${KEY}" height="${KEY}" rx="14" fill="${pal.side}"/>
+<g>
+<animateTransform attributeName="transform" type="translate" from="0 ${depth}" to="0 0" dur="0.7s" begin="${begin.toFixed(2)}s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0 0.2 1"/>
+<animateTransform attributeName="transform" type="translate" additive="sum" values="0 0;0 ${Math.round(depth * 0.6)};0 0;0 0" keyTimes="0;0.03;0.07;1" dur="9s" begin="${(3 + i * 0.35).toFixed(2)}s" repeatCount="indefinite"/>
+<rect x="${PAD}" y="${keyY}" width="${KEY}" height="${KEY}" rx="14" fill="${pal.key}"/>
+${logo}
+</g>
+<text x="${textX}" y="${y + 30}" font-size="15" font-weight="700" fill="${theme.ink}">${escape(skill.name)}</text>
+${segments}
+<text x="${segX + 5 * 11 + 4}" y="${y + 30}" font-size="11.5" fill="${pal.ink}">${LEVELS[level]}</text>
+${lines.map((line, n) => `<text x="${textX}" y="${y + 53 + n * 17}" font-size="12.5" fill="${theme.muted}">${escape(line)}</text>`).join('\n')}
 </g>`;
-  });
+};
 
-  const rows = Math.ceil(skills.length / COLUMNS);
-  const height = Math.max(CARD_H, rows * (CARD_H + GAP) - GAP);
-  const title = skills.map((skill) => `${skill.name} (${LEVELS[Math.min(5, Math.max(1, Number(skill.level) || 1))]})`).join(', ');
-  return document({ width: W, height, title: `What I work with: ${title}`, body: `<g font-family="${FONT}">\n${cards.join('\n')}\n</g>` });
+// One graphic per category, so the README can put a heading above each.
+const render = (theme, profile, categoryId) => {
+  const skills = (profile.skills || []).filter((skill) => skill.category === categoryId);
+  const category = (profile.categories || []).find((c) => c.id === categoryId) || { label: categoryId };
+  const rows = skills.map((skill, i) => row(theme, skill, i, i * (ROW_H + GAP))).join('\n');
+  const height = Math.max(ROW_H, skills.length * (ROW_H + GAP) - GAP);
+  const title = `${category.label}: ${skills.map((s) => `${s.name} (${LEVELS[clampLevel(s.level)]})`).join(', ')}`;
+  return document({ width: W, height, title, body: `<g font-family="${FONT}">\n${rows}\n</g>` });
 };
 
 module.exports = { render };

@@ -1,53 +1,79 @@
-<div align="center">
-
 <!-- header:start -->
+<p align="center">
 <a href="https://felixthedev.com">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.2763641b.svg">
-  <img alt="Hey, I am FelixTheDev. Software and game developer from northern Germany." src="assets/header-light.91777e7f.svg" width="100%">
+  <img alt="Hey, I am FelixTheDev. Software and game developer from northern Germany." src="assets/header-light.91777e7f.svg" width="100%" align="top">
 </picture>
 </a>
+</p>
 <!-- header:end -->
-
-</div>
 
 I build software for public administration: tools my colleagues use every day, which is why they have to work without a manual. Three things matter to me. Load nothing from third-party servers. Store personal data encrypted or not at all. Build interfaces that hold up on a phone. On the side I make games on Roblox.
 
 <!-- skyline:start -->
+<p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.d42df9a6.svg">
-  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.6af9ea43.svg" width="100%">
+  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.6af9ea43.svg" width="100%" align="top">
 </picture>
+</p>
 <!-- skyline:end -->
 
 <!-- stats:start -->
+<p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.82c4980d.svg">
-  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.53c4e5f7.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.f064ea89.svg">
+  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.a4a033f2.svg" width="100%" align="top">
 </picture>
+</p>
 <!-- stats:end -->
 
 ### What I work with
 
 <!-- skills:start -->
+
+#### Languages
+
+<p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-dark.239ba389.svg">
-  <img alt="JavaScript, TypeScript, HTML and CSS, C# and .NET, Luau, Roblox Studio, SQLite, Docker, Linux, Git, each with what I use it for and how much" src="assets/skills-light.7e4618c5.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-languages-dark.ea43a551.svg">
+  <img alt="Languages: JavaScript, TypeScript, HTML, CSS, C#, Luau, each with what I use it for and how much" src="assets/skills-languages-light.e2e87a43.svg" width="100%" align="top">
 </picture>
+</p>
+
+#### Runtimes and frameworks
+
+<p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-runtimes-dark.0a8dec37.svg">
+  <img alt="Runtimes and frameworks: Node.js, Express, .NET, each with what I use it for and how much" src="assets/skills-runtimes-light.5c49116c.svg" width="100%" align="top">
+</picture>
+</p>
+
+#### Tools and platforms
+
+<p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-tools-dark.9fbb9ee3.svg">
+  <img alt="Tools and platforms: Roblox Studio, SQLite, Docker, Linux, Git, GitHub Actions, each with what I use it for and how much" src="assets/skills-tools-light.6f10162a.svg" width="100%" align="top">
+</picture>
+</p>
+
 <!-- skills:end -->
 
 ### Where to find me
 
-<p>
 <!-- links:start -->
-<a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-website-dark.d584a6a9.svg"><img alt="Website: felixthedev.com" src="assets/link-website-light.1e217664.svg" height="36"></picture></a>
-<a href="https://www.roblox.com/users/2559331169/profile"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-roblox-dark.9a77e423.svg"><img alt="Roblox: f_lixthedev" src="assets/link-roblox-light.96040c9c.svg" height="36"></picture></a>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-discord-dark.5291f63d.svg"><img alt="Discord: @felixthedev" src="assets/link-discord-light.dbd9930a.svg" height="36"></picture>
-<a href="https://www.tiktok.com/@f_lixthedev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-tiktok-dark.c62b870d.svg"><img alt="TikTok: @f_lixthedev" src="assets/link-tiktok-light.a4eb5dd0.svg" height="36"></picture></a>
-<a href="https://sky.shiiyu.moe/stats/FelixTheDev/Banana"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-skycrypt-dark.645160d0.svg"><img alt="SkyCrypt: FelixTheDev, Banana" src="assets/link-skycrypt-light.9b4cbfcf.svg" height="36"></picture></a>
-<a href="https://eliteskyblock.com/@FelixTheDev/Banana"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-elite-dark.b3eecc7e.svg"><img alt="Elite SkyBlock: FelixTheDev, Banana" src="assets/link-elite-light.c449001f.svg" height="36"></picture></a>
-<!-- links:end -->
+<p>
+<a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-website-dark.a482cedb.svg"><img alt="Website: felixthedev.com" src="assets/link-website-light.4cab3c68.svg" height="36"></picture></a>
+<a href="https://www.roblox.com/users/2559331169/profile"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-roblox-dark.f2e081db.svg"><img alt="Roblox: f_lixthedev" src="assets/link-roblox-light.c461e8fe.svg" height="36"></picture></a>
+<a href="https://discord.com/users/1268126622310076436"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-discord-dark.81d96ecc.svg"><img alt="Discord: @felixthedev" src="assets/link-discord-light.26cc5961.svg" height="36"></picture></a>
+<a href="https://www.tiktok.com/@f_lixthedev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-tiktok-dark.9763f10d.svg"><img alt="TikTok: @f_lixthedev" src="assets/link-tiktok-light.0d82f4c0.svg" height="36"></picture></a>
+<a href="https://sky.shiiyu.moe/stats/FelixTheDev/Banana"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-skycrypt-dark.2563e6c3.svg"><img alt="SkyCrypt: FelixTheDev" src="assets/link-skycrypt-light.58b4122d.svg" height="36"></picture></a>
+<a href="https://eliteskyblock.com/@FelixTheDev/Banana"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-elite-dark.24e9b940.svg"><img alt="Elite SkyBlock: FelixTheDev" src="assets/link-elite-light.9d29949f.svg" height="36"></picture></a>
 </p>
+<!-- links:end -->
 
 <details>
 <summary><b>More about me</b></summary>
@@ -55,7 +81,7 @@ I build software for public administration: tools my colleagues use every day, w
 
 - **Where:** A municipal administration in Schleswig-Holstein, Germany, as an IT apprentice.
 - **What:** Form and feedback services, tools for everyday administration, all on our own hardware.
-- **How:** Node.js and .NET, SQLite, Docker. No CDNs, no trackers, no external fonts.
+- **How:** Node.js and Express on the server, SQLite for the data, Docker on Linux. No CDNs, no trackers, no external fonts.
 - **Also:** Games on Roblox written in Luau, and Hypixel SkyBlock when nothing is compiling.
 - **Why:** Public administration deserves software people enjoy using.
 
@@ -67,7 +93,7 @@ I build software for public administration: tools my colleagues use every day, w
 
 None of the graphics above come from a third-party service. A small script in this repository ([`scripts/build.js`](scripts/build.js)) fetches the numbers from the GitHub API once a day, works out streaks and weekdays, and draws the SVG files in [`assets/`](assets). No dependencies, no trackers. Visiting this page loads nothing from anywhere else.
 
-The animations live inside the SVG files (SMIL), so they run without JavaScript. Texts, skills and links are in [`profile.json`](profile.json), the colours in [`scripts/theme.js`](scripts/theme.js). To reuse it for your own profile: fork, edit `profile.json`, add a token with `read:user` as the secret `PROFILE_TOKEN`, done.
+The animations live inside the SVG files (SMIL), so they run without JavaScript. Texts, skills and links are in [`profile.json`](profile.json), the colours in [`scripts/theme.js`](scripts/theme.js). The brand logos come from [Simple Icons](https://simpleicons.org) (CC0) and are copied into [`scripts/icons.js`](scripts/icons.js). To reuse it for your own profile: fork, edit `profile.json`, add a token with `read:user` as the secret `PROFILE_TOKEN`, done.
 
 </details>
 

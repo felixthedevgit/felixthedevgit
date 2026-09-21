@@ -33,6 +33,8 @@ const THEMES = {
     tileLight: '#D9CDFF',
     shadow: '#3B2E63',
     sweep: '#FFFFFF',
+    paper: '#FFFFFF',
+    neutral: '#6B7280',
     tints: [
       { bg: '#EDE9FE', fg: '#7C3AED' },
       { bg: '#FCE7F3', fg: '#DB2777' },
@@ -61,6 +63,8 @@ const THEMES = {
     tileLight: '#4A3D85',
     shadow: '#0B0814',
     sweep: '#FFFFFF',
+    paper: '#17132A',
+    neutral: '#C3BDD6',
     tints: [
       { bg: '#2E2657', fg: '#C4B5FD' },
       { bg: '#4A2340', fg: '#F9A8D4' },

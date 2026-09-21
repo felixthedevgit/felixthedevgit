@@ -1,6 +1,6 @@
 'use strict';
 
-const { FONT, escape, number, hold, appear, document } = require('../svg');
+const { FONT, escape, number, mix, hold, appear, document } = require('../svg');
 
 const W = 900;
 const H = 150;
@@ -36,7 +36,7 @@ ${hold('y', baseline, begin.toFixed(2))}${hold('height', 0, begin.toFixed(2))}
 </rect>`;
 
 // The last twelve weeks as small bars, so the big number has a shape.
-const weeklyBars = (theme, tint, stats, right, begin) => {
+const weeklyBars = (pal, stats, right, begin) => {
   const weeks = stats.weeks.slice(-12);
   const max = Math.max(1, ...weeks.map((w) => w.count));
   const bw = 4.5;
@@ -45,27 +45,27 @@ const weeklyBars = (theme, tint, stats, right, begin) => {
   return weeks.map((w, k) => bar(
     left + k * (bw + gap), 94, bw,
     w.count ? Math.max(4, Math.round(48 * (w.count / max))) : 2,
-    w.count ? tint.fg : theme.accentSoft,
+    w.count ? pal.fg : pal.track,
     begin + k * 0.06,
   )).join('\n');
 };
 
 // A ring that fills to a share, drawn with a dash offset that shrinks.
-const ring = (theme, tint, share, label, cx, cy, begin) => {
+const ring = (pal, share, label, cx, cy, begin) => {
   const r = 26;
   const c = (2 * Math.PI * r).toFixed(1);
   const offset = (2 * Math.PI * r * (1 - share)).toFixed(1);
-  return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${theme.accentSoft}" stroke-width="6"/>
-<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${tint.fg}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${offset}" transform="rotate(-90 ${cx} ${cy})">
+  return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${pal.track}" stroke-width="6"/>
+<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${pal.fg}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${offset}" transform="rotate(-90 ${cx} ${cy})">
 ${hold('stroke-dashoffset', c, begin.toFixed(2))}
 <animate attributeName="stroke-dashoffset" from="${c}" to="${offset}" dur="1.2s" begin="${begin.toFixed(2)}s" fill="freeze" ${EASE}/>
 </circle>
-<text x="${cx}" y="${cy + 4.5}" font-size="12" font-weight="700" fill="${tint.fg}" text-anchor="middle">${escape(label)}</text>`;
+<text x="${cx}" y="${cy + 4.5}" font-size="12" font-weight="700" fill="${pal.fg}" text-anchor="middle">${escape(label)}</text>`;
 };
 
 // The streak as a grid of days that light up one after another, seven per
 // row like a calendar. Four rows is the cap, longer streaks get a "+".
-const streakGrid = (theme, tint, longest, right, begin) => {
+const streakGrid = (pal, longest, right, begin) => {
   const size = 8;
   const gap = 3;
   const cols = 7;
@@ -78,20 +78,20 @@ const streakGrid = (theme, tint, longest, right, begin) => {
   for (let k = 0; k < rows * cols; k += 1) {
     const x = left + (k % cols) * (size + gap);
     const y = top + Math.floor(k / cols) * (size + gap);
-    out += `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="2" fill="${theme.accentSoft}"/>\n`;
+    out += `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="2" fill="${pal.track}"/>\n`;
     if (k < lit) {
       const at = (begin + k * 0.05).toFixed(2);
-      out += `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="2" fill="${tint.fg}">${hold('opacity', 0, at)}<animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="${at}s" fill="freeze"/></rect>\n`;
+      out += `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="2" fill="${pal.fg}">${hold('opacity', 0, at)}<animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="${at}s" fill="freeze"/></rect>\n`;
     }
   }
   if (longest > cap) {
-    out += `<text x="${right}" y="${top + rows * (size + gap) + 8}" font-size="10" fill="${theme.muted}" text-anchor="end">+${number(longest - cap)}</text>\n`;
+    out += `<text x="${right}" y="${top + rows * (size + gap) + 8}" font-size="10" fill="${pal.muted}" text-anchor="end">+${number(longest - cap)}</text>\n`;
   }
   return out;
 };
 
 // All seven weekdays as bars, the favourite one in colour.
-const weekdayBars = (theme, tint, stats, right, begin) => {
+const weekdayBars = (pal, stats, right, begin) => {
   const max = Math.max(1, ...stats.byWeekday);
   const best = stats.byWeekday.indexOf(max);
   const bw = 5;
@@ -100,25 +100,34 @@ const weekdayBars = (theme, tint, stats, right, begin) => {
   const letters = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   return stats.byWeekday.map((v, k) => {
     const x = left + k * (bw + gap);
-    return bar(x, 92, bw, v ? Math.max(3, Math.round(44 * (v / max))) : 2, k === best ? tint.fg : theme.accentSoft, begin + k * 0.07)
-      + `<text x="${x + bw / 2}" y="104" font-size="8" fill="${theme.muted}" text-anchor="middle">${letters[k]}</text>`;
+    return bar(x, 92, bw, v ? Math.max(3, Math.round(44 * (v / max))) : 2, k === best ? pal.fg : pal.track, begin + k * 0.07)
+      + `<text x="${x + bw / 2}" y="104" font-size="8" fill="${pal.muted}" text-anchor="middle">${letters[k]}</text>`;
   }).join('\n');
 };
 
+// Four tiles, each in its own pastel from the theme's tints, so the row
+// reads as four different things rather than one purple block.
 const render = (theme, stats) => {
   const width = (W - GAP * 3) / 4;
   const activeShare = stats.dayCount ? stats.activeDays / stats.dayCount : 0;
   const tiles = [
-    { label: 'Contributions', value: stats.total, hint: 'in twelve months', visual: (tint, right, b) => weeklyBars(theme, tint, stats, right, b) },
-    { label: 'Active days', value: stats.activeDays, hint: `of ${number(stats.dayCount)}`, visual: (tint, right, b) => ring(theme, tint, activeShare, `${Math.round(activeShare * 100)}%`, right - 30, 70, b) },
-    { label: 'Longest streak', value: stats.longest, hint: stats.longest === 1 ? 'day in a row' : 'days in a row', visual: (tint, right, b) => streakGrid(theme, tint, stats.longest, right, b) },
-    { label: 'Favorite day', value: stats.busiestWeekday, hint: `${Math.round(stats.busiestShare * 100)}% of activity`, visual: (tint, right, b) => weekdayBars(theme, tint, stats, right, b) },
+    { label: 'Contributions', value: stats.total, hint: 'in twelve months', visual: (pal, right, b) => weeklyBars(pal, stats, right, b) },
+    { label: 'Active days', value: stats.activeDays, hint: `of ${number(stats.dayCount)}`, visual: (pal, right, b) => ring(pal, activeShare, `${Math.round(activeShare * 100)}%`, right - 30, 70, b) },
+    { label: 'Longest streak', value: stats.longest, hint: stats.longest === 1 ? 'day in a row' : 'days in a row', visual: (pal, right, b) => streakGrid(pal, stats.longest, right, b) },
+    { label: 'Favorite day', value: stats.busiestWeekday, hint: `${Math.round(stats.busiestShare * 100)}% of activity`, visual: (pal, right, b) => weekdayBars(pal, stats, right, b) },
   ];
 
   const body = tiles.map((tile, i) => {
     const x = i * (width + GAP);
     const begin = 0.2 + i * 0.15;
     const tint = theme.tints[i % theme.tints.length];
+    const pal = {
+      fg: tint.fg,
+      bg: tint.bg,
+      edge: mix(tint.bg, tint.fg, 0.18),
+      track: mix(tint.bg, tint.fg, 0.22),
+      muted: mix(tint.fg, theme.muted, 0.5),
+    };
     const numeric = typeof tile.value === 'number';
     const size = numeric ? 34 : (String(tile.value).length > 7 ? 20 : 24);
     const value = numeric
@@ -126,11 +135,11 @@ const render = (theme, stats) => {
       : `<text x="${x + PAD}" y="84" font-size="${size}" font-weight="700" fill="${theme.ink}">${escape(tile.value)}</text>`;
     return `<g>
 ${appear(begin)}
-<rect x="${x + 0.5}" y="0.5" width="${width - 1}" height="${H - 1}" rx="20" fill="${theme.card}" stroke="${theme.cardEdge}"/>
-<text x="${x + PAD}" y="38" font-size="13" font-weight="600" fill="${theme.muted}">${escape(tile.label)}</text>
+<rect x="${x + 0.5}" y="0.5" width="${width - 1}" height="${H - 1}" rx="20" fill="${pal.bg}" stroke="${pal.edge}"/>
+<text x="${x + PAD}" y="38" font-size="13" font-weight="600" fill="${pal.fg}">${escape(tile.label)}</text>
 ${value}
-<text x="${x + PAD}" y="108" font-size="13" fill="${theme.muted}">${escape(tile.hint)}</text>
-${tile.visual(tint, x + width - PAD, begin + 0.3)}
+<text x="${x + PAD}" y="108" font-size="13" fill="${pal.muted}">${escape(tile.hint)}</text>
+${tile.visual(pal, x + width - PAD, begin + 0.3)}
 </g>`;
   }).join('\n');
 

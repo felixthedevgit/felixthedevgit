@@ -5,29 +5,33 @@
   "tagline": "Software and game developer from northern Germany",
   "chips": ["Public sector software", "Roblox game dev", "Self-hosted everything"],
   "categories": [
-    { "id": "web", "label": "Web and backend" },
-    { "id": "apps", "label": "Apps and desktop" },
-    { "id": "games", "label": "Games" },
-    { "id": "ops", "label": "Data and operations" }
+    { "id": "languages", "label": "Languages" },
+    { "id": "runtimes", "label": "Runtimes and frameworks" },
+    { "id": "tools", "label": "Tools and platforms" }
   ],
   "skills": [
-    { "name": "JavaScript", "icon": "js", "category": "web", "level": 5, "use": "Node.js services for public administration, the bulk of my daily work" },
-    { "name": "TypeScript", "icon": "ts", "category": "web", "level": 3, "use": "Typed Node.js tools once a project grows past a few files" },
-    { "name": "HTML and CSS", "icon": "markup", "category": "web", "level": 4, "use": "Hand-written interfaces, no framework, no build step" },
-    { "name": "C# and .NET", "icon": "csharp", "category": "apps", "level": 4, "use": "Desktop tooling for the office, my largest codebase so far" },
-    { "name": "Luau", "icon": "luau", "category": "games", "level": 3, "use": "Game logic and systems for my Roblox experiences" },
-    { "name": "Roblox Studio", "icon": "roblox", "category": "games", "level": 3, "use": "Building, testing and publishing games on Roblox" },
-    { "name": "SQLite", "icon": "db", "category": "ops", "level": 4, "use": "One file, encrypted content, no database server to babysit" },
-    { "name": "Docker", "icon": "docker", "category": "ops", "level": 3, "use": "Every service ships as one container on our own hardware" },
-    { "name": "Linux", "icon": "terminal", "category": "ops", "level": 3, "use": "Servers, systemd timers, reverse proxies, backups" },
-    { "name": "Git", "icon": "git", "category": "ops", "level": 4, "use": "Branches, pull requests, tags and releases, every day" }
+    { "name": "JavaScript", "icon": "javascript", "category": "languages", "level": 5, "use": "The language I write most days. Everything from the form service at the office to the small script that draws this page runs on it, and I still enjoy how little ceremony it needs." },
+    { "name": "TypeScript", "icon": "typescript", "category": "languages", "level": 3, "use": "For the projects that outgrow a handful of files. The types catch the mistakes I would otherwise meet at runtime, and the editor suddenly knows what every object looks like." },
+    { "name": "HTML", "icon": "html5", "category": "languages", "level": 4, "use": "Every interface I ship is hand-written markup. Semantic elements, forms that work without a script, and pages a screen reader can follow from top to bottom." },
+    { "name": "CSS", "icon": "css", "category": "languages", "level": 4, "use": "Custom properties, grid and a few animations, no framework and no build step. Dark mode is not an afterthought, it is a second set of variables." },
+    { "name": "C#", "icon": "dotnet", "category": "languages", "level": 1, "use": "Picked it up two weeks ago for a desktop tool at the office. Still reading more than writing, but I like how much the compiler catches before anything runs." },
+    { "name": "Luau", "icon": "luau", "category": "languages", "level": 3, "use": "The scripting language behind my Roblox games. Game logic, data stores, and the client-server split that every multiplayer feature has to respect." },
+    { "name": "Node.js", "icon": "nodedotjs", "category": "runtimes", "level": 5, "use": "My server runtime of choice. One process, no external services, and a standard library that covers more with every release, from fetch to the built-in SQLite driver." },
+    { "name": "Express", "icon": "express", "category": "runtimes", "level": 4, "use": "Routing and middleware for the services I build. The handlers stay thin, the actual logic lives in plain modules that know nothing about HTTP." },
+    { "name": ".NET", "icon": "dotnet", "category": "runtimes", "level": 1, "use": "Arrived together with C#. So far it is the framework under one desktop tool, and the tooling around it is what I am still getting used to." },
+    { "name": "Roblox Studio", "icon": "robloxstudio", "category": "tools", "level": 3, "use": "Where the games get built, tested and published. Prototyping a mechanic there is faster than in most engines I have tried." },
+    { "name": "SQLite", "icon": "sqlite", "category": "tools", "level": 4, "use": "One file per service, personal data encrypted before it is written. No database server to run, back up or upgrade." },
+    { "name": "Docker", "icon": "docker", "category": "tools", "level": 3, "use": "Every service ships as one container and runs on our own hardware behind a reverse proxy. An update is a new image and a restart." },
+    { "name": "Linux", "icon": "linux", "category": "tools", "level": 3, "use": "The servers run Linux. systemd timers, SSH, backups, and reading logs at odd hours when something does not come back up." },
+    { "name": "Git", "icon": "git", "category": "tools", "level": 4, "use": "Branches, pull requests and tagged releases, even when I am the only one on the project. The history is documentation I do not have to write twice." },
+    { "name": "GitHub Actions", "icon": "githubactions", "category": "tools", "level": 3, "use": "Builds the release images and redraws this profile once a day. Pinned actions, a minimal token, and nothing that loads from a third party." }
   ],
   "links": [
     { "id": "website", "icon": "globe", "label": "Website", "handle": "felixthedev.com", "url": "https://felixthedev.com" },
     { "id": "roblox", "icon": "roblox", "label": "Roblox", "handle": "f_lixthedev", "url": "https://www.roblox.com/users/2559331169/profile" },
-    { "id": "discord", "icon": "discord", "label": "Discord", "handle": "@felixthedev", "url": null },
+    { "id": "discord", "icon": "discord", "label": "Discord", "handle": "@felixthedev", "url": "https://discord.com/users/1268126622310076436" },
     { "id": "tiktok", "icon": "tiktok", "label": "TikTok", "handle": "@f_lixthedev", "url": "https://www.tiktok.com/@f_lixthedev" },
-    { "id": "skycrypt", "icon": "cube", "label": "SkyCrypt", "handle": "FelixTheDev, Banana", "url": "https://sky.shiiyu.moe/stats/FelixTheDev/Banana" },
-    { "id": "elite", "icon": "leaf", "label": "Elite SkyBlock", "handle": "FelixTheDev, Banana", "url": "https://eliteskyblock.com/@FelixTheDev/Banana" }
+    { "id": "skycrypt", "icon": "cube", "color": "#D4A017", "label": "SkyCrypt", "handle": "FelixTheDev", "url": "https://sky.shiiyu.moe/stats/FelixTheDev/Banana" },
+    { "id": "elite", "icon": "leaf", "color": "#3FA34D", "label": "Elite SkyBlock", "handle": "FelixTheDev", "url": "https://eliteskyblock.com/@FelixTheDev/Banana" }
   ]
 }

@@ -38,6 +38,35 @@ const mix = (from, to, t) => {
   return `#${a.map((c, i) => Math.round(c + (b[i] - c) * t).toString(16).padStart(2, '0')).join('')}`;
 };
 
+// Rough relative luminance, enough to tell a yellow from a navy.
+const luminance = (hex) => {
+  const [r, g, b] = hex.match(/[0-9a-f]{2}/gi).map((h) => parseInt(h, 16));
+  return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+};
+
+// A brand colour turned into the handful of pastel shades a row, a pill or
+// a key needs, per theme. Black brands (Roblox, TikTok, Express) would only
+// turn grey, they get the theme's neutral instead. Light brands such as the
+// JavaScript yellow are darkened for the icon in light mode, or the logo
+// would drown in its own pastel.
+const brandPalette = (theme, hex) => {
+  let brand = hex.startsWith('#') ? hex.toUpperCase() : `#${hex.toUpperCase()}`;
+  if (luminance(brand) < 0.12) brand = theme.neutral;
+  const light = theme.name === 'light';
+  let ink = brand;
+  if (light && luminance(brand) > 0.55) ink = mix(brand, theme.shadow, 0.4);
+  if (!light) ink = mix(brand, '#FFFFFF', luminance(brand) < 0.3 ? 0.45 : 0.2);
+  return {
+    brand,
+    ink,
+    key: mix(brand, theme.paper, light ? 0.74 : 0.68),
+    side: mix(brand, theme.shadow, light ? 0.3 : 0.5),
+    card: mix(brand, theme.paper, light ? 0.9 : 0.86),
+    edge: mix(brand, theme.paper, light ? 0.76 : 0.68),
+    track: mix(brand, theme.paper, light ? 0.8 : 0.72),
+  };
+};
+
 // Holds an attribute at a start value until an animation takes over. The
 // element itself carries its final value, so a renderer that ignores SMIL
 // (or a screenshot taken before the timeline starts) shows the finished
@@ -62,4 +91,4 @@ const document = ({ width, height, title, body }) => [
   '</svg>',
 ].join('\n') + '\n';
 
-module.exports = { FONT, escape, textWidth, number, mix, hold, appear, document };
+module.exports = { FONT, escape, textWidth, number, mix, luminance, brandPalette, hold, appear, document };
