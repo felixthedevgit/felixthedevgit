@@ -9,18 +9,13 @@ const LEFT = 48;
 const HEADLINE_SIZE = 46;
 const BASELINE = 100;
 
-// Where the floating logo discs sit on the right half, loosely scattered
-// so they read as a cloud rather than a grid. profile.json decides which
-// logos, the first slot takes the first entry.
-const SLOTS = [
-  { x: 640, y: 62, r: 24 },
-  { x: 722, y: 40, r: 20 },
-  { x: 806, y: 66, r: 26 },
-  { x: 862, y: 138, r: 21 },
-  { x: 776, y: 150, r: 24 },
-  { x: 692, y: 168, r: 22 },
-  { x: 612, y: 142, r: 18 },
-];
+// The little planet on the right and the orbit its moons travel on. The
+// orbit is a flat ellipse seen from slightly above, which is where the
+// depth comes from: a moon at the top is far away, one at the bottom is
+// close and passes in front of the planet.
+const ORBIT = { cx: 745, cy: 106, rx: 122, ry: 44, period: 14 };
+const PLANET_R = 34;
+const MOON_R = 19;
 
 // Small rounded labels in the lower left. Their width comes from the text
 // estimate plus generous padding, so a slightly wider font still fits.
@@ -49,49 +44,89 @@ const glow = (id, color) => `<radialGradient id="${id}">
 <stop offset="1" stop-color="${color}" stop-opacity="0"/>
 </radialGradient>`;
 
-// A logo on a pastel disc that bobs up and down. The shadow underneath
-// stays put and fades while the disc is up, which is what sells the
-// floating. Durations differ per disc so the cloud never moves in step.
-const disc = (theme, slug, slot, i) => {
+// The orbit as a path that starts on the left, runs over the top (the far
+// side) to the right and returns along the bottom (the near side).
+const orbitPath = () => {
+  const { cx, cy, rx, ry } = ORBIT;
+  return `M${cx - rx} ${cy} A${rx} ${ry} 0 0 1 ${cx + rx} ${cy} A${rx} ${ry} 0 0 1 ${cx - rx} ${cy}`;
+};
+const orbitHalf = (near) => {
+  const { cx, cy, rx, ry } = ORBIT;
+  return near
+    ? `M${cx + rx} ${cy} A${rx} ${ry} 0 0 1 ${cx - rx} ${cy}`
+    : `M${cx - rx} ${cy} A${rx} ${ry} 0 0 1 ${cx + rx} ${cy}`;
+};
+
+// One moon, drawn twice: a copy for the far half of the orbit that sits
+// behind the planet and a copy for the near half that sits in front. Each
+// copy is only visible during its half, and the switch happens at the
+// sides where both copies share the same spot, so nothing pops. Size and
+// opacity follow the depth: small and faint at the back, large in front.
+const moon = (theme, slug, i, count, near) => {
   const brand = ICONS[slug];
   if (!brand) return '';
   const pal = brandPalette(theme, brand.hex);
-  const size = slot.r * 1.15;
-  const dur = (4 + (i % 3) * 0.9).toFixed(1);
-  const phase = (-(i * 0.7)).toFixed(1);
-  const ease = 'calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"';
-  return `<g>
-${appear(0.5 + i * 0.12)}
-<ellipse cx="${slot.x}" cy="${slot.y + slot.r + 9}" rx="${(slot.r * 0.75).toFixed(1)}" ry="4" fill="${theme.shadow}" opacity="0.14">
-<animate attributeName="opacity" values="0.14;0.05;0.14" dur="${dur}s" begin="${phase}s" repeatCount="indefinite" ${ease}/>
-</ellipse>
-<g>
-<animateTransform attributeName="transform" type="translate" values="0 0;0 -7;0 0" dur="${dur}s" begin="${phase}s" repeatCount="indefinite" ${ease}/>
-<circle cx="${slot.x}" cy="${slot.y}" r="${slot.r}" fill="${pal.key}" stroke="${theme.chipEdge}" stroke-width="2"/>
-<g transform="translate(${(slot.x - size / 2).toFixed(1)} ${(slot.y - size / 2).toFixed(1)}) scale(${(size / 24).toFixed(4)})"><path d="${brand.path}" fill="${pal.ink}"/></g>
-</g>
+  const size = MOON_R * 1.15;
+  const timing = `dur="${ORBIT.period}s" begin="${(-(i / count) * ORBIT.period).toFixed(2)}s" repeatCount="indefinite"`;
+  return `<g visibility="${near ? 'visible' : 'hidden'}">
+<animate attributeName="visibility" values="${near ? 'hidden;visible' : 'visible;hidden'}" keyTimes="0;0.5" calcMode="discrete" ${timing}/>
+<animateMotion path="${orbitPath()}" ${timing}/>
+<animateTransform attributeName="transform" type="scale" values="0.85;0.66;0.85;1.12;0.85" keyTimes="0;0.25;0.5;0.75;1" ${timing}/>
+<animate attributeName="opacity" values="0.9;0.65;0.9;1;0.9" keyTimes="0;0.25;0.5;0.75;1" ${timing}/>
+<circle r="${MOON_R}" fill="${pal.key}" stroke="${theme.chipEdge}" stroke-width="2"/>
+<g transform="translate(${(-size / 2).toFixed(1)} ${(-size / 2).toFixed(1)}) scale(${(size / 24).toFixed(4)})"><path d="${brand.path}" fill="${pal.ink}"/></g>
 </g>`;
 };
 
-// A hand-drawn wave under the last word of the greeting, drawn after the
-// headline has finished wiping in. The x positions come from the same
-// width estimate that textLength pins the headline to, so they line up.
-const underline = (theme, greeting) => {
+// Planet, ring and moons. The ring is split into its far and near half
+// for the same reason as the moons.
+const system = (theme, slugs) => {
+  const { cx, cy } = ORBIT;
+  const list = slugs.slice(0, 8);
+  const ring = (near) => `<path d="${orbitHalf(near)}" fill="none" stroke="${theme.chipEdge}" stroke-width="1.5" stroke-dasharray="3 6" stroke-linecap="round"/>`;
+  return `<g>
+${appear(0.9, 0.8)}
+${ring(false)}
+${list.map((slug, i) => moon(theme, slug, i, list.length, false)).join('\n')}
+<ellipse cx="${cx}" cy="${cy + PLANET_R + 12}" rx="${PLANET_R * 0.8}" ry="5" fill="${theme.shadow}" opacity="0.14">
+<animate attributeName="opacity" values="0.14;0.07;0.14" dur="5s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
+</ellipse>
+<g>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0" dur="5s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
+<circle cx="${cx}" cy="${cy}" r="${PLANET_R}" fill="url(#planet)"/>
+<ellipse cx="${cx - 10}" cy="${cy - 14}" rx="9" ry="5" fill="#FFFFFF" opacity="0.55" transform="rotate(-25 ${cx - 10} ${cy - 14})"/>
+</g>
+${ring(true)}
+${list.map((slug, i) => moon(theme, slug, i, list.length, true)).join('\n')}
+</g>`;
+};
+
+// A marker stroke under the last word of the greeting, drawn by hand:
+// two slightly wobbly lines, the second shorter and a little lower, with
+// an offset shadow copy underneath for a bit of depth. They draw
+// themselves once the headline has finished wiping in. The x positions
+// come from the same width estimate that textLength pins the headline to.
+const scribble = (theme, greeting) => {
   const words = greeting.trim().split(/\s+/);
   const last = words[words.length - 1].replace(/[.!?,]+$/, '');
   const prefix = words.length > 1 ? `${words.slice(0, -1).join(' ')} ` : '';
-  const start = LEFT + textWidth(prefix, HEADLINE_SIZE, true);
-  const width = textWidth(last, HEADLINE_SIZE, true);
-  const y = BASELINE + 11;
-  let d = `M${start} ${y}`;
-  const step = 14;
-  const steps = Math.max(2, Math.round(width / step));
-  const dx = width / steps;
-  for (let k = 0; k < steps; k += 1) d += ` q${(dx / 2).toFixed(1)} ${k % 2 ? 5 : -5} ${dx.toFixed(1)} 0`;
-  return `<path d="${d}" fill="none" stroke="${theme.pink}" stroke-width="3" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0">
-${hold('stroke-dashoffset', 1, 1.9)}
-<animate attributeName="stroke-dashoffset" from="1" to="0" dur="0.6s" begin="1.9s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.3 0 0.2 1"/>
+  const x = LEFT + textWidth(prefix, HEADLINE_SIZE, true);
+  const w = textWidth(last, HEADLINE_SIZE, true);
+  const y = BASELINE + 10;
+  const at = (f, dy) => `${(x + w * f).toFixed(1)} ${y + dy}`;
+  const first = `M${at(0, 0)} C${at(0.2, -4)} ${at(0.35, 4)} ${at(0.5, 1)} S${at(0.85, -3)} ${at(1, 2)}`;
+  const second = `M${at(0.12, 8)} C${at(0.4, 5)} ${at(0.6, 11)} ${at(0.86, 7)}`;
+  const stroke = (d, color, width, begin, dur, extra) => `<path d="${d}" fill="none" stroke="${color}" stroke-width="${width}" stroke-linecap="round" pathLength="1" stroke-dasharray="1"${extra}>
+${hold('stroke-dashoffset', 1, begin)}
+<animate attributeName="stroke-dashoffset" from="1" to="0" dur="${dur}s" begin="${begin}s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.3 0 0.2 1"/>
 </path>`;
+  const shadow = ` opacity="0.22" transform="translate(2.5 2.5)"`;
+  return [
+    stroke(first, theme.shadow, 4.5, 1.9, 0.45, shadow),
+    stroke(second, theme.shadow, 3.5, 2.4, 0.3, shadow),
+    stroke(first, theme.pink, 4.5, 1.9, 0.45, ''),
+    stroke(second, theme.pink, 3.5, 2.4, 0.3, ''),
+  ].join('\n');
 };
 
 const render = (theme, profile) => {
@@ -110,7 +145,6 @@ const render = (theme, profile) => {
     chips += `${c.svg}\n`;
     x += c.width + 10;
   });
-  const discs = (profile.hero || []).slice(0, SLOTS.length).map((slug, i) => disc(theme, slug, SLOTS[i], i)).join('\n');
 
   const body = `<defs>
 <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -118,6 +152,11 @@ const render = (theme, profile) => {
 <stop offset="0.55" stop-color="${g1}"><animate attributeName="stop-color" values="${g1};${g2};${g1}" dur="14s" repeatCount="indefinite"/></stop>
 <stop offset="1" stop-color="${g2}"><animate attributeName="stop-color" values="${g2};${g0};${g2}" dur="14s" repeatCount="indefinite"/></stop>
 </linearGradient>
+<radialGradient id="planet" cx="0.35" cy="0.3" r="0.85">
+<stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+<stop offset="0.3" stop-color="${theme.accent}"/>
+<stop offset="1" stop-color="${theme.accentStrong}"/>
+</radialGradient>
 ${glow('glow-pink', theme.pink)}
 ${glow('glow-accent', theme.accent)}
 ${glow('glow-blob', theme.blob)}
@@ -134,7 +173,7 @@ ${blob('glow-blob', 140, 250, 170, '40 -30', 21)}
 <g clip-path="url(#wipe)">
 <text x="${LEFT}" y="${BASELINE}" font-size="${HEADLINE_SIZE}" font-weight="700" fill="${theme.ink}" textLength="${headlineWidth}" lengthAdjust="spacing">${escape(profile.greeting)}</text>
 </g>
-${underline(theme, profile.greeting)}
+${scribble(theme, profile.greeting)}
 <rect x="${cursorEnd}" y="${BASELINE - HEADLINE_SIZE + 8}" width="3" height="${HEADLINE_SIZE}" rx="1.5" fill="${theme.accentStrong}">
 ${hold('x', LEFT, 0.4)}
 <animate attributeName="x" from="${LEFT}" to="${cursorEnd}" ${wipe}/>
@@ -142,9 +181,9 @@ ${hold('x', LEFT, 0.4)}
 </rect>
 <g>
 ${appear(1.6, 0.7)}
-<text x="${LEFT}" y="${BASELINE + 36}" font-size="18" fill="${theme.muted}">${escape(profile.tagline)}</text>
+<text x="${LEFT}" y="${BASELINE + 38}" font-size="18" fill="${theme.muted}">${escape(profile.tagline)}</text>
 </g>
-${chips}${discs}
+${chips}${system(theme, profile.hero || [])}
 </g>`;
 
   return document({ width: W, height: H, title: `${profile.greeting} ${profile.tagline}`, body });
