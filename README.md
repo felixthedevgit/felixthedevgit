@@ -14,8 +14,8 @@ I build software for public administration: tools my colleagues use every day, w
 <!-- skyline:start -->
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.e9473123.svg">
-  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.4780c496.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.542a33c9.svg">
+  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.4606d585.svg" width="100%" align="top">
 </picture>
 </p>
 <!-- skyline:end -->
@@ -23,8 +23,8 @@ I build software for public administration: tools my colleagues use every day, w
 <!-- stats:start -->
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.569e6d3e.svg">
-  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.1d1f5fc8.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.81ef6671.svg">
+  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.7bb55f3f.svg" width="100%" align="top">
 </picture>
 </p>
 <!-- stats:end -->
@@ -97,4 +97,4 @@ The animations live inside the SVG files (SMIL), so they run without JavaScript.
 
 </details>
 
-<sub><!-- updated:start -->Updated September 22, 2026<!-- updated:end --></sub>
+<sub><!-- updated:start -->Updated September 23, 2026<!-- updated:end --></sub>
