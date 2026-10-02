@@ -18,8 +18,8 @@ At my day job I'm training as an IT specialist for system integration at a munic
 <!-- skyline:start -->
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.ddbd392d.svg">
-  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.589b4075.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.ae4eddfb.svg">
+  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.bcbe0f06.svg" width="100%" align="top">
 </picture>
 </p>
 <!-- skyline:end -->
@@ -27,8 +27,8 @@ At my day job I'm training as an IT specialist for system integration at a munic
 <!-- stats:start -->
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.19249514.svg">
-  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.b401fd39.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.e024b69a.svg">
+  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.e80c6381.svg" width="100%" align="top">
 </picture>
 </p>
 <!-- stats:end -->
