@@ -2,14 +2,18 @@
 <p align="center">
 <a href="https://felixthedev.com">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.5ae6c65a.svg">
-  <img alt="Hey, I am FelixTheDev. Software and game developer from northern Germany." src="assets/header-light.a1a255a2.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.be4c90d8.svg">
+  <img alt="Hey, I am FelixTheDev. Felix Grad, software developer from northern Germany." src="assets/header-light.74749a2c.svg" width="100%" align="top">
 </picture>
 </a>
 </p>
 <!-- header:end -->
 
-I build software for public administration: tools my colleagues use every day, which is why they have to work without a manual. Three things matter to me. Load nothing from third-party servers. Store personal data encrypted or not at all. Build interfaces that hold up on a phone. On the side I make games on Roblox.
+I'm **Felix Grad** from Dithmarschen in northern Germany, known online as FelixTheDev. I build websites, web and Android apps and automations for clients worldwide, and I take care of domains, servers and hosting too. Everything about my work, my projects and how to reach me is on **[felixthedev.com](https://felixthedev.com)**.
+
+At my day job I'm training as an IT specialist for system integration at a municipal administration and build tools my colleagues use every day, which is why they have to work without a manual. Three things matter to me. Load nothing from third-party servers. Store personal data encrypted or not at all. Build interfaces that hold up on a phone. On the side I make games on Roblox.
+
+**[Services](https://felixthedev.com/services/)** · **[Projects](https://felixthedev.com/projects/)** · **[About me](https://felixthedev.com/about/)** · **[Contact](https://felixthedev.com/contact/)** · **[Auf Deutsch](https://felixthedev.com/de/)**
 
 <!-- skyline:start -->
 <p>
@@ -62,6 +66,13 @@ I build software for public administration: tools my colleagues use every day, w
 
 <!-- skills:end -->
 
+### Projects
+
+- **[SimpleGym](https://felixthedev.com/projects/simplegym/)**: fitness app for Android with its own API, an admin panel, offline sync and several languages. Closed alpha, a web version is in progress.
+- **[NFC door lock](https://felixthedev.com/projects/nfc-schloss/)**: firmware for an ESP32-S3 that checks MIFARE DESFire EV3 cards by AES-128 challenge-response. In progress.
+- **[MiniCasino](https://felixthedev.com/projects/minicasino/)**: school project with Nikita Lupalo. Card accounts, an admin panel in the browser and a 3D model that plays with the real game logic. [Code](https://github.com/BBZ-AIFS51/LF7-MiniCasino)
+- **[This profile](https://felixthedev.com/projects/github-profil/)**: every graphic on this page is drawn by my own script once a day, without third-party services.
+
 ### Where to find me
 
 <!-- links:start -->
@@ -79,6 +90,8 @@ I build software for public administration: tools my colleagues use every day, w
 <summary><b>More about me</b></summary>
 <br>
 
+- **Who:** Felix Grad, also FelixTheDev, F_lixTheDev or felixthedevgit. Not the YouTuber and programming teacher "Felix The Dev" or the GitHub account felixthedev, that is someone else.
+- **Freelance:** Websites, web and Android apps, automation, hosting and maintenance for clients worldwide, in English or German. [felixthedev.com](https://felixthedev.com)
 - **Where:** A municipal administration in Schleswig-Holstein, Germany, as an IT apprentice.
 - **What:** Form and feedback services, tools for everyday administration, all on our own hardware.
 - **How:** Node.js and Express on the server, SQLite for the data, Docker on Linux. No CDNs, no trackers, no external fonts.

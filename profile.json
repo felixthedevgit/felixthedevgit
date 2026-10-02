@@ -2,8 +2,8 @@
   "login": "felixthedevgit",
   "website": "https://felixthedev.com",
   "greeting": "Hey, I am FelixTheDev.",
-  "tagline": "Software and game developer from northern Germany",
-  "chips": ["Public sector software", "Roblox game dev", "Self-hosted everything"],
+  "tagline": "Felix Grad, software developer from northern Germany",
+  "chips": ["Websites, apps, automation", "Public sector software", "Self-hosted everything"],
   "hero": ["javascript", "nodedotjs", "typescript", "luau", "docker", "sqlite", "git"],
   "categories": [
     { "id": "languages", "label": "Languages" },
