@@ -1,189 +1,176 @@
 'use strict';
 
-const { FONT, escape, textWidth, mix, brandPalette, hold, appear, document } = require('../svg');
-const { ICONS } = require('../icons');
+// The banner at the top: the logo, the greeting, one line about what I do
+// with marker strokes under three words, and a small terminal on the right
+// that types a command and prints a few lines about me, over and over.
 
-const W = 900;
-const H = 220;
-const LEFT = 48;
-const HEADLINE_SIZE = 46;
-const BASELINE = 100;
+const { escape, r1, frame } = require('../svg');
+const { measure, baseline, font, face } = require('../fonts');
+const { logo, css: logoCss } = require('../logo');
 
-// The block cluster on the right uses a true isometric projection, the
-// same idea as the contribution landscape further down, only larger: one
-// edge of a block is EDGE long, a step along u goes right and down, a
-// step along v goes left and down.
-const EDGE = 44;
-const U = { x: EDGE * Math.cos(Math.PI / 6), y: EDGE * Math.sin(Math.PI / 6) };
-const V = { x: -U.x, y: U.y };
-const ORIGIN = { x: 745, y: 66 };
-// Seven cells in a loose cluster, back row first.
-const CELLS = [[0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [2, 1], [1, 2]];
+const W = 808;
+const BORDER = 2;
+const BOTTOM = 7;
+const PAD_X = 32;
+const PAD_Y = 30;
+const GAP = 24;
 
-// Small rounded labels in the lower left. Their width comes from the text
-// estimate plus generous padding, so a slightly wider font still fits.
-const chip = (theme, text, x, y, begin) => {
-  const width = textWidth(text, 13, true) + 30;
-  const svg = `<g>
-${appear(begin)}
-<rect x="${x}" y="${y}" width="${width}" height="28" rx="14" fill="${theme.chipFill}" stroke="${theme.chipEdge}"/>
-<text x="${x + width / 2}" y="${y + 18.5}" font-size="13" font-weight="600" fill="${theme.ink}" text-anchor="middle">${escape(text)}</text>
-</g>`;
-  return { width, svg };
+const HEADLINE = { id: 'nunito-900', size: 44, line: 46.2, spacing: -1.1 };
+const TAGLINE = { id: 'nunito-800', size: 19, line: 27.55 };
+const MARK_PAD = 3;
+
+// Terminal geometry, the same numbers as the design: 330 wide, a 32 px
+// title bar, 13 px text on a 1.9 line height.
+const TERM = { w: 330, bar: 32, padTop: 12, padBottom: 14, padX: 16, size: 13, line: 24.7, border: 2, bottom: 6, radius: 18 };
+const MONO = 'mono-500';
+const MONO_BOLD = 'mono-700';
+
+// One loop of the terminal takes ten seconds. Percentages are of that loop:
+// type the command, print the answers one by one, show the next prompt,
+// hold, then clear and start over.
+const LOOP = 10;
+
+const terminalLines = (profile, age) => (profile.header.about || []).map((line) => {
+  if (age === null) return line.replace(/,?\s*\{age\}/, '');
+  return line.replace('{age}', String(age));
+});
+
+const terminal = (theme, profile, age) => {
+  const t = theme.terminal;
+  const lines = terminalLines(profile, age);
+  const rows = lines.length + 2;
+  const inner = TERM.bar + TERM.padTop + rows * TERM.line + TERM.padBottom;
+  const h = TERM.border + inner + TERM.bottom;
+  const charW = (face(MONO).advances.a / 1000) * TERM.size;
+  const textX = TERM.border + TERM.padX;
+  const rowTop = (i) => TERM.border + TERM.bar + TERM.padTop + i * TERM.line;
+  const rowBase = (i) => r1(baseline(MONO, TERM.size, rowTop(i), TERM.line));
+  const command = profile.header.command;
+  const commandX = textX + 2 * charW;
+  const typed = r1(command.length * charW);
+
+  const prompt = (i) => `<text x="${textX}" y="${rowBase(i)}" ${font(MONO_BOLD, TERM.size)} fill="${t.prompt}">$</text>`;
+  const cursorY = (i) => r1(rowTop(i) + (TERM.line - 15) / 2);
+
+  const output = lines.map((line, k) => `<g class="t-out t-out${k + 1}"><text x="${textX}" y="${rowBase(k + 1)}" ${font(MONO, TERM.size)} fill="${t.output}">${escape(`→ ${line}`)}</text></g>`).join('\n');
+
+  const last = lines.length + 1;
+  const body = `<rect width="${TERM.w}" height="${r1(h)}" rx="${TERM.radius}" fill="${t.edge}"/>
+<g clip-path="url(#term-clip)">
+<rect x="${TERM.border}" y="${TERM.border}" width="${TERM.w - 2 * TERM.border}" height="${r1(inner)}" fill="${t.bg}"/>
+<rect x="${TERM.border}" y="${TERM.border}" width="${TERM.w - 2 * TERM.border}" height="${TERM.bar}" fill="${t.bar}"/>
+</g>
+${t.dots.map((c, k) => `<circle cx="${TERM.border + 12 + 5 + k * 16}" cy="${TERM.border + TERM.bar / 2}" r="5" fill="${c}"/>`).join('')}
+${prompt(0)}
+<g clip-path="url(#term-clip)">
+<text x="${r1(commandX)}" y="${rowBase(0)}" ${font(MONO, TERM.size)} fill="${t.text}">${escape(command)}</text>
+<g class="t-type">
+<rect x="${r1(commandX)}" y="${r1(rowTop(0))}" width="${r1(typed + 4 * charW)}" height="${TERM.line}" fill="${t.bg}"/>
+<rect class="t-caret" x="${r1(commandX)}" y="${cursorY(0)}" width="8" height="15" fill="${t.text}"/>
+</g>
+</g>
+${output}
+<g class="t-out t-next">${prompt(last)}<rect class="t-blink" x="${r1(textX + 2 * charW)}" y="${cursorY(last)}" width="8" height="15" fill="${t.text}"/></g>`;
+
+  const step = (k) => 18 + k * 12;
+  const css = [
+    `.t-type{transform:translateX(${typed}px);animation:t-type ${LOOP}s steps(${command.length},end) infinite}`,
+    `@keyframes t-type{0%,4%{transform:translateX(0)}16%,90%{transform:translateX(${typed}px)}94%,100%{transform:translateX(0)}}`,
+    `.t-caret{opacity:0;animation:t-caret ${LOOP}s steps(1) infinite}`,
+    '@keyframes t-caret{0%,17%{opacity:1}18%,100%{opacity:0}}',
+    ...lines.map((_, k) => `.t-out${k + 1}{animation:t-out${k + 1} ${LOOP}s infinite}@keyframes t-out${k + 1}{0%,${step(k)}%{opacity:0}${step(k) + 4}%,90%{opacity:1}94%,100%{opacity:0}}`),
+    `.t-next{animation:t-next ${LOOP}s infinite}@keyframes t-next{0%,${step(lines.length)}%{opacity:0}${step(lines.length) + 1}%,90%{opacity:1}94%,100%{opacity:0}}`,
+    '.t-blink{animation:logo-blink 1.1s steps(1) infinite}',
+  ].join('');
+
+  return { w: TERM.w, h, body, css, clip: `<clipPath id="term-clip"><rect x="${TERM.border}" y="${TERM.border}" width="${TERM.w - 2 * TERM.border}" height="${r1(inner)}" rx="${TERM.radius - TERM.border}"/></clipPath>`, lines };
 };
 
-// A soft spot of colour that drifts back and forth behind the text. Three
-// of them give the pastel gradient some life without a pattern that could
-// compete with the headline. The softness comes from a radial gradient,
-// not from a blur filter: filters are rasterised in a bounded region and
-// showed a hard edge near the corner of the card.
-const blob = (id, cx, cy, r, drift, dur) => `<circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${id})">
-<animateTransform attributeName="transform" type="translate" values="0 0;${drift};0 0" dur="${dur}s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
-</circle>`;
-
-const glow = (id, color) => `<radialGradient id="${id}">
-<stop offset="0" stop-color="${color}" stop-opacity="0.9"/>
-<stop offset="0.45" stop-color="${color}" stop-opacity="0.45"/>
-<stop offset="1" stop-color="${color}" stop-opacity="0"/>
-</radialGradient>`;
-
-const point = (u, v, h) => [
-  Number((ORIGIN.x + u * U.x + v * V.x).toFixed(1)),
-  Number((ORIGIN.y + u * U.y + v * V.y - h).toFixed(1)),
-];
-const poly = (points) => points.map((p) => p.join(',')).join(' ');
-
-// One block: top face with the logo lying on it, two visible sides in
-// shadow. The logo is mapped onto the top face with a matrix whose axes
-// are the face's own edges, so it sits in perspective like a print on a
-// box rather than floating flat in front of it. Each block drops in from
-// above when the header loads, and its top catches the passing light.
-const block = (theme, slug, level, [u, v], i) => {
-  const brand = ICONS[slug];
-  const pal = brandPalette(theme, brand ? brand.hex : theme.accentStrong);
-  const h = 16 + level * 5;
-  const top = pal.key;
-  const right = mix(top, theme.shadow, 0.16);
-  const left = mix(top, theme.shadow, 0.32);
-  const begin = (0.6 + (u + v) * 0.18 + (i % 2) * 0.05).toFixed(2);
-  const inset = 0.19;
-  const k = (1 - 2 * inset) / 24;
-  const [ox, oy] = point(u, v, h);
-  const logo = brand
-    ? `<path d="${brand.path}" fill="${pal.ink}" transform="matrix(${(U.x * k).toFixed(4)} ${(U.y * k).toFixed(4)} ${(V.x * k).toFixed(4)} ${(V.y * k).toFixed(4)} ${(ox + inset * (U.x + V.x)).toFixed(1)} ${(oy + inset * (U.y + V.y)).toFixed(1)})"/>`
-    : '';
-  return `<g>
-${hold('opacity', 0, begin)}
-<animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="${begin}s" fill="freeze"/>
-<animateTransform attributeName="transform" type="translate" from="0 -46" to="0 0" dur="0.7s" begin="${begin}s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.9 0.3 1.1"/>
-<polygon points="${poly([point(u + 1, v, h), point(u + 1, v + 1, h), point(u + 1, v + 1, 0), point(u + 1, v, 0)])}" fill="${right}"/>
-<polygon points="${poly([point(u, v + 1, h), point(u + 1, v + 1, h), point(u + 1, v + 1, 0), point(u, v + 1, 0)])}" fill="${left}"/>
-<polygon points="${poly([point(u, v, h), point(u + 1, v, h), point(u + 1, v + 1, h), point(u, v + 1, h)])}" fill="${top}" stroke="${theme.chipEdge}" stroke-width="1">
-<animate attributeName="fill" values="${top};${mix(top, theme.sweep, 0.55)};${top};${top}" keyTimes="0;0.05;0.12;1" dur="9s" begin="${(3 + (u + v) * 0.3).toFixed(2)}s" repeatCount="indefinite"/>
-</polygon>
-${logo}
-</g>`;
+// The tagline as segments: plain strings, and marked words with a tint.
+// Returns the drawn text and the marker strokes behind it. A marker is the
+// lower band of a highlighter (58 to 92 percent of the text's height), so
+// it underlines the word rather than boxing it in.
+const tagline = (theme, segments, x, base) => {
+  const m = face(TAGLINE.id);
+  const asc = (m.ascender / m.upem) * TAGLINE.size;
+  const full = ((m.ascender - m.descender) / m.upem) * TAGLINE.size;
+  const top = base - asc + 0.58 * full;
+  const height = 0.34 * full;
+  let cursor = x;
+  const spans = [];
+  const marks = [];
+  for (const seg of segments) {
+    const text = typeof seg === 'string' ? seg : seg.text;
+    const width = measure(text, TAGLINE.id, TAGLINE.size);
+    if (typeof seg === 'string') {
+      spans.push(`<tspan x="${r1(cursor)}">${escape(text)}</tspan>`);
+      cursor += width;
+    } else {
+      const tint = theme.tints[seg.tint];
+      if (!tint) throw new Error(`Unknown tint "${seg.tint}" in profile.json.`);
+      marks.push(`<rect class="mark mark${marks.length + 1}" x="${r1(cursor)}" y="${r1(top)}" width="${r1(width + 2 * MARK_PAD)}" height="${r1(height)}" fill="${tint.marker}"/>`);
+      spans.push(`<tspan x="${r1(cursor + MARK_PAD)}">${escape(text)}</tspan>`);
+      cursor += width + 2 * MARK_PAD;
+    }
+  }
+  const text = `<text y="${r1(base)}" ${font(TAGLINE.id, TAGLINE.size)} fill="${theme.banner.ink}">${spans.join('')}</text>`;
+  return { width: cursor - x, svg: `${marks.join('\n')}\n${text}`, count: marks.length };
 };
 
-// The cluster as a whole floats above its shadow. Blocks are drawn back
-// to front so the ones in front cover the ones behind.
-const cluster = (theme, profile) => {
-  const slugs = (profile.hero || []).slice(0, CELLS.length);
-  const levelOf = (slug) => {
-    const skill = (profile.skills || []).find((s) => s.icon === slug);
-    return Math.min(5, Math.max(1, Number(skill && skill.level) || 3));
+const plainTagline = (segments) => segments.map((s) => (typeof s === 'string' ? s : s.text)).join('');
+
+const render = (theme, profile, { age = null } = {}) => {
+  const b = theme.banner;
+  const term = terminal(theme, profile, age);
+  const leftH = 64 + 12 + HEADLINE.line + 12 + TAGLINE.line;
+  const contentH = Math.max(term.h, leftH);
+  const H = Math.round(BORDER + PAD_Y + contentH + PAD_Y + BOTTOM);
+  const top = BORDER + PAD_Y;
+  const left = BORDER + PAD_X;
+  const leftTop = top + (contentH - leftH) / 2;
+  const termX = W - BORDER - PAD_X - TERM.w;
+  const termY = top + (contentH - term.h) / 2;
+  const room = termX - GAP - left;
+
+  const greeting = profile.header.greeting;
+  const headlineW = measure(greeting, HEADLINE.id, HEADLINE.size, HEADLINE.spacing);
+  const headTop = leftTop + 64 + 12;
+  const headBase = baseline(HEADLINE.id, HEADLINE.size, headTop, HEADLINE.line);
+  const tagTop = headTop + HEADLINE.line + 12;
+  const tagBase = baseline(TAGLINE.id, TAGLINE.size, tagTop, TAGLINE.line);
+  const tag = tagline(theme, profile.header.tagline, left, tagBase);
+  if (headlineW > room || tag.width > room) {
+    throw new Error(`The greeting or tagline is wider than the ${Math.floor(room)} px next to the terminal. Shorten it in profile.json.`);
+  }
+
+  const css = [
+    logoCss,
+    '.rise{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}',
+    '.rise2{animation-delay:.1s}.rise3{animation-delay:.2s}',
+    '@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}',
+    '.mark{transform-box:fill-box;transform-origin:left center;animation:mark .8s cubic-bezier(.6,0,.3,1) both}',
+    ...Array.from({ length: tag.count }, (_, k) => `.mark${k + 1}{animation-delay:${(0.6 + k * 0.15).toFixed(2)}s}`),
+    '@keyframes mark{from{transform:scaleX(0)}to{transform:scaleX(1)}}',
+    term.css,
+  ].join('');
+
+  const body = `<defs>${term.clip}</defs>
+${frame({ w: W, h: H, r: 26, fill: b.bg, line: b.edge, border: BORDER, bottom: BOTTOM })}
+<g class="rise">${logo({ x: left, y: r1(leftTop), size: 64, blink: true })}</g>
+<g class="rise rise2"><text x="${left}" y="${r1(headBase)}" ${font(HEADLINE.id, HEADLINE.size, `letter-spacing="${HEADLINE.spacing}"`)} fill="${b.ink}">${escape(greeting)}</text></g>
+<g class="rise rise3">
+${tag.svg}
+</g>
+<g transform="translate(${r1(termX)} ${r1(termY)}) rotate(2 ${TERM.w / 2} ${r1(term.h / 2)})">
+${term.body}
+</g>`;
+
+  const about = term.lines.join(', ');
+  const title = `${greeting} ${plainTagline(profile.header.tagline)} A small terminal types ${profile.header.command} and answers: ${about}.`;
+  return {
+    svg: { width: W, height: H, title, fonts: ['nunito-800', 'nunito-900', MONO, MONO_BOLD], css, body },
+    alt: title,
   };
-  const blocks = slugs
-    .map((slug, i) => ({ slug, i, cell: CELLS[i] }))
-    .sort((a, b) => (a.cell[0] + a.cell[1]) - (b.cell[0] + b.cell[1]))
-    .map(({ slug, i, cell }) => block(theme, slug, levelOf(slug), cell, i))
-    .join('\n');
-  const [sx, sy] = point(1.5, 1.5, 0);
-  const ease = 'calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"';
-  return `<ellipse cx="${sx}" cy="${sy + 2 * U.y + 14}" rx="${(2.6 * U.x).toFixed(1)}" ry="11" fill="${theme.shadow}" opacity="0.13">
-<animate attributeName="opacity" values="0.13;0.06;0.13" dur="6s" repeatCount="indefinite" ${ease}/>
-<animate attributeName="rx" values="${(2.6 * U.x).toFixed(1)};${(2.3 * U.x).toFixed(1)};${(2.6 * U.x).toFixed(1)}" dur="6s" repeatCount="indefinite" ${ease}/>
-</ellipse>
-<g>
-<animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="6s" repeatCount="indefinite" ${ease}/>
-${blocks}
-</g>`;
 };
 
-// The greeting in two pieces: everything up to the last word stands
-// still, the last word (the name) floats up and down by a few pixels,
-// slowly enough to be felt rather than seen. Both pieces are pinned with
-// textLength so the cursor still ends exactly where the text does. The
-// prefix is measured without its trailing space, which SVG drops when
-// rendering: counting it would stretch the letters right up to the name.
-const headline = (theme, greeting, headlineWidth) => {
-  const words = greeting.trim().split(/\s+/);
-  const last = words[words.length - 1];
-  const prefix = words.slice(0, -1).join(' ');
-  const prefixWidth = prefix ? textWidth(prefix, HEADLINE_SIZE, true) : 0;
-  const gap = prefix ? textWidth(' ', HEADLINE_SIZE, true) : 0;
-  const attrs = `y="${BASELINE}" font-size="${HEADLINE_SIZE}" font-weight="700" fill="${theme.ink}" lengthAdjust="spacing"`;
-  const name = `<g>
-<animateTransform attributeName="transform" type="translate" values="0 0;0 -2.5;0 0" dur="4.5s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
-<text x="${LEFT + prefixWidth + gap}" ${attrs} textLength="${headlineWidth - prefixWidth - gap}">${escape(last)}</text>
-</g>`;
-  if (!prefix) return name;
-  return `<text x="${LEFT}" ${attrs} textLength="${prefixWidth}">${escape(prefix)}</text>
-${name}`;
-};
-
-const render = (theme, profile) => {
-  const [g0, g1, g2] = theme.gradient;
-  // textLength pins the headline to the estimated width so that the cursor
-  // ends exactly where the text ends. lengthAdjust="spacing" keeps the
-  // glyph shapes and only nudges the spacing if the estimate is off.
-  const headlineWidth = textWidth(profile.greeting, HEADLINE_SIZE, true);
-  const cursorEnd = LEFT + headlineWidth + 4;
-  const wipe = 'dur="1.4s" begin="0.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.3 0 0.2 1"';
-
-  let chips = '';
-  let x = LEFT;
-  (profile.chips || []).forEach((text, i) => {
-    const c = chip(theme, text, x, 160, 1.9 + i * 0.15);
-    chips += `${c.svg}\n`;
-    x += c.width + 10;
-  });
-
-  const body = `<defs>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="${g0}"><animate attributeName="stop-color" values="${g0};${g1};${g0}" dur="14s" repeatCount="indefinite"/></stop>
-<stop offset="0.55" stop-color="${g1}"><animate attributeName="stop-color" values="${g1};${g2};${g1}" dur="14s" repeatCount="indefinite"/></stop>
-<stop offset="1" stop-color="${g2}"><animate attributeName="stop-color" values="${g2};${g0};${g2}" dur="14s" repeatCount="indefinite"/></stop>
-</linearGradient>
-${glow('glow-pink', theme.pink)}
-${glow('glow-accent', theme.accent)}
-${glow('glow-blob', theme.blob)}
-<clipPath id="frame"><rect width="${W}" height="${H}" rx="24"/></clipPath>
-<clipPath id="wipe"><rect x="${LEFT - 4}" y="${BASELINE - HEADLINE_SIZE}" width="${headlineWidth + 10}" height="${HEADLINE_SIZE + 20}">${hold('width', 0, 0.4)}<animate attributeName="width" from="0" to="${headlineWidth + 10}" ${wipe}/></rect></clipPath>
-</defs>
-<rect width="${W}" height="${H}" rx="24" fill="url(#bg)"/>
-<g clip-path="url(#frame)" opacity="${theme.blobOpacity}">
-${blob('glow-pink', 700, 30, 190, '-50 40', 16)}
-${blob('glow-accent', 850, 210, 200, '-30 -50', 19)}
-${blob('glow-blob', 140, 250, 170, '40 -30', 21)}
-</g>
-<g font-family="${FONT}">
-<g clip-path="url(#wipe)">
-${headline(theme, profile.greeting, headlineWidth)}
-</g>
-<rect x="${cursorEnd}" y="${BASELINE - HEADLINE_SIZE + 8}" width="3" height="${HEADLINE_SIZE}" rx="1.5" fill="${theme.accentStrong}">
-${hold('x', LEFT, 0.4)}
-<animate attributeName="x" from="${LEFT}" to="${cursorEnd}" ${wipe}/>
-<animate attributeName="opacity" values="1;0" keyTimes="0;0.5" calcMode="discrete" dur="1.1s" begin="1.8s" repeatCount="indefinite"/>
-</rect>
-<g>
-${appear(1.6, 0.7)}
-<text x="${LEFT}" y="${BASELINE + 38}" font-size="18" fill="${theme.muted}">${escape(profile.tagline)}</text>
-</g>
-${chips}${cluster(theme, profile)}
-</g>`;
-
-  return document({ width: W, height: H, title: `${profile.greeting} ${profile.tagline}`, body });
-};
-
-module.exports = { render };
+module.exports = { render, W };

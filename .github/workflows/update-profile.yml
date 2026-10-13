@@ -11,6 +11,11 @@ name: Update profile
 # PROFILE_TOKEN is a token of the profile owner with read:user. Without it
 # the script redraws from the stored numbers and fetches nothing, because a
 # weaker token would silently drop every private contribution.
+#
+# BIRTHDATE (YYYY-MM-DD) is an optional repository variable, not a file in
+# this public repository. With it the terminal in the header shows my age
+# and the daily run updates it on my birthday; without it the age is left
+# out.
 on:
   schedule:
     - cron: '17 3 * * *'
@@ -19,6 +24,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/**'
+      - 'fonts/**'
       - 'profile.json'
       - '.github/workflows/update-profile.yml'
 
@@ -44,6 +50,7 @@ jobs:
         run: node scripts/build.js
         env:
           PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+          BIRTHDATE: ${{ vars.BIRTHDATE }}
 
       - name: Commit changes
         run: |

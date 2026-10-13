@@ -1,77 +1,79 @@
 'use strict';
 
-// Two palettes, one per GitHub colour scheme. The README picks the file
-// through <picture> and a prefers-color-scheme media query, so every graphic
-// is drawn twice. All colours live here so that a new renderer cannot drift
-// off into its own shade of purple.
+// The Pastell palette, once for GitHub's light and once for its dark
+// scheme. The README picks the file through <picture> and a
+// prefers-color-scheme media query, so every graphic is drawn twice. All
+// colours live here so that a renderer cannot drift off into its own shade.
 //
-// levels: four shades for the contribution blocks, quiet to busy.
-// plate and tile: the slab the blocks stand on and the empty days on it.
-// shadow: what the side faces are mixed towards, sweep: the light that
-// runs across the tops every few seconds.
-// tints: one pastel pair (background, foreground) per skill category, in
-// the order the categories appear in profile.json.
-const THEMES = {
+// Every surface is flat. The "3D key" look comes from a darker edge under
+// a shape, never from a gradient, a glow or transparency.
+//
+// tints: one pastel per topic, each with a surface (bg), a darker bottom
+// edge, an ink for text on it, a stronger fill for progress segments and a
+// marker colour for the highlighter stroke under a word.
+const TINTS = {
   light: {
-    name: 'light',
-    card: '#F7F4FF',
-    cardEdge: '#E8E0FB',
-    ink: '#3B2E63',
-    muted: '#8577AE',
-    accent: '#A78BFA',
-    accentStrong: '#8B5CF6',
-    accentSoft: '#DDD6FE',
-    pink: '#F9A8D4',
-    blob: '#C4B5FD',
-    blobOpacity: 0.55,
-    chipFill: 'rgba(255,255,255,0.55)',
-    chipEdge: 'rgba(255,255,255,0.85)',
-    gradient: ['#EDE0FF', '#DDD6FE', '#FBD0EA'],
-    levels: ['#C4B5FD', '#A78BFA', '#8B5CF6', '#6D28D9'],
-    plate: '#E4DDF8',
-    tile: '#F0EBFF',
-    tileLight: '#D9CDFF',
-    shadow: '#3B2E63',
-    sweep: '#FFFFFF',
-    paper: '#FFFFFF',
-    neutral: '#6B7280',
-    tints: [
-      { bg: '#EDE9FE', fg: '#7C3AED' },
-      { bg: '#FCE7F3', fg: '#DB2777' },
-      { bg: '#D1FAE5', fg: '#059669' },
-      { bg: '#FFEDD5', fg: '#EA580C' },
-    ],
+    mint: { bg: '#D3F5E4', edge: '#9EDFBF', ink: '#17603F', fill: '#7BE0AE', marker: '#9EDFBF' },
+    sky: { bg: '#D6ECFF', edge: '#9DCBF5', ink: '#1D5A93', fill: '#8EC9FF', marker: '#9DCBF5' },
+    lavender: { bg: '#E3DEFF', edge: '#BDB3F7', ink: '#4936B8', fill: '#B4A7FF', marker: '#CFC6FF' },
+    butter: { bg: '#FFF2BF', edge: '#EDD27A', ink: '#735B00', fill: '#FFE07A', marker: '#EDD27A' },
+    peach: { bg: '#FFE0CC', edge: '#F7B994', ink: '#93441A', fill: '#FFB98E', marker: '#F7B994' },
+    pink: { bg: '#FFDCE8', edge: '#F4ABC6', ink: '#962E58', fill: '#FFA8C5', marker: '#F4ABC6' },
   },
   dark: {
-    name: 'dark',
-    card: '#17132A',
-    cardEdge: '#2B2449',
-    ink: '#EDE9FE',
-    muted: '#A89CD3',
-    accent: '#C4B5FD',
-    accentStrong: '#B39DFB',
-    accentSoft: '#2F2757',
-    pink: '#F0ABFC',
-    blob: '#7C5CE6',
-    blobOpacity: 0.35,
-    chipFill: 'rgba(255,255,255,0.08)',
-    chipEdge: 'rgba(255,255,255,0.18)',
-    gradient: ['#2A2050', '#33295F', '#4B2C5A'],
-    levels: ['#5B4A9E', '#7E69D1', '#A78BFA', '#D9CEFF'],
-    plate: '#221B3F',
-    tile: '#2A2250',
-    tileLight: '#4A3D85',
-    shadow: '#0B0814',
-    sweep: '#FFFFFF',
-    paper: '#17132A',
-    neutral: '#C3BDD6',
-    tints: [
-      { bg: '#2E2657', fg: '#C4B5FD' },
-      { bg: '#4A2340', fg: '#F9A8D4' },
-      { bg: '#1B3D33', fg: '#6EE7B7' },
-      { bg: '#4A2E1B', fg: '#FDBA74' },
-    ],
+    mint: { bg: '#1D3A2D', edge: '#2C5A45', ink: '#9EEBC3', fill: '#7BE0AE', marker: '#2E7656' },
+    sky: { bg: '#1B3045', edge: '#2A4B6B', ink: '#A9D4FF', fill: '#8EC9FF', marker: '#2F5E8C' },
+    lavender: { bg: '#2A2650', edge: '#403A78', ink: '#C9C0FF', fill: '#B4A7FF', marker: '#4F478F' },
+    butter: { bg: '#39321A', edge: '#574C24', ink: '#FFE38A', fill: '#FFE07A', marker: '#6E5F2A' },
+    peach: { bg: '#40281C', edge: '#633E2B', ink: '#FFC6A3', fill: '#FFB98E', marker: '#80492C' },
+    pink: { bg: '#42202E', edge: '#663146', ink: '#FFB8D0', fill: '#FFA8C5', marker: '#7D3553' },
   },
 };
 
-module.exports = { THEMES };
+// The solid keys of the icon family (big icon tiles, the repo banner): a
+// stronger fill, its darker edge and the ink drawn on it. The same in both
+// schemes, like the mint logo key.
+const KEYS = {
+  mint: { fill: '#7BE0AE', edge: '#46BD84', ink: '#0E3B26' },
+  sky: { fill: '#8EC9FF', edge: '#5BA5EC', ink: '#0B2E52' },
+  lavender: { fill: '#B4A7FF', edge: '#8E7CF0', ink: '#22186B' },
+  butter: { fill: '#FFE07A', edge: '#E3BC3A', ink: '#4A3B00' },
+  peach: { fill: '#FFB98E', edge: '#EE915C', ink: '#4A1F05' },
+  pink: { fill: '#FFA8C5', edge: '#E9779F', ink: '#4D1530' },
+};
+
+// The terminal and the primary key look the same in both schemes: a dark
+// terminal sits well on either banner, and the mint key is the brand.
+const TERMINAL = {
+  bg: '#27273A',
+  edge: '#15151F',
+  bar: '#CFC6FF',
+  dots: ['#F4ABC6', '#EDD27A', '#9EDFBF'],
+  text: '#ECECF4',
+  prompt: '#B4A7FF',
+  output: '#7BE0AE',
+};
+const PRIMARY = { bg: '#7BE0AE', edge: '#46BD84', ink: '#0E3B26' };
+
+const THEMES = {
+  light: {
+    name: 'light',
+    banner: { bg: '#E3DEFF', edge: '#BDB3F7', ink: '#22186B' },
+    card: { bg: '#FFFFFF', line: '#E7E6F2', ink: '#27273A', muted: '#646478', track: '#EEEDF5' },
+    tints: TINTS.light,
+    terminal: TERMINAL,
+    primary: PRIMARY,
+    keys: KEYS,
+  },
+  dark: {
+    name: 'dark',
+    banner: { bg: '#2A2650', edge: '#403A78', ink: '#F1EEFF' },
+    card: { bg: '#1E1F2A', line: '#383A50', ink: '#ECECF4', muted: '#A3A4B9', track: '#2E3042' },
+    tints: TINTS.dark,
+    terminal: TERMINAL,
+    primary: PRIMARY,
+    keys: KEYS,
+  },
+};
+
+module.exports = { THEMES, KEYS };

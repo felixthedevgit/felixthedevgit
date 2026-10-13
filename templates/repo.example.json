@@ -1,0 +1,26 @@
+{
+  "id": "simplegym",
+  "repo": "felixthedevgit / simplegym",
+  "name": "SimpleGym",
+  "summary": "Fitness app for Android with its own API",
+  "icon": "dumbbell",
+  "tint": "mint",
+  "badges": [
+    { "label": "status", "value": "closed alpha", "tint": "butter" },
+    { "label": "platform", "value": "Android", "tint": "mint" },
+    { "label": "made with", "value": "Kotlin · TypeScript", "tint": "lavender" }
+  ],
+  "steps": ["Idea", "Build", "Alpha", "Live"],
+  "step": 3,
+  "social": {
+    "pills": [
+      { "text": "Closed alpha", "tint": "butter" },
+      { "text": "Kotlin" },
+      { "text": "TypeScript" }
+    ],
+    "cardTitle": "Today",
+    "done": 2,
+    "button": "Start",
+    "feature": "offline sync"
+  }
+}

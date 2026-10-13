@@ -5,6 +5,10 @@
 // fetches fresh numbers from GitHub and keeps them in data/contributions.json,
 // without a token (or with --offline) it redraws from that file. The
 // workflow in .github/workflows/update-profile.yml runs it once a day.
+//
+// The age in the header terminal comes from the BIRTHDATE variable
+// (YYYY-MM-DD, set as a repository variable for the workflow). It is not
+// stored in this public repository; without it the age is left out.
 
 const fs = require('node:fs');
 const path = require('node:path');
@@ -12,12 +16,12 @@ const crypto = require('node:crypto');
 const { fetchProfile } = require('./github');
 const { analyse } = require('./analyse');
 const { THEMES } = require('./theme');
-const { escape } = require('./svg');
+const { escape, document } = require('./svg');
 const header = require('./render/header');
-const skyline = require('./render/skyline');
+const pills = require('./render/pills');
+const project = require('./render/project');
 const stats = require('./render/stats');
-const skills = require('./render/skills');
-const links = require('./render/links');
+const button = require('./render/button');
 
 const ROOT = path.join(__dirname, '..');
 const ASSETS = path.join(ROOT, 'assets');
@@ -50,6 +54,19 @@ const loadData = async (profile) => {
   return data;
 };
 
+// Today's date in Germany, which is where the birthday happens.
+const ageToday = (birthdate) => {
+  if (!birthdate) return null;
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(birthdate.trim());
+  if (!m) throw new Error('BIRTHDATE must look like YYYY-MM-DD.');
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Berlin', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).formatToParts(new Date()).map((p) => [p.type, Number(p.value)]));
+  const [, year, month, day] = m.map(Number);
+  const before = parts.month < month || (parts.month === month && parts.day < day);
+  return parts.year - year - (before ? 1 : 0);
+};
+
 const stamp = (iso) => new Intl.DateTimeFormat('en-US', {
   day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Berlin',
 }).format(new Date(iso));
@@ -68,51 +85,46 @@ const replaceBlock = (readme, name, text) => {
   return readme.replace(pattern, (match, start, end) => `${start}\n${text}\n${end}`);
 };
 
-// Every graphic sits in its own <p>: GitHub gives paragraphs a bottom
-// margin, bare images would touch. align="top" removes the extra space an
-// inline image gets below its baseline, so the gap is the paragraph
-// margin alone and matches the gap between the tiles.
-const picture = (files, name, alt) => [
-  '<picture>',
-  `  <source media="(prefers-color-scheme: dark)" srcset="assets/${files.dark[name]}">`,
-  `  <img alt="${escape(alt)}" src="assets/${files.light[name]}" width="100%" align="top">`,
-  '</picture>',
-].join('\n');
-const paragraph = (inner, align) => `<p${align ? ` align="${align}"` : ''}>\n${inner}\n</p>`;
-
-// An image in a README can only be one link as a whole, so every pill is
-// its own file wrapped in its own <a>.
-const linksBlock = (files, list) => list.map((link) => {
-  const alt = escape(`${link.label}: ${link.handle}`);
-  const pic = `<picture><source media="(prefers-color-scheme: dark)" srcset="assets/${files.dark[`link-${link.id}`]}"><img alt="${alt}" src="assets/${files.light[`link-${link.id}`]}" height="36"></picture>`;
-  return link.url ? `<a href="${escape(link.url)}">${pic}</a>` : pic;
-}).join('\n');
-
-// One heading and one graphic per skill category.
-const skillsBlock = (files, profile) => (profile.categories || []).map((category) => {
-  const names = (profile.skills || []).filter((s) => s.category === category.id).map((s) => s.name).join(', ');
-  return `#### ${category.label}\n\n${paragraph(picture(files, `skills-${category.id}`, `${category.label}: ${names}, each with what I use it for and how much`))}`;
-}).join('\n\n');
+// Light and dark file for one graphic. Every image has a fixed width so
+// that it shows at its drawn size on a desktop; GitHub's max-width: 100%
+// shrinks it on a phone. align="top" removes the gap an inline image gets
+// below its baseline.
+const picture = (files, name, alt, width) => `<picture><source media="(prefers-color-scheme: dark)" srcset="assets/${files.dark[name]}"><img alt="${escape(alt)}" src="assets/${files.light[name]}" width="${width}" align="top"></picture>`;
+const link = (url, inner) => `<a href="${escape(url)}">${inner}</a>`;
+const paragraph = (lines) => `<p>\n${[].concat(lines).join('\n')}\n</p>`;
 
 const main = async () => {
   const profile = JSON.parse(fs.readFileSync(path.join(ROOT, 'profile.json'), 'utf8'));
   const data = await loadData(profile);
   const summary = analyse(data.days);
+  const age = ageToday(process.env.BIRTHDATE);
 
   const files = { light: {}, dark: {} };
+  const meta = {};
   const keep = new Set();
-  const draw = (theme, name, svg) => {
+  const draw = (theme, name, result) => {
+    const svg = document(result.svg);
     const file = `${name}-${theme.name}.${fingerprint(svg)}.svg`;
     files[theme.name][name] = file;
+    meta[name] = { alt: result.alt, width: result.svg.width };
     keep.add(file);
     write(path.join(ASSETS, file), svg);
   };
+  // A row that comes in pieces gets one file per piece: name-1, name-2, ...
+  const drawAll = (theme, name, results) => results.map((result, k) => {
+    const piece = `${name}-${k + 1}`;
+    draw(theme, piece, result);
+    return piece;
+  });
+  const names = {};
   for (const theme of Object.values(THEMES)) {
-    draw(theme, 'header', header.render(theme, profile));
-    draw(theme, 'skyline', skyline.render(theme, summary));
-    draw(theme, 'stats', stats.render(theme, summary));
-    for (const category of profile.categories || []) draw(theme, `skills-${category.id}`, skills.render(theme, profile, category.id));
-    for (const link of profile.links || []) draw(theme, `link-${link.id}`, links.render(theme, link));
+    draw(theme, 'header', header.render(theme, profile, { age }));
+    names.build = drawAll(theme, 'build', pills.build(theme, profile.build));
+    for (const p of profile.projects) draw(theme, `project-${p.id}`, project.render(theme, p, profile.steps));
+    names.toolbox = drawAll(theme, 'toolbox', pills.toolbox(theme, profile.toolbox));
+    draw(theme, 'stats-figures', stats.figures(theme, summary));
+    draw(theme, 'stats-weeks', stats.weeks(theme, summary));
+    for (const b of profile.buttons) draw(theme, `button-${b.id}`, button.render(theme, b));
   }
   // Older fingerprints are no longer referenced and would pile up.
   for (const file of fs.readdirSync(ASSETS)) {
@@ -122,15 +134,20 @@ const main = async () => {
     }
   }
 
+  const pic = (name) => picture(files, name, meta[name].alt, meta[name].width);
   let readme = fs.readFileSync(README, 'utf8');
-  readme = replaceBlock(readme, 'header', paragraph(`<a href="${escape(profile.website)}">\n${picture(files, 'header', `${profile.greeting} ${profile.tagline}.`)}\n</a>`, 'center'));
-  readme = replaceBlock(readme, 'skyline', paragraph(picture(files, 'skyline', 'Contributions of the last 52 weeks as a 3D block landscape')));
-  readme = replaceBlock(readme, 'stats', paragraph(picture(files, 'stats', 'Contributions, active days, longest streak and favorite day')));
-  readme = replaceBlock(readme, 'skills', `\n${skillsBlock(files, profile)}\n`);
-  readme = replaceBlock(readme, 'links', paragraph(linksBlock(files, profile.links || [])));
+  readme = replaceBlock(readme, 'header', paragraph(link(profile.website, pic('header'))));
+  readme = replaceBlock(readme, 'build', paragraph(names.build.map(pic)));
+  readme = replaceBlock(readme, 'projects', paragraph(profile.projects.map((p) => link(p.url, pic(`project-${p.id}`)))));
+  readme = replaceBlock(readme, 'toolbox', paragraph(names.toolbox.map(pic)));
+  readme = replaceBlock(readme, 'stats', paragraph([pic('stats-figures'), pic('stats-weeks')]));
+  readme = replaceBlock(readme, 'buttons', paragraph(profile.buttons.map((b) => link(b.url, pic(`button-${b.id}`)))));
   readme = readme.replace(/(<!-- updated:start -->)[\s\S]*?(<!-- updated:end -->)/, (m, a, b) => `${a}Updated ${stamp(data.fetchedAt)}${b}`);
   write(README, readme);
-  console.log(`${summary.total} contributions, ${summary.activeDays} active days, longest streak ${summary.longest}, favorite day ${summary.busiestWeekday}.`);
+
+  const sizes = [...keep].map((f) => fs.statSync(path.join(ASSETS, f)).size);
+  console.log(`${keep.size} graphics, largest ${Math.round(Math.max(...sizes) / 1024)} KB. Age ${age === null ? 'left out (no BIRTHDATE)' : age}.`);
+  console.log(`${summary.total} contributions, ${summary.activeDays} active days, longest streak ${summary.longest}.`);
 };
 
 main().catch((err) => {

@@ -2,13 +2,14 @@
   "name": "felixthedevgit-profile",
   "version": "1.0.0",
   "private": true,
-  "description": "Profile page with self-drawn graphics, no third-party services",
+  "description": "Profile page with self-drawn Pastell graphics, no third-party services",
   "license": "MIT",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "build:offline": "node scripts/build.js --offline"
+    "build:offline": "node scripts/build.js --offline",
+    "fonts": "node scripts/make-fonts.js"
   }
 }

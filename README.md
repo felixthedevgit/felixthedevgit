@@ -1,90 +1,60 @@
 <!-- header:start -->
-<p align="center">
-<a href="https://felixthedev.com">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.be4c90d8.svg">
-  <img alt="Hey, I am FelixTheDev. Felix Grad, software developer from northern Germany." src="assets/header-light.74749a2c.svg" width="100%" align="top">
-</picture>
-</a>
+<p>
+<a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.7e82a664.svg"><img alt="Hey, I&#39;m Felix! I build websites, apps and automations. A small terminal types felix --about and answers: software developer, Dithmarschen, Germany, IT apprentice, 2nd year." src="assets/header-light.fca95609.svg" width="808" align="top"></picture></a>
 </p>
 <!-- header:end -->
 
-I'm **Felix Grad** from Dithmarschen in northern Germany, known online as FelixTheDev. I build websites, web and Android apps and automations for clients worldwide, and I take care of domains, servers and hosting too. Everything about my work, my projects and how to reach me is on **[felixthedev.com](https://felixthedev.com)**.
+I make software for clients all over the world that works without a manual and just as well on a phone. Self-hosted in Germany, no trackers. Auf Deutsch: [felixthedev.com](https://felixthedev.com/de/)
 
-At my day job I'm training as an IT specialist for system integration at a municipal administration and build tools my colleagues use every day, which is why they have to work without a manual. Three things matter to me. Load nothing from third-party servers. Store personal data encrypted or not at all. Build interfaces that hold up on a phone. On the side I make games on Roblox.
+### What I build
 
-**[Services](https://felixthedev.com/services/)** · **[Projects](https://felixthedev.com/projects/)** · **[About me](https://felixthedev.com/about/)** · **[Contact](https://felixthedev.com/contact/)** · **[Auf Deutsch](https://felixthedev.com/de/)**
-
-<!-- skyline:start -->
+<!-- build:start -->
 <p>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.284e9df4.svg">
-  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.baedd46f.svg" width="100%" align="top">
-</picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build-1-dark.a6b9fadc.svg"><img alt="Websites, Android apps" src="assets/build-1-light.d1589595.svg" width="222" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build-2-dark.29174c4b.svg"><img alt="Web apps, Automation" src="assets/build-2-light.ba2eb326.svg" width="217" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build-3-dark.6444f2bd.svg"><img alt="Hosting, Maintenance" src="assets/build-3-light.eb03eefa.svg" width="208" align="top"></picture>
 </p>
-<!-- skyline:end -->
-
-<!-- stats:start -->
-<p>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.45812f03.svg">
-  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.533a57d7.svg" width="100%" align="top">
-</picture>
-</p>
-<!-- stats:end -->
-
-### What I work with
-
-<!-- skills:start -->
-
-#### Languages
-
-<p>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-languages-dark.d162feda.svg">
-  <img alt="Languages: JavaScript, TypeScript, HTML, CSS, C#, Luau, each with what I use it for and how much" src="assets/skills-languages-light.f711565a.svg" width="100%" align="top">
-</picture>
-</p>
-
-#### Runtimes and frameworks
-
-<p>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-runtimes-dark.3403254d.svg">
-  <img alt="Runtimes and frameworks: Node.js, Express, .NET, each with what I use it for and how much" src="assets/skills-runtimes-light.8b38f884.svg" width="100%" align="top">
-</picture>
-</p>
-
-#### Tools and platforms
-
-<p>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skills-tools-dark.48cf7e8a.svg">
-  <img alt="Tools and platforms: Roblox Studio, SQLite, Docker, Linux, Git, GitHub Actions, each with what I use it for and how much" src="assets/skills-tools-light.18f7653f.svg" width="100%" align="top">
-</picture>
-</p>
-
-<!-- skills:end -->
+<!-- build:end -->
 
 ### Projects
 
-- **[SimpleGym](https://felixthedev.com/projects/simplegym/)**: fitness app for Android with its own API, an admin panel, offline sync and several languages. Closed alpha, a web version is in progress.
-- **[NFC door lock](https://felixthedev.com/projects/nfc-schloss/)**: firmware for an ESP32-S3 that checks MIFARE DESFire EV3 cards by AES-128 challenge-response. In progress.
-- **[MiniCasino](https://felixthedev.com/projects/minicasino/)**: school project with Nikita Lupalo. Card accounts, an admin panel in the browser and a 3D model that plays with the real game logic. [Code](https://github.com/BBZ-AIFS51/LF7-MiniCasino)
-- **[This profile](https://felixthedev.com/projects/github-profil/)**: every graphic on this page is drawn by my own script once a day, without third-party services.
-
-### Where to find me
-
-<!-- links:start -->
+<!-- projects:start -->
 <p>
-<a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-website-dark.a482cedb.svg"><img alt="Website: felixthedev.com" src="assets/link-website-light.4cab3c68.svg" height="36"></picture></a>
-<a href="https://www.roblox.com/users/2559331169/profile"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-roblox-dark.f2e081db.svg"><img alt="Roblox: f_lixthedev" src="assets/link-roblox-light.c461e8fe.svg" height="36"></picture></a>
-<a href="https://discord.com/users/1268126622310076436"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-discord-dark.81d96ecc.svg"><img alt="Discord: @felixthedev" src="assets/link-discord-light.26cc5961.svg" height="36"></picture></a>
-<a href="https://www.tiktok.com/@f_lixthedev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-tiktok-dark.9763f10d.svg"><img alt="TikTok: @f_lixthedev" src="assets/link-tiktok-light.0d82f4c0.svg" height="36"></picture></a>
-<a href="https://sky.shiiyu.moe/stats/FelixTheDev/Banana"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-skycrypt-dark.2563e6c3.svg"><img alt="SkyCrypt: FelixTheDev" src="assets/link-skycrypt-light.58b4122d.svg" height="36"></picture></a>
-<a href="https://eliteskyblock.com/@FelixTheDev/Banana"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/link-elite-dark.24e9b940.svg"><img alt="Elite SkyBlock: FelixTheDev" src="assets/link-elite-light.9d29949f.svg" height="36"></picture></a>
+<a href="https://felixthedev.com/projects/simplegym/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-simplegym-dark.c8d62a87.svg"><img alt="SimpleGym: Android fitness app with its own API. Step 3 of 4, alpha." src="assets/project-simplegym-light.ce1aaf6c.svg" width="404" align="top"></picture></a>
+<a href="https://felixthedev.com/projects/nfc-schloss/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-nfc-door-lock-dark.cbc3048f.svg"><img alt="NFC door lock: ESP32-S3 firmware with AES-128. Step 2 of 4, build." src="assets/project-nfc-door-lock-light.054cde9e.svg" width="404" align="top"></picture></a>
+<a href="https://felixthedev.com/projects/minicasino/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-minicasino-dark.f8c02a27.svg"><img alt="MiniCasino: School project with a 3D model. Step 4 of 4, released." src="assets/project-minicasino-light.a8d8c0dd.svg" width="404" align="top"></picture></a>
+<a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-website-dark.add4986a.svg"><img alt="felixthedev.com: My website, Astro and Node, self-hosted. Step 4 of 4, live." src="assets/project-website-light.b4e6dd6e.svg" width="404" align="top"></picture></a>
 </p>
-<!-- links:end -->
+<!-- projects:end -->
+
+### Toolbox
+
+<!-- toolbox:start -->
+<p>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-1-dark.fe485c02.svg"><img alt="Kotlin, TypeScript, JavaScript" src="assets/toolbox-1-light.78683f23.svg" width="288" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-2-dark.276119c7.svg"><img alt="Node.js, Astro, Python, C++" src="assets/toolbox-2-light.14c5de4d.svg" width="304" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-3-dark.80a5e986.svg"><img alt="Docker, Linux" src="assets/toolbox-3-light.57ea6bdd.svg" width="154" align="top"></picture>
+</p>
+<!-- toolbox:end -->
+
+### Last 12 months
+
+<!-- stats:start -->
+<p>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-figures-dark.e358da5c.svg"><img alt="Last 12 months on GitHub: 1,643 contributions, 62 active days, longest streak 12 days." src="assets/stats-figures-light.2ba85630.svg" width="404" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-weeks-dark.20356126.svg"><img alt="Contributions per week over the last 12 months, one bar per week. 18 of 53 weeks had activity." src="assets/stats-weeks-light.63ca8322.svg" width="404" align="top"></picture>
+</p>
+<!-- stats:end -->
+
+### Say hi
+
+<!-- buttons:start -->
+<p>
+<a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/button-website-dark.853ae63e.svg"><img alt="Website: felixthedev.com" src="assets/button-website-light.853ae63e.svg" width="119" align="top"></picture></a>
+<a href="mailto:contact@felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/button-email-dark.a7d37061.svg"><img alt="Email: contact@felixthedev.com" src="assets/button-email-light.32066f28.svg" width="100" align="top"></picture></a>
+<a href="https://support.felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/button-support-dark.591203cd.svg"><img alt="Support: support.felixthedev.com" src="assets/button-support-light.cc929259.svg" width="126" align="top"></picture></a>
+</p>
+<!-- buttons:end -->
 
 <details>
 <summary><b>More about me</b></summary>
@@ -92,11 +62,8 @@ At my day job I'm training as an IT specialist for system integration at a munic
 
 - **Who:** Felix Grad, also FelixTheDev, F_lixTheDev or felixthedevgit. Not the YouTuber and programming teacher "Felix The Dev" or the GitHub account felixthedev, that is someone else.
 - **Freelance:** Websites, web and Android apps, automation, hosting and maintenance for clients worldwide, in English or German. [felixthedev.com](https://felixthedev.com)
-- **Where:** A municipal administration in Schleswig-Holstein, Germany, as an IT apprentice.
-- **What:** Form and feedback services, tools for everyday administration, all on our own hardware.
-- **How:** Node.js and Express on the server, SQLite for the data, Docker on Linux. No CDNs, no trackers, no external fonts.
-- **Also:** Games on Roblox written in Luau, and Hypixel SkyBlock when nothing is compiling.
-- **Why:** Public administration deserves software people enjoy using.
+- **Day job:** IT apprentice at a municipal administration in Schleswig-Holstein, Germany. I build tools for everyday administration there, all on our own hardware.
+- **How:** No CDNs, no trackers, no external fonts. Personal data is stored encrypted or not at all.
 
 </details>
 
@@ -104,9 +71,9 @@ At my day job I'm training as an IT specialist for system integration at a munic
 <summary><b>How this page is built</b></summary>
 <br>
 
-None of the graphics above come from a third-party service. A small script in this repository ([`scripts/build.js`](scripts/build.js)) fetches the numbers from the GitHub API once a day, works out streaks and weekdays, and draws the SVG files in [`assets/`](assets). No dependencies, no trackers. Visiting this page loads nothing from anywhere else.
+None of the graphics above come from a third-party service. A small script in this repository ([`scripts/build.js`](scripts/build.js)) fetches the numbers from the GitHub API once a day and draws the SVG files in [`assets/`](assets), each in a light and a dark version. The build has no dependencies, and visiting this page loads nothing from anywhere else.
 
-The animations live inside the SVG files (SMIL), so they run without JavaScript. Texts, skills and links are in [`profile.json`](profile.json), the colours in [`scripts/theme.js`](scripts/theme.js). The brand logos come from [Simple Icons](https://simpleicons.org) (CC0) and are copied into [`scripts/icons.js`](scripts/icons.js). To reuse it for your own profile: fork, edit `profile.json`, add a token with `read:user` as the secret `PROFILE_TOKEN`, done.
+The animations are CSS inside the SVG files, so they run without JavaScript and stand still when your system asks for reduced motion. Texts, projects and links are in [`profile.json`](profile.json), the colours in [`scripts/theme.js`](scripts/theme.js), the logo in [`scripts/logo.js`](scripts/logo.js). The fonts are Nunito and JetBrains Mono under the SIL Open Font License ([`fonts/OFL.txt`](fonts/OFL.txt)), embedded as small subsets because an image may not load fonts from elsewhere. A README template for single repositories, with its own banner and social preview, is in [`templates/`](templates).
 
 </details>
 
