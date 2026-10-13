@@ -1,18 +1,18 @@
 <!-- header:start -->
 <p>
-<a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.7e82a664.svg"><img alt="Hey, I&#39;m Felix! I build websites, apps and automations. A small terminal types felix --about and answers: software developer, Dithmarschen, Germany, IT apprentice, 2nd year." src="assets/header-light.fca95609.svg" width="808" align="top"></picture></a>
+<a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.640ec661.svg"><img alt="Hey, I&#39;m Felix! I build websites, apps and automations. A small terminal types felix --about and answers: software developer, Dithmarschen, Germany, IT apprentice, 2nd year." src="assets/header-light.fca95609.svg" width="808" align="top"></picture></a>
 </p>
 <!-- header:end -->
 
-I make software for clients all over the world that works without a manual and just as well on a phone. Self-hosted in Germany, no trackers. Auf Deutsch: [felixthedev.com](https://felixthedev.com/de/)
+I make software for clients all over the world that works without a manual and just as well on a phone. Self-hosted in Germany, no trackers. Auf Deutsch: [felixthedev.com](https://felixthedev.com/)
 
 ### What I build
 
 <!-- build:start -->
 <p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build-1-dark.a6b9fadc.svg"><img alt="Websites, Android apps" src="assets/build-1-light.d1589595.svg" width="222" align="top"></picture>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build-2-dark.29174c4b.svg"><img alt="Web apps, Automation" src="assets/build-2-light.ba2eb326.svg" width="217" align="top"></picture>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build-3-dark.6444f2bd.svg"><img alt="Hosting, Maintenance" src="assets/build-3-light.eb03eefa.svg" width="208" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build-1-dark.5b9f44e8.svg"><img alt="Websites, Android apps" src="assets/build-1-light.d1589595.svg" width="222" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build-2-dark.70fa42c9.svg"><img alt="Web apps, Automation" src="assets/build-2-light.ba2eb326.svg" width="217" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/build-3-dark.acb5dbb1.svg"><img alt="Hosting, Maintenance" src="assets/build-3-light.eb03eefa.svg" width="208" align="top"></picture>
 </p>
 <!-- build:end -->
 
@@ -20,10 +20,10 @@ I make software for clients all over the world that works without a manual and j
 
 <!-- projects:start -->
 <p>
-<a href="https://felixthedev.com/projects/simplegym/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-simplegym-dark.c8d62a87.svg"><img alt="SimpleGym: Android fitness app with its own API. Step 3 of 4, alpha." src="assets/project-simplegym-light.ce1aaf6c.svg" width="404" align="top"></picture></a>
-<a href="https://felixthedev.com/projects/nfc-schloss/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-nfc-door-lock-dark.cbc3048f.svg"><img alt="NFC door lock: ESP32-S3 firmware with AES-128. Step 2 of 4, build." src="assets/project-nfc-door-lock-light.054cde9e.svg" width="404" align="top"></picture></a>
-<a href="https://felixthedev.com/projects/minicasino/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-minicasino-dark.f8c02a27.svg"><img alt="MiniCasino: School project with a 3D model. Step 4 of 4, released." src="assets/project-minicasino-light.a8d8c0dd.svg" width="404" align="top"></picture></a>
-<a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-website-dark.add4986a.svg"><img alt="felixthedev.com: My website, Astro and Node, self-hosted. Step 4 of 4, live." src="assets/project-website-light.b4e6dd6e.svg" width="404" align="top"></picture></a>
+<a href="https://felixthedev.com/projects/simplegym/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-simplegym-dark.79060cdf.svg"><img alt="SimpleGym: Android fitness app with its own API. Step 3 of 4, alpha." src="assets/project-simplegym-light.ce1aaf6c.svg" width="404" align="top"></picture></a>
+<a href="https://felixthedev.com/projects/nfc-schloss/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-nfc-door-lock-dark.4f0ac48d.svg"><img alt="NFC door lock: ESP32-S3 firmware with AES-128. Step 2 of 4, build." src="assets/project-nfc-door-lock-light.054cde9e.svg" width="404" align="top"></picture></a>
+<a href="https://felixthedev.com/projects/minicasino/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-minicasino-dark.4cc60299.svg"><img alt="MiniCasino: School project with a 3D model. Step 4 of 4, released." src="assets/project-minicasino-light.a8d8c0dd.svg" width="404" align="top"></picture></a>
+<a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/project-website-dark.bbfcfbec.svg"><img alt="felixthedev.com: My website, Astro and Node, self-hosted. Step 4 of 4, live." src="assets/project-website-light.b4e6dd6e.svg" width="404" align="top"></picture></a>
 </p>
 <!-- projects:end -->
 
@@ -31,9 +31,9 @@ I make software for clients all over the world that works without a manual and j
 
 <!-- toolbox:start -->
 <p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-1-dark.fe485c02.svg"><img alt="Kotlin, TypeScript, JavaScript" src="assets/toolbox-1-light.78683f23.svg" width="288" align="top"></picture>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-2-dark.276119c7.svg"><img alt="Node.js, Astro, Python, C++" src="assets/toolbox-2-light.14c5de4d.svg" width="304" align="top"></picture>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-3-dark.80a5e986.svg"><img alt="Docker, Linux" src="assets/toolbox-3-light.57ea6bdd.svg" width="154" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-1-dark.7a7505f2.svg"><img alt="Kotlin, TypeScript, JavaScript" src="assets/toolbox-1-light.78683f23.svg" width="288" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-2-dark.238bc4e9.svg"><img alt="Node.js, Astro, Python, C++" src="assets/toolbox-2-light.14c5de4d.svg" width="304" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-3-dark.c7e92960.svg"><img alt="Docker, Linux" src="assets/toolbox-3-light.57ea6bdd.svg" width="154" align="top"></picture>
 </p>
 <!-- toolbox:end -->
 
@@ -41,8 +41,8 @@ I make software for clients all over the world that works without a manual and j
 
 <!-- stats:start -->
 <p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-figures-dark.683218c1.svg"><img alt="Last 12 months on GitHub: 1,646 contributions, 63 active days, longest streak 12 days." src="assets/stats-figures-light.01bc06a1.svg" width="404" align="top"></picture>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-weeks-dark.20356126.svg"><img alt="Contributions per week over the last 12 months, one bar per week. 18 of 53 weeks had activity." src="assets/stats-weeks-light.63ca8322.svg" width="404" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-figures-dark.c84a1ad2.svg"><img alt="Last 12 months on GitHub: 1,646 contributions, 63 active days, longest streak 12 days." src="assets/stats-figures-light.01bc06a1.svg" width="404" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-weeks-dark.079c66fa.svg"><img alt="Contributions per week over the last 12 months, one bar per week. 18 of 53 weeks had activity." src="assets/stats-weeks-light.63ca8322.svg" width="404" align="top"></picture>
 </p>
 <!-- stats:end -->
 
@@ -51,8 +51,8 @@ I make software for clients all over the world that works without a manual and j
 <!-- buttons:start -->
 <p>
 <a href="https://felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/button-website-dark.853ae63e.svg"><img alt="Website: felixthedev.com" src="assets/button-website-light.853ae63e.svg" width="119" align="top"></picture></a>
-<a href="mailto:contact@felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/button-email-dark.a7d37061.svg"><img alt="Email: contact@felixthedev.com" src="assets/button-email-light.32066f28.svg" width="100" align="top"></picture></a>
-<a href="https://support.felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/button-support-dark.591203cd.svg"><img alt="Support: support.felixthedev.com" src="assets/button-support-light.cc929259.svg" width="126" align="top"></picture></a>
+<a href="mailto:contact@felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/button-email-dark.3f4a6303.svg"><img alt="Email: contact@felixthedev.com" src="assets/button-email-light.32066f28.svg" width="100" align="top"></picture></a>
+<a href="https://support.felixthedev.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/button-support-dark.c0930b84.svg"><img alt="Support: support.felixthedev.com" src="assets/button-support-light.cc929259.svg" width="126" align="top"></picture></a>
 </p>
 <!-- buttons:end -->
 
