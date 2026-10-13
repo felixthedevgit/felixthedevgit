@@ -18,8 +18,8 @@ At my day job I'm training as an IT specialist for system integration at a munic
 <!-- skyline:start -->
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.a976cc21.svg">
-  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.f0210d00.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skyline-dark.284e9df4.svg">
+  <img alt="Contributions of the last 52 weeks as a 3D block landscape" src="assets/skyline-light.baedd46f.svg" width="100%" align="top">
 </picture>
 </p>
 <!-- skyline:end -->
@@ -27,8 +27,8 @@ At my day job I'm training as an IT specialist for system integration at a munic
 <!-- stats:start -->
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.5694a598.svg">
-  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.bb7d0042.svg" width="100%" align="top">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.45812f03.svg">
+  <img alt="Contributions, active days, longest streak and favorite day" src="assets/stats-light.533a57d7.svg" width="100%" align="top">
 </picture>
 </p>
 <!-- stats:end -->
@@ -110,4 +110,4 @@ The animations live inside the SVG files (SMIL), so they run without JavaScript.
 
 </details>
 
-<sub><!-- updated:start -->Updated October 12, 2026<!-- updated:end --></sub>
+<sub><!-- updated:start -->Updated October 13, 2026<!-- updated:end --></sub>
