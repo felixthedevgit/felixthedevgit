@@ -41,7 +41,7 @@ I make software for clients all over the world that works without a manual and j
 
 <!-- stats:start -->
 <p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-figures-dark.e358da5c.svg"><img alt="Last 12 months on GitHub: 1,643 contributions, 62 active days, longest streak 12 days." src="assets/stats-figures-light.2ba85630.svg" width="404" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-figures-dark.683218c1.svg"><img alt="Last 12 months on GitHub: 1,646 contributions, 63 active days, longest streak 12 days." src="assets/stats-figures-light.01bc06a1.svg" width="404" align="top"></picture>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-weeks-dark.20356126.svg"><img alt="Contributions per week over the last 12 months, one bar per week. 18 of 53 weeks had activity." src="assets/stats-weeks-light.63ca8322.svg" width="404" align="top"></picture>
 </p>
 <!-- stats:end -->
