@@ -187,10 +187,8 @@ ${button}
     feature = `<g transform="translate(270 330) rotate(6 ${r1(fw / 2)} 25)">${frame({ w: fw, h: 51, r: 25.5, fill: lav.bg, line: lav.edge, border: 2, bottom: 6 })}
 <text x="${r1(fw / 2)}" y="${r1(baseline('nunito-900', 18, 2, 43))}" ${font('nunito-900', 18)} fill="${lav.ink}" text-anchor="middle">${escape(s.feature)}</text></g>`;
   }
-  const stripe = Object.values(KEYS).map((k, i, all) => `<rect x="${r1((W / all.length) * i)}" y="${H - 16}" width="${r1(W / all.length + 0.5)}" height="16" fill="${k.fill}"/>`).join('');
 
   const body = `<rect width="${W}" height="${H}" fill="${t.bg}"/>
-${stripe}
 ${head}
 ${title}
 ${sub}
