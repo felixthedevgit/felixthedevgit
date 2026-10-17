@@ -55,6 +55,6 @@
 <rect class="up" style="animation-delay:0.888s" x="348.6" y="40" width="4.4" height="16" rx="2" fill="#7BE0AE"/>
 <rect class="up" style="animation-delay:0.900s" x="355.2" y="20" width="4.4" height="36" rx="2" fill="#7BE0AE"/>
 <rect class="up" style="animation-delay:0.912s" x="361.8" y="41" width="4.4" height="15" rx="2" fill="#7BE0AE"/>
-<rect class="up" style="animation-delay:0.924s" x="368.5" y="48" width="4.4" height="8" rx="2" fill="#7BE0AE"/>
+<rect class="up" style="animation-delay:0.924s" x="368.5" y="43" width="4.4" height="13" rx="2" fill="#7BE0AE"/>
 <text x="23.1" y="78.8" font-family="Nunito, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="13.5" fill="#646478">contributions per week</text>
 </svg>
