@@ -77,4 +77,4 @@ The animations are CSS inside the SVG files, so they run without JavaScript and 
 
 </details>
 
-<sub><!-- updated:start -->Updated October 19, 2026<!-- updated:end --></sub>
+<sub><!-- updated:start -->Updated October 20, 2026<!-- updated:end --></sub>
