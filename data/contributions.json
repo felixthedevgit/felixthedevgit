@@ -1,42 +1,7 @@
 {
-  "fetchedAt": "2026-10-24T08:11:28.120Z",
-  "total": 1899,
+  "fetchedAt": "2026-10-25T08:29:29.492Z",
+  "total": 1951,
   "days": [
-    {
-      "date": "2025-10-19",
-      "count": 0,
-      "weekday": 0
-    },
-    {
-      "date": "2025-10-20",
-      "count": 0,
-      "weekday": 1
-    },
-    {
-      "date": "2025-10-21",
-      "count": 0,
-      "weekday": 2
-    },
-    {
-      "date": "2025-10-22",
-      "count": 0,
-      "weekday": 3
-    },
-    {
-      "date": "2025-10-23",
-      "count": 0,
-      "weekday": 4
-    },
-    {
-      "date": "2025-10-24",
-      "count": 0,
-      "weekday": 5
-    },
-    {
-      "date": "2025-10-25",
-      "count": 0,
-      "weekday": 6
-    },
     {
       "date": "2025-10-26",
       "count": 0,
@@ -1854,8 +1819,13 @@
     },
     {
       "date": "2026-10-24",
-      "count": 0,
+      "count": 38,
       "weekday": 6
+    },
+    {
+      "date": "2026-10-25",
+      "count": 14,
+      "weekday": 0
     }
   ]
 }
