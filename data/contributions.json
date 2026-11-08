@@ -1,42 +1,7 @@
 {
-  "fetchedAt": "2026-11-07T10:18:52.435Z",
-  "total": 2930,
+  "fetchedAt": "2026-11-08T10:28:20.717Z",
+  "total": 3121,
   "days": [
-    {
-      "date": "2025-11-02",
-      "count": 0,
-      "weekday": 0
-    },
-    {
-      "date": "2025-11-03",
-      "count": 0,
-      "weekday": 1
-    },
-    {
-      "date": "2025-11-04",
-      "count": 0,
-      "weekday": 2
-    },
-    {
-      "date": "2025-11-05",
-      "count": 0,
-      "weekday": 3
-    },
-    {
-      "date": "2025-11-06",
-      "count": 0,
-      "weekday": 4
-    },
-    {
-      "date": "2025-11-07",
-      "count": 0,
-      "weekday": 5
-    },
-    {
-      "date": "2025-11-08",
-      "count": 0,
-      "weekday": 6
-    },
     {
       "date": "2025-11-09",
       "count": 0,
@@ -1849,13 +1814,18 @@
     },
     {
       "date": "2026-11-06",
-      "count": 80,
+      "count": 138,
       "weekday": 5
     },
     {
       "date": "2026-11-07",
-      "count": 0,
+      "count": 87,
       "weekday": 6
+    },
+    {
+      "date": "2026-11-08",
+      "count": 46,
+      "weekday": 0
     }
   ]
 }
