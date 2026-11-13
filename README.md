@@ -41,7 +41,7 @@ I make software for clients all over the world that works without a manual and j
 
 <!-- stats:start -->
 <p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-figures-dark.5176951f.svg"><img alt="Last 12 months on GitHub: 3,352 contributions, 94 active days, longest streak 23 days." src="assets/stats-figures-light.616652af.svg" width="404" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-figures-dark.41a92a9b.svg"><img alt="Last 12 months on GitHub: 3,356 contributions, 95 active days, longest streak 24 days." src="assets/stats-figures-light.7116e8cf.svg" width="404" align="top"></picture>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-weeks-dark.e83b3faf.svg"><img alt="Contributions per week over the last 12 months, one bar per week. 22 of 53 weeks had activity." src="assets/stats-weeks-light.d86be2de.svg" width="404" align="top"></picture>
 </p>
 <!-- stats:end -->
@@ -77,4 +77,4 @@ The animations are CSS inside the SVG files, so they run without JavaScript and 
 
 </details>
 
-<sub><!-- updated:start -->Updated November 12, 2026<!-- updated:end --></sub>
+<sub><!-- updated:start -->Updated November 13, 2026<!-- updated:end --></sub>
