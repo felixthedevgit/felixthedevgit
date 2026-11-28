@@ -41,8 +41,8 @@ I make software for clients all over the world that works without a manual and j
 
 <!-- stats:start -->
 <p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-figures-dark.08c95e98.svg"><img alt="Last 12 months on GitHub: 3,587 contributions, 105 active days, longest streak 28 days." src="assets/stats-figures-light.2f2797c1.svg" width="404" align="top"></picture>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-weeks-dark.89a8de58.svg"><img alt="Contributions per week over the last 12 months, one bar per week. 24 of 53 weeks had activity." src="assets/stats-weeks-light.eca032f3.svg" width="404" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-figures-dark.aa0a2478.svg"><img alt="Last 12 months on GitHub: 4,940 contributions, 105 active days, longest streak 28 days." src="assets/stats-figures-light.a3dab156.svg" width="404" align="top"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-weeks-dark.0d2ca55e.svg"><img alt="Contributions per week over the last 12 months, one bar per week. 24 of 53 weeks had activity." src="assets/stats-weeks-light.40490077.svg" width="404" align="top"></picture>
 </p>
 <!-- stats:end -->
 
@@ -77,4 +77,4 @@ The animations are CSS inside the SVG files, so they run without JavaScript and 
 
 </details>
 
-<sub><!-- updated:start -->Updated November 27, 2026<!-- updated:end --></sub>
+<sub><!-- updated:start -->Updated November 28, 2026<!-- updated:end --></sub>

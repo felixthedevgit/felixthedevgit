@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-11-27T12:32:07.494Z",
-  "total": 3587,
+  "fetchedAt": "2026-11-28T11:53:25.101Z",
+  "total": 4940,
   "days": [
     {
       "date": "2025-11-23",
@@ -1679,47 +1679,47 @@
     },
     {
       "date": "2026-10-24",
-      "count": 38,
+      "count": 98,
       "weekday": 6
     },
     {
       "date": "2026-10-25",
-      "count": 36,
+      "count": 108,
       "weekday": 0
     },
     {
       "date": "2026-10-26",
-      "count": 121,
+      "count": 187,
       "weekday": 1
     },
     {
       "date": "2026-10-27",
-      "count": 101,
+      "count": 263,
       "weekday": 2
     },
     {
       "date": "2026-10-28",
-      "count": 5,
+      "count": 11,
       "weekday": 3
     },
     {
       "date": "2026-10-29",
-      "count": 23,
+      "count": 35,
       "weekday": 4
     },
     {
       "date": "2026-10-30",
-      "count": 18,
+      "count": 60,
       "weekday": 5
     },
     {
       "date": "2026-10-31",
-      "count": 213,
+      "count": 549,
       "weekday": 6
     },
     {
       "date": "2026-11-01",
-      "count": 93,
+      "count": 243,
       "weekday": 0
     },
     {
@@ -1729,7 +1729,7 @@
     },
     {
       "date": "2026-11-03",
-      "count": 133,
+      "count": 154,
       "weekday": 2
     },
     {
@@ -1769,12 +1769,12 @@
     },
     {
       "date": "2026-11-11",
-      "count": 78,
+      "count": 129,
       "weekday": 3
     },
     {
       "date": "2026-11-12",
-      "count": 69,
+      "count": 93,
       "weekday": 4
     },
     {
@@ -1789,12 +1789,12 @@
     },
     {
       "date": "2026-11-15",
-      "count": 9,
+      "count": 15,
       "weekday": 0
     },
     {
       "date": "2026-11-16",
-      "count": 7,
+      "count": 19,
       "weekday": 1
     },
     {
@@ -1829,17 +1829,17 @@
     },
     {
       "date": "2026-11-23",
-      "count": 78,
+      "count": 231,
       "weekday": 1
     },
     {
       "date": "2026-11-24",
-      "count": 58,
+      "count": 187,
       "weekday": 2
     },
     {
       "date": "2026-11-25",
-      "count": 13,
+      "count": 34,
       "weekday": 3
     },
     {
@@ -1849,8 +1849,13 @@
     },
     {
       "date": "2026-11-27",
-      "count": 12,
+      "count": 42,
       "weekday": 5
+    },
+    {
+      "date": "2026-11-28",
+      "count": 0,
+      "weekday": 6
     }
   ]
 }
